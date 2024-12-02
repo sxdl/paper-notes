@@ -1,0 +1,1163 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[PaperNotesRemote]]></title><description><![CDATA[Obsidian digital garden]]></description><link>http://github.com/dylang/node-rss</link><image><url>lib\media\favicon.png</url><title>PaperNotesRemote</title><link></link></image><generator>Webpage HTML Export plugin for Obsidian</generator><lastBuildDate>Mon, 02 Dec 2024 05:56:11 GMT</lastBuildDate><atom:link href="lib\rss.xml" rel="self" type="application/rss+xml"/><pubDate>Mon, 02 Dec 2024 05:55:46 GMT</pubDate><ttl>60</ttl><dc:creator></dc:creator><item><title><![CDATA[index]]></title><description><![CDATA[ 
+ <br>固定机位的单目重建<br>半监督3D目标检测<br>一个样本中部分有标签的情况<br>半监督3D目标检测在跨域数据上的迁移能力<br><br><a data-href="Active&amp;SS3DOD" href="projects\active&amp;ss3dod.html" class="internal-link" target="_self" rel="noopener nofollow">Active&amp;SS3DOD</a><br>随着训练的进行，模型的能力逐渐提高，伪标签数量逐渐增加。在整个训练过程中，简单的物体会在一开始就被监督，而困难的物体很后面才会加入，这导致了不同的样本，出现次数的不均衡。从另一个角度讲，模型面对的有标注样本总体（包含伪标签）分布，一直在变化。另一个角度讲，就是一个数据集，从简单到困难，一点一点地逐渐加入到训练中，是不是一种变相的数据失衡？<br><img alt="Pasted image 20241023205939.png" src="lib\media\pasted-image-20241023205939.png"><br>另一种不均衡，是有标注样本和未标注样本训练batch比例不均衡。比如10%的数据划分，batch size为12，包含4个有标签样本和8个无标注样本。那么平均每训练一个无标注样本，就要训练4.5遍有标注样本。我们假设经过筛选的伪标签都是true positive的。<br><br><a rel="noopener nofollow" class="external-link" href="https://zhuanlan.zhihu.com/p/50710267?utm_id=0" target="_blank">https://zhuanlan.zhihu.com/p/50710267?utm_id=0</a><br>输入样本重参数]]></description><link>ideas\index.html</link><guid isPermaLink="false">Ideas/index.md</guid><pubDate>Wed, 23 Oct 2024 13:27:51 GMT</pubDate><enclosure url="lib\media\pasted-image-20241023205939.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241023205939.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2024-08-23]]></title><description><![CDATA[ 
+ <br>
+<br>重新看了一遍 diffusion-ss3d
+<br>浏览类增量目标检测论文，<a data-href="Learning task-aware language-image representation for class-incremental object detection" href="paper-reading-notes\learning-task-aware-language-image-representation-for-class-incremental-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Learning task-aware language-image representation for class-incremental object detection</a>，提到“cross-modality learning paradigm has shown strong zero-shot and few-shot transfer ability to object detection”，思考是否能将文本多模态信息用于3d目标检测的半监督学习。
+<br>搜索是否有相关的文本-视觉的3d目标检测器，发现一个新领域<a data-href="Open Vocabulary Learning" href="research-notes\open-vocabulary-learning.html" class="internal-link" target="_self" rel="noopener nofollow">Open Vocabulary Learning</a>，似乎与半监督学习的思想有相通之处，明天计划看一下该领域的综述<a data-href="Towards open vocabulary learning_ A survey" href="paper-reading-notes\towards-open-vocabulary-learning_-a-survey.html" class="internal-link" target="_self" rel="noopener nofollow">Towards open vocabulary learning_ A survey</a>,以及3d目标检测的论文
+]]></description><link>logs\2024-08-23.html</link><guid isPermaLink="false">Logs/2024-08-23.md</guid><pubDate>Tue, 27 Aug 2024 12:34:37 GMT</pubDate></item><item><title><![CDATA[2024-08-24]]></title><description><![CDATA[ 
+ <br>
+<br>看了综述<a data-href="Towards open vocabulary learning_ A survey" href="paper-reading-notes\towards-open-vocabulary-learning_-a-survey.html" class="internal-link" target="_self" rel="noopener nofollow">Towards open vocabulary learning_ A survey</a>背景和问题定义。visual-language model 在跨域上有优势
+<br>需要研究一下CLIP的原理
+<br>是否可以使用3D Novel Object Discovery (3D-NOD)的方法来增强半监督3D目标检测任务中伪标签的生成质量？
+<br><a data-href="CoDA_ Collaborative novel box discovery and cross-modal alignment for open-vocabulary 3D object detection" href="paper-reading-notes\coda_-collaborative-novel-box-discovery-and-cross-modal-alignment-for-open-vocabulary-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">CoDA_ Collaborative novel box discovery and cross-modal alignment for open-vocabulary 3D object detection</a>看到Method部分
+]]></description><link>logs\2024-08-24.html</link><guid isPermaLink="false">Logs/2024-08-24.md</guid><pubDate>Sat, 24 Aug 2024 08:54:51 GMT</pubDate></item><item><title><![CDATA[2024-08-25]]></title><description><![CDATA[ 
+ <br>
+<br>研究结合文本特征是否能提升伪标签的生成质量，GLIP将目标检测任务和文本的grouding任务结合起来，用deepfusion结合文本特征和图像特征，在少样本和零样本迁移上表现较好。另一篇关于目标检测的类增量学习<a data-href="Learning task-aware language-image representation for class-incremental object detection" href="paper-reading-notes\learning-task-aware-language-image-representation-for-class-incremental-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Learning task-aware language-image representation for class-incremental object detection</a>的论文，也使用了GLIP方法来提高在新的task上的迁移能力。因此我觉得文本信息的引入可以提高目标检测的效果。如果参考这样的思路，将文本信息引入半监督3D目标检测中，来提高伪标签的生成质量，提高召回率，并且能够强化模型在跨域数据集上的表效果。问题在于，如何将GLIP这种用于2D目标检测的预训练模型或者其他的多模态结合的方式用于3D点云。一种方式是从3D点云中投影得到2D的图像，然后使用预训练的GLIP来生成伪标签，约束teacher模型生成的3D伪标签，但这样本质就是简单地使用2D的目标检测来约束teacher生成的伪标签。另一种方式是将文本特征嵌入到模型中，但需要考虑如何去对齐两种模态的信息。了解到一些可能相关的关键词：contrastive learning，deep fusion
+<br>了解contrastive learning的方法
+<br>看一下SS2D和SS3D的所有论文使用的方法
+<br>可以使用GLIP主体得到的fusion特征
+<br>能否借鉴弱监督的方法来根据box的center来预测rotation？
+]]></description><link>logs\2024-08-25.html</link><guid isPermaLink="false">Logs/2024-08-25.md</guid><pubDate>Sun, 25 Aug 2024 14:43:38 GMT</pubDate></item><item><title><![CDATA[2024-08-26]]></title><description><![CDATA[ 
+ <br>
+<br>跨域适应文章调研
+<br>图神经网络构建数据分布（想法
+<br>构图，LLM
+<br>不同class点云拼接，预测边界class
+]]></description><link>logs\2024-08-26.html</link><guid isPermaLink="false">Logs/2024-08-26.md</guid><pubDate>Mon, 26 Aug 2024 02:54:28 GMT</pubDate></item><item><title><![CDATA[2024-08-27]]></title><description><![CDATA[ 
+ <br>
+<br>看了SSOD的2022年及以前的论文，看到 <a data-href="Semi-supervised object detection via multi-instance alignment with global class prototypes" href="paper-reading-notes\semi-supervised-object-detection-via-multi-instance-alignment-with-global-class-prototypes.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised object detection via multi-instance alignment with global class prototypes</a> 这篇
+<br>可以研究的点：label noise overfitting problem、scale inconsistency、class imbalance
+<br>可能结合的领域：自蒸馏、主动学习、域自适应
+]]></description><link>logs\2024-08-27.html</link><guid isPermaLink="false">Logs/2024-08-27.md</guid><pubDate>Tue, 27 Aug 2024 12:33:04 GMT</pubDate></item><item><title><![CDATA[2024-08-30]]></title><description><![CDATA[ 
+ <br>
+<br>将3DIoUMatch中 sunrgbd数据代码移植到了Diffusion-ss3d中，修改detect和ss数据集类的代码，增加了相应的数据，在sunrgb上跑起了pretrain代码
+<br>看了<a data-href="DQS3D_ Densely-matched quantization-aware semi-supervised 3D detection" href="paper-reading-notes\dqs3d_-densely-matched-quantization-aware-semi-supervised-3d-detection.html" class="internal-link" target="_self" rel="noopener nofollow">DQS3D_ Densely-matched quantization-aware semi-supervised 3D detection</a>，主要创新点是将比较新的全卷积的检测backbone加入，显著提升伪标签的生成质量。
+]]></description><link>logs\2024-08-30.html</link><guid isPermaLink="false">Logs/2024-08-30.md</guid><pubDate>Fri, 30 Aug 2024 13:28:02 GMT</pubDate></item><item><title><![CDATA[2024-08-31]]></title><description><![CDATA[ 
+ <br>
+<br>idea，将student或teacher的预训练和训练过程看作是增量学习？
+<br>打算follow<a data-href="DQS3D_ Densely-matched quantization-aware semi-supervised 3D detection" href="paper-reading-notes\dqs3d_-densely-matched-quantization-aware-semi-supervised-3d-detection.html" class="internal-link" target="_self" rel="noopener nofollow">DQS3D_ Densely-matched quantization-aware semi-supervised 3D detection</a>这篇，解决其中的voxel size灵敏以及scale variance 问题。直接减小voxel size会导致计算量倍增，因此需要某种方式来减小整个场景的大小，在小场景中做全卷积会好很多。改变场景大小，减小voxel size，本质上就是改变局部点云的稠密程度，似乎可以同时去增强尺度上的问题。
+<br>需要设计一个实验来研究点云分辨率（尺度）变化对3D目标检测的置信度的影响。初步想法是对坐标x0.5以及x2来改变点云的分辨率
+]]></description><link>logs\2024-08-31.html</link><guid isPermaLink="false">Logs/2024-08-31.md</guid><pubDate>Sat, 31 Aug 2024 14:16:31 GMT</pubDate></item><item><title><![CDATA[2024-09-02]]></title><description><![CDATA[ 
+ <br>
+<br>论文阅读 pointpillars，思路有相似<a data-tooltip-position="top" aria-label="https://arxiv.org/abs/1812.05784" rel="noopener nofollow" class="external-link" href="https://arxiv.org/abs/1812.05784" target="_blank">[1812.05784] PointPillars: Fast Encoders for Object Detection from Point Clouds (arxiv.org)</a>
+<br>主动学习+半监督学习
+]]></description><link>logs\2024-09-02.html</link><guid isPermaLink="false">Logs/2024-09-02.md</guid><pubDate>Mon, 02 Sep 2024 14:20:21 GMT</pubDate></item><item><title><![CDATA[2024-09-03]]></title><description><![CDATA[ 
+ <br>
+<br>看3DIoUMatch代码
+<br>精读<a data-href="Active teacher for semi-supervised object detection" href="paper-reading-notes\active-teacher-for-semi-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Active teacher for semi-supervised object detection</a>
+]]></description><link>logs\2024-09-03.html</link><guid isPermaLink="false">Logs/2024-09-03.md</guid><pubDate>Tue, 03 Sep 2024 00:14:57 GMT</pubDate></item><item><title><![CDATA[2024-09-04]]></title><description><![CDATA[ 
+ <br>
+<br>早上了解Active Learning领域
+<br>DQS3D代码环境
+]]></description><link>logs\2024-09-04.html</link><guid isPermaLink="false">Logs/2024-09-04.md</guid><pubDate>Wed, 04 Sep 2024 14:17:57 GMT</pubDate></item><item><title><![CDATA[2024-09-05]]></title><description><![CDATA[ 
+ <br>
+<br>active teacher 被引文献
+]]></description><link>logs\2024-09-05.html</link><guid isPermaLink="false">Logs/2024-09-05.md</guid><pubDate>Thu, 05 Sep 2024 09:24:01 GMT</pubDate></item><item><title><![CDATA[2024-09-10]]></title><description><![CDATA[ 
+ <br>
+<br>明天看这一篇<a data-tooltip-position="top" aria-label="https://arxiv.org/pdf/2305.10643" rel="noopener nofollow" class="external-link" href="https://arxiv.org/pdf/2305.10643" target="_blank">2305.10643 (arxiv.org)</a>，streaming based active learning
+<br>online active learning 综述<a data-tooltip-position="top" aria-label="https://www.semanticscholar.org/reader/10a7f6463a6abe3e4723576a9c0ba03c1339cfbb" rel="noopener nofollow" class="external-link" href="https://www.semanticscholar.org/reader/10a7f6463a6abe3e4723576a9c0ba03c1339cfbb" target="_blank">[PDF] Active learning for data streams: a survey | Semantic Scholar</a>
+]]></description><link>logs\2024-09-10.html</link><guid isPermaLink="false">Logs/2024-09-10.md</guid><pubDate>Tue, 10 Sep 2024 14:11:12 GMT</pubDate></item><item><title><![CDATA[2024-09-13]]></title><description><![CDATA[ 
+ <br>
+<br>2d目标检测和3d目标检测的区别：2d中可能一张图片只有一个目标，而3d的数据是一个场景，总是包含多个目标
+<br>主动学习在重采样
+]]></description><link>logs\2024-09-13.html</link><guid isPermaLink="false">Logs/2024-09-13.md</guid><pubDate>Fri, 13 Sep 2024 13:27:39 GMT</pubDate></item><item><title><![CDATA[2024-09-14]]></title><description><![CDATA[ 
+ <br>
+<br>看了重采样的思路。明天写实验代码。分别在预训练和半监督过程中加入重采样策略。重采样的比例通过主动学习的指标计算后排序得到。重采样的比例间隔n个epoch重新计算。自定义一个Dataloader，包含一个自定义的Sampler类，提供一个update_weights()方法，每次train_one_epoch()后，更新权重。
+]]></description><link>logs\2024-09-14.html</link><guid isPermaLink="false">Logs/2024-09-14.md</guid><pubDate>Sat, 14 Sep 2024 14:37:20 GMT</pubDate></item><item><title><![CDATA[2024-09-18]]></title><description><![CDATA[ 
+ <br>
+<br>预训练过程重采样
+<br>根据样本的AL分数调整伪标签阈值
+]]></description><link>logs\2024-09-18.html</link><guid isPermaLink="false">Logs/2024-09-18.md</guid><pubDate>Wed, 18 Sep 2024 13:08:57 GMT</pubDate></item><item><title><![CDATA[2024-09-19]]></title><description><![CDATA[ 
+ <br>
+<br>在每个训练阶段，同时用原始数据和重采样数据训练，评估之后，选择性能更好的模型，并记录。研究是否在某个特定阶段重采样策略有效
+]]></description><link>logs\2024-09-19.html</link><guid isPermaLink="false">Logs/2024-09-19.md</guid><pubDate>Thu, 19 Sep 2024 10:45:06 GMT</pubDate></item><item><title><![CDATA[2024-09-26]]></title><description><![CDATA[ 
+ <br>
+<br>3DIoUMatch和DiffusionSS3D在训练后半阶段（epoch&gt;500）class分类会出现过拟合现象，表现为eval_cls_acc上升。
+<br>修改了之前代码中的错误：权重归一化代码写在了循环里面，导致对每个batch的样本做了归一化但是没有对全部的样本做归一化，已修改，重跑实验
+<br>infomation的指标计算做了修改，现在只计算高于cls_threshold的置信度，因为在伪标签筛选过程中，低于cls_threshold的样本都会被筛出。修改后指标反映样本中当作伪标签的proposal的信息量
+<br>指标的分数只使用max归一化作为权重，会导致权重过于分散（0.4~1.0），因此加了非线性滤波来人为控制权重的分散程度
+]]></description><link>logs\2024-09-26.html</link><guid isPermaLink="false">Logs/2024-09-26.md</guid><pubDate>Thu, 26 Sep 2024 02:32:20 GMT</pubDate></item><item><title><![CDATA[2024-10-16]]></title><description><![CDATA[ 
+ <br>
+<br>在不同的数据集比例上测试了resample策略的效果，效果略有提升但超参数需要调优。
+<br><img alt="Pasted image 20241016215813.png" src="lib\media\pasted-image-20241016215813.png"><br>
+<br>尝试利用主动学习指标动态调整阈值，没有效果。<br>
+<img alt="Pasted image 20241016221548.png" src="lib\media\pasted-image-20241016221548.png">
+<br>重新思考，尝试 混合数据增强策略结合主动学习，计划尝试两种增强方式：
+
+<br>对未标注场景计算diff指标，若场景小于diff阈值，应用混合增强，将有标注实例粘贴到该未标注场景中；
+<br>将伪标签实例粘贴到有标签场景中（需要解决伪标签bbox定位不精确问题）
+
+
+<br>编写混合增强策略实验代码，计划
+
+<br>实例database：根据bbox提取相关点云，加入到database
+<br>方式一实现：在dataset类getitem方法中，data augment之前，应用混合数据增强
+<br>方式二实现
+<br>其他：场景可视化openpcdet接口调用
+
+
+<br><br>
+<br>实现了bbox提取相关点云
+<br><img alt="Pasted image 20241016222242.png" src="lib\media\pasted-image-20241016222242.png">]]></description><link>logs\2024-10-16.html</link><guid isPermaLink="false">Logs/2024-10-16.md</guid><pubDate>Wed, 16 Oct 2024 14:22:47 GMT</pubDate><enclosure url="lib\media\pasted-image-20241016215813.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241016215813.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2024-10-17]]></title><description><![CDATA[ 
+ <br>
+<br>实现方式一策略代码：在dataset类getitem方法中，data augment之前，应用混合数据增强
+<br>original  &lt;-- | --&gt; noisy<br><img alt="Pasted image 20241017163934.png" src="lib\media\pasted-image-20241017163934.png"><br><img alt="Pasted image 20241017164006.png" src="lib\media\pasted-image-20241017164006.png"><br><img alt="Pasted image 20241017164030.png" src="lib\media\pasted-image-20241017164030.png"><br>
+<br>在scannet 5%上测试：nohup ./my_sh/exp_mix_resample_scan_3.sh &gt; LOG.log 2&gt;&amp;1 &amp; scannet_0.05, gamma=0.15, mix_thresh=mean_diff, dir=exp_mix_resample
+]]></description><link>logs\2024-10-17.html</link><guid isPermaLink="false">Logs/2024-10-17.md</guid><pubDate>Thu, 17 Oct 2024 09:15:20 GMT</pubDate><enclosure url="lib\media\pasted-image-20241017163934.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241017163934.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2024-10-18]]></title><description><![CDATA[ 
+ <br>
+<br>整理本地代码，方便迁移到多个环境中同时跑
+<br>方式一策略代码sunrgbd实现
+<br> todo: <br>
+<br>sunrgbd代码适配
+<br>代码迁移服务器
+]]></description><link>logs\2024-10-18.html</link><guid isPermaLink="false">Logs/2024-10-18.md</guid><pubDate>Fri, 18 Oct 2024 13:30:28 GMT</pubDate></item><item><title><![CDATA[2024-10-21]]></title><description><![CDATA[ 
+ <br>工作内容：<br>
+<br>整理混合数据增强idea思路，撰写文档。
+<br>完成了数据增强策略的基础代码，调试通过。
+<br>在scannet 10%上运行混合数据增强对比试验（ground truth instance -&gt; unlabeled scene，随机位置），预计剩余48h
+<br>解决了应用数据增强策略后，在sunrgbd上训练eval结果异常问题。
+<br>在sunrgbd 5%上运行对比试验，同上
+<br>工作进展：<br>遇到的问题：<br>
+<br>混合数据增强策略训练时间异常：scannet 10% baseline约6h，测试训练时间&gt;24h
+<br>解决方案与计划：<br>
+<br>可能与一张卡同时跑两个训练有关，换卡重试一下；监测代码每个模块的运行时间，看是否有异常耗时。
+<br>明日计划：<br>
+<br>编写collision test模块代码
+<br>解决训练时间异常问题
+<br>阅读相关论文<a data-href="De-biased teacher_ Rethinking iou matching for semi-supervised object detection" href="paper-reading-notes\de-biased-teacher_-rethinking-iou-matching-for-semi-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">De-biased teacher_ Rethinking iou matching for semi-supervised object detection</a>
+]]></description><link>logs\2024-10-21.html</link><guid isPermaLink="false">Logs/2024-10-21.md</guid><pubDate>Mon, 21 Oct 2024 14:52:13 GMT</pubDate></item><item><title><![CDATA[2024-10-22]]></title><description><![CDATA[ 
+ <br>工作内容：<br>
+<br>昨天在两张卡同时训练scannet 10%，CUDA OOM了，等待另一个训练结束后继续。
+<br>完成collision test模块代码。
+<br>修改mix实例位置的选择：不仅需要避免碰撞，还需要避免选择的位置和其他物体距离过远。
+<br>完成上述功能，扩充了collision test模块，确保新的位置在原始点云附近，在scannet 10%上训练测试。
+<br>调试了训练时间异常的问题，确认是单卡多训练的原因。
+<br>遇到的问题：<br>
+<br>使用ground truth instance mix增强之后的unlabelled scene数据，是只输入给student模型，或是同时输入给student和teacher模型，或者将ground truth和teacher模型生成的伪标签合并用于监督student的结果？我觉得三种方式都有道理，最后一种相比更为合理一点，但是增加的代码会复杂很多。目前使用第一种方式先看效果。
+<br>明日计划：<br>
+<br>开始写pseudo instance —&gt; labeled scene策略的代码，争取在现在的实验跑完之前，能够将这个策略的训练实验跑起来。
+]]></description><link>logs\2024-10-22.html</link><guid isPermaLink="false">Logs/2024-10-22.md</guid><pubDate>Tue, 22 Oct 2024 15:27:28 GMT</pubDate></item><item><title><![CDATA[2024-10-24]]></title><description><![CDATA[ 
+ <br>工作进展：<br>
+<br>21号跑的实验(ground truth instance -&gt; unlabeled scene)，效果还不错，在scannet10%和sunrgbd5%上都有提升
+<br><img alt="Pasted image 20241024171824.png" src="lib\media\pasted-image-20241024171824.png"><br>遇到的问题：<br>
+<br>想这个策略动机的时候，发现遗漏的一篇AAAI 24的论文“Dual-Perspective Knowledge Enrichment for Semi-Supervised 3D Object Detection”，同样也是做室内的，并且指标超过了Diffusion-SS3D，在Github上找到了开源的代码。能用这篇论文做baseline吗？
+]]></description><link>logs\2024-10-24.html</link><guid isPermaLink="false">Logs/2024-10-24.md</guid><pubDate>Thu, 24 Oct 2024 13:45:58 GMT</pubDate><enclosure url="lib\media\pasted-image-20241024171824.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241024171824.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2024-10-26]]></title><description><![CDATA[ 
+ <br>工作内容：<br>
+<br>完成 pseudo instance —&gt; labeled scene策略的代码，包括替换和粘贴。
+<br>遇到的问题：<br>
+<br>发现模型在训练初期，筛选过的pseudo instance，bounding box的定位仍非常不准（如下图），即使使用多个proposal的并集也无法保证得到完整的物体。需要进一步分析一下iou score和confidence的输出，调整上面的策略。
+<br><img alt="Pasted image 20241026214940.png" src="lib\media\pasted-image-20241026214940.png">]]></description><link>logs\2024-10-26.html</link><guid isPermaLink="false">Logs/2024-10-26.md</guid><pubDate>Sat, 26 Oct 2024 13:49:53 GMT</pubDate><enclosure url="lib\media\pasted-image-20241026214940.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241026214940.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2024-10-29]]></title><description><![CDATA[ 
+ <br>
+<br>详细看一下fixmatch
+]]></description><link>logs\2024-10-29.html</link><guid isPermaLink="false">Logs/2024-10-29.md</guid><pubDate>Tue, 29 Oct 2024 14:53:16 GMT</pubDate></item><item><title><![CDATA[2024-10-30]]></title><description><![CDATA[ 
+ <br>工作内容：<br>
+<br>完成mixup 三种策略的代码，同时在三张卡上对scannet 10%数据集实验，预计31号中午看到结果
+<br>实验记录：<br>mixup 策略1<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup_1/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>mixup 策略2<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/exp_mixup_2/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2
+<br>SCRIPT=exp_mixup_2_scan_1.sh
+<br>mixup 策略3<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/train/exp_mixup_3/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2
+<br>SCRIPT=exp_mixup_3_scan_1.sh
+]]></description><link>logs\2024-10-30.html</link><guid isPermaLink="false">Logs/2024-10-30.md</guid><pubDate>Wed, 30 Oct 2024 16:36:02 GMT</pubDate></item><item><title><![CDATA[2024-10-31]]></title><description><![CDATA[ 
+ <br>昨天的代码有错误，混合点云的时候没有对齐center坐标；加入密度、点云数量进一步筛选需要mixup的伪标签<br>记得git提交代码]]></description><link>logs\2024-10-31.html</link><guid isPermaLink="false">Logs/2024-10-31.md</guid><pubDate>Thu, 31 Oct 2024 16:36:52 GMT</pubDate></item><item><title><![CDATA[2024-11-01]]></title><description><![CDATA[ 
+ <br>匹配方式：按照长宽高匹配；假设1st长度为长；2nd长度为宽；3rd长度为高，两个proposal就可以用长宽高匹配和resize<br>
+第一种：从data取一个椅子，替换掉老师proposal中的椅子，原来的点去除<br>第二种：mixup，data里的椅子与teacher得到的椅子做mixup，例如椅子1的采样率为A%，那么椅子2就是100-A%<br>
+第三种：mixup，data里的桌子与teacher得到的椅子做mixup，椅子是A%，桌子是100-A%（A&gt;&gt;50%）<br>11-01-3：不保持总数量不变，而是gt A% + pseudo (1-A)% &gt;=N ，然后在整个场景的点云重采样到40000，不带密度筛选模块]]></description><link>logs\2024-11-01.html</link><guid isPermaLink="false">Logs/2024-11-01.md</guid><pubDate>Fri, 01 Nov 2024 14:01:09 GMT</pubDate></item><item><title><![CDATA[2024-11-04]]></title><description><![CDATA[ 
+ <br>工作内容：<br>
+<br>撰写论文，完成了论文method部分
+<br>绘制了模型框架草图
+<br><img alt="Pasted image 20241104194929.png" src="lib\media\pasted-image-20241104194929.png"><br>
+<br>目前的效果没有超过sota，打算在diffusion-ss3d上实现现在的方法。diffusion-ss3d 没有提供 sunrgbd数据集代码，之前没有复现成。重新补充了sunrgbd部分的代码，复现1%数据集，目前训练指标看起来正常。
+<br>工作进展：<br>
+<br>三种策略在scannet上效果比单独使用一种策略都有提升。
+<br><img alt="Pasted image 20241104194220.png" src="lib\media\pasted-image-20241104194220.png"><br>
+<br>在scannet上完成了 强增强的伪标签比例(之前设定的是50%) 的灵敏度分析实验
+<br><img alt="Pasted image 20241104194629.png" src="lib\media\pasted-image-20241104194629.png"><br>
+<br>开始写论文，完成了论文method部分第一版
+<br>遇到的问题：<br>
+<br>三种策略的消融有些奇怪，两种策略一起比一种策略单独要差，可能是有偏差，后面有时间多跑几次
+<br>在服务器上的gpu上训练时，sunrgbd数据集的训练异常慢，排查不出原因，目前看起来是偶然现象，希望后面的实验少出问题。
+<br>粗略计算了下目前剩下的实验，剩下的消融实验加上diffusion-ss3d baseline 预计最少需要6.5天+，如果加上3dioumatch baseline 的结果，最少需要8.7天+，diffusion-ss3d训练时间不太确定，sunrgbd数据集上训练时间可能出现异常，还需要预留时间给结果不好的实验重跑。算下来时间比较极限。
+<br>后续计划：<br>
+<br>继续在sunrgbd上跑 强增强的伪标签比例(之前设定的是50%) 的灵敏度分析实验
+<br>diffusion-ss3d sunrgbd数据集上复现没问题后，移植现在的方法到diffusion-ss3d上
+<br>论文需要混合增强的效果可视化，需要跑通OpenPCDet的可视化代码
+]]></description><link>logs\2024-11-04.html</link><guid isPermaLink="false">Logs/2024-11-04.md</guid><pubDate>Mon, 04 Nov 2024 12:05:13 GMT</pubDate><enclosure url="lib\media\pasted-image-20241104194929.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241104194929.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[2024-11-12]]></title><description><![CDATA[ 
+ <br>
+<br>同一个场景的不同扫描，模型的推理表现差异很大。即使是做过增强，依旧会有较大性能差异， 不鲁棒
+<br>半监督人工标注遗漏/错误问题
+]]></description><link>logs\2024-11-12.html</link><guid isPermaLink="false">Logs/2024-11-12.md</guid><pubDate>Tue, 12 Nov 2024 12:11:36 GMT</pubDate></item><item><title><![CDATA[2024-11-13]]></title><description><![CDATA[ 
+ <br>接下来，我会给你部分完成的论文introduction部分，以及后续的论文思路，你需要完成introduction后面未完成的段落。The goal of 3D object detection is to identify category labels of objects and locate 3D boundary boxes from a point cloud scen, playing a crucial role in applications in autonomous driving and robotics[].<br>
+Recent works~\cite{liu2021group, qi2019deep, rukhovich2022fcaf3d, shi2023pv, shi2019pointrcnn, shi2020points,  wang2022cagroup3d, yang20203dssd, zhou2018voxelnet, chen2023voxelnext, wang2022sparse2dense, yin2021center, fan2022fully} have made significant progress in 3D object detection. However, obtaining a large amount of carefully annotated 3D scene data is very expensive and time-consuming.<br>To overcome the limitation, semi-supervised learning (SSL) methods leverage a combination of few labeled data and a large amount of unlabeled data to enhance training and improve model performance. Prior works~\cite{zhao2020sess, wang20213dioumatch, ho2023diffusion, wang2023not} [sess, 3dioumatch, diffusion-ss3d, not-every-side-is-equal, DPKE] adopt a student-teacher framework with asymmetric data augmentation to train the student model through pseudo-labeling and consistency regularization. For instance, SESS~\cite{zhao2020sess} ... 3DIoUMatch~\cite{wang20213dioumatch} ... NESE~\cite{wang2023not} ...  Diffusion-SS3D~\cite{ho2023diffusion} ... Specifically, One of the critical keys to the well-performed semi-supervised learning is the strong augmentation strategy. Strong augmentation aids in robust feature learning by exposing the model to a wide range of transformations, which enhances its ability to detect objects under various real-world conditions. Additionally, it prevents overfitting by introducing variability into the training process, ensuring that the model generalizes better to novel, unseen data. Specifically, these approaches focused on scene-level augmentation strategies, such as flipping, rotation, and scaling. However, only utilize scene-level augmentation can suffer from limited diversity. This is because applying uniform transformations to entire scenes does not significantly alter individual objects within the scene, leading to less variability at the object level. As a result, the model may not experience a wide range of object poses or appearances, limiting its ability to learn robust, object-specific features necessary for accurate detection under varied conditions.  <br>To ... we propose...<br>Additionally, ... we propose ... augmentation constraints...<br>Our contribution.... ；<br>后面段落思路：DPKE在data augmentation上做出了改进，提出了双视角的数据增强方法，但仍旧是基于目前在3D目标检测中使用的scene-level的增强方法。受到在3D classification任务中PointMixup [31], RSMix [32], and SageMix [36].的启发，我们利用半监督学习框架student-teacher framework独特的结构特性,充分利用teacher model得到的伪标签，提出了适用于半监督下的instance-level augmentation methods. 我们提出了三种instance-level 的增强策略来扩充数据的多样性，同时加强模型对目标的语义分类能力。具体来说，第一种方式是 same class replacement, 使用相同的类的真实object替换未标注场景中的物体，来丰富该类物体的数据表示。第二种方式是 same class mixup, 使用相同的类的真实object的点云与未标注场景点云混合，从而加强模型对同类物体形状的鲁棒性；第三种方式是different class mixup，使用不同的类的真实object点云混入到未标注物体中，从而加强模型的语义分类能力。<br>另外，为了保证增强的数据的语义信息稳定，我们提出了两种constraints method来约束instance-level数据增强。The first constraint ensures that the augmented in-<br>
+stances maintain a certain level of physically realism by<br>
+aligning the shape and orientation of the objects. The sec<br>
+ond constraint focuses on maintaining instance characteris<br>
+tics by controlling the number of points after mixup oper<br>
+ation. By enforcing these constraints, the model is guided<br>
+to learn from augmented samples that contribute positively<br>
+to training, improving robustness and generalization in 3D<br>
+object detection. ]]></description><link>logs\2024-11-13.html</link><guid isPermaLink="false">Logs/2024-11-13.md</guid><pubDate>Wed, 13 Nov 2024 02:30:31 GMT</pubDate></item><item><title><![CDATA[2024-11-14]]></title><description><![CDATA[ 
+ ]]></description><link>logs\2024-11-14.html</link><guid isPermaLink="false">Logs/2024-11-14.md</guid><pubDate>Thu, 14 Nov 2024 09:06:26 GMT</pubDate></item><item><title><![CDATA[2024-11-26]]></title><description><![CDATA[ 
+ <br>工作内容<br>
+<br>阅读SSL theory相关论文，从98年开始，看了 <a data-href="Combining labeled and unlabeled data with co-training" href="paper-reading-notes\combining-labeled-and-unlabeled-data-with-co-training.html" class="internal-link" target="_self" rel="noopener nofollow">Combining labeled and unlabeled data with co-training</a>， <a data-href="Learning from labeled and unlabeled data with label propagation" href="paper-reading-notes\learning-from-labeled-and-unlabeled-data-with-label-propagation.html" class="internal-link" target="_self" rel="noopener nofollow">Learning from labeled and unlabeled data with label propagation</a>，  <a data-href="Semi-supervised learning using gaussian fields and harmonic functions" href="paper-reading-notes\semi-supervised-learning-using-gaussian-fields-and-harmonic-functions.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised learning using gaussian fields and harmonic functions</a>， <a data-href="Semi-supervised learning by entropy minimization" href="paper-reading-notes\semi-supervised-learning-by-entropy-minimization.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised learning by entropy minimization</a>， <a data-href="A co-regularization approach to semi-supervised learning with multiple views" href="paper-reading-notes\a-co-regularization-approach-to-semi-supervised-learning-with-multiple-views.html" class="internal-link" target="_self" rel="noopener nofollow">A co-regularization approach to semi-supervised learning with multiple views</a>，<a data-href="Generalization error bounds in semi-supervised classiﬁcation under the cluster assumption" href="paper-reading-notes\generalization-error-bounds-in-semi-supervised-classiﬁcation-under-the-cluster-assumption.html" class="internal-link" target="_self" rel="noopener nofollow">Generalization error bounds in semi-supervised classiﬁcation under the cluster assumption</a>
+<br>idea，能否将teacher生成伪标签的过程看作是异常值检测，然后用异常值检测的方法来替代teacher伪标签模块
+<br>明日计划<br>
+<br>继续阅读SSL theory
+<br>梳理异常值检测领域的研究脉络
+<br>整理autodl上的数据代码
+<br>diffusion的复现继续（如果有条件）
+]]></description><link>logs\2024-11-26.html</link><guid isPermaLink="false">Logs/2024-11-26.md</guid><pubDate>Tue, 26 Nov 2024 14:02:37 GMT</pubDate></item><item><title><![CDATA[2024-11-27]]></title><description><![CDATA[ 
+ <br>工作内容<br>
+<br>将autodl上的训练results下载到了本地
+<br>看了youtube的deep semi-supervised 公开课，<a data-tooltip-position="top" aria-label="https://www.youtube.com/watch?v=PXOhi6m09bA" rel="noopener nofollow" class="external-link" href="https://www.youtube.com/watch?v=PXOhi6m09bA" target="_blank">L9 Semi-Supervised Learning and Unsupervised Distribution Alignment -- CS294-158-SP20 UC Berkeley</a> 理清半监督发展脉络
+<br>SESS应该是3D半监督目标检测的开山之作，SESS follow 了 <a data-tooltip-position="top" aria-label="Mean teachers are better role models_ Weight-averaged consistency targets improve semi-supervised deep learning results" data-href="Mean teachers are better role models_ Weight-averaged consistency targets improve semi-supervised deep learning results" href="paper-reading-notes\mean-teachers-are-better-role-models_-weight-averaged-consistency-targets-improve-semi-supervised-deep-learning-results.html" class="internal-link" target="_self" rel="noopener nofollow">mean-teacher</a> 这篇工作。SESS采用首先在有监督样本上预训练的方式，而 mean-teacher 没有，论文中没有解释这样做的原因，后面的工作也都使用相同的训练策略。<a data-href="Not every side is equal_ Localization uncertainty estimation for semi-supervised 3D object detection" href="paper-reading-notes\not-every-side-is-equal_-localization-uncertainty-estimation-for-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Not every side is equal_ Localization uncertainty estimation for semi-supervised 3D object detection</a> 预训练和训练的轮数更少360，在补充材料中提到。
+<br>明日计划<br>
+<br>再详细看一下<a data-href="Self-training with Noisy Student improves ImageNet classification" href="paper-reading-notes\self-training-with-noisy-student-improves-imagenet-classification.html" class="internal-link" target="_self" rel="noopener nofollow">Self-training with Noisy Student improves ImageNet classification</a> 这篇文章
+<br>复现SESS代码，看是否有预训练影响
+]]></description><link>logs\2024-11-27.html</link><guid isPermaLink="false">Logs/2024-11-27.md</guid><pubDate>Wed, 27 Nov 2024 13:50:53 GMT</pubDate></item><item><title><![CDATA[2024-12-02]]></title><description><![CDATA[ 
+ <br>
+<br>周报分享链接
+<br>换轴体
+<br>暑研陶瓷
+]]></description><link>logs\2024-12-02.html</link><guid isPermaLink="false">Logs/2024-12-02.md</guid><pubDate>Mon, 02 Dec 2024 05:46:57 GMT</pubDate></item><item><title><![CDATA[3D gaussian splatting for real-time radiance field rendering]]></title><description><![CDATA[ 
+ <br>论文代码：<br>
+<a rel="noopener nofollow" class="external-link" href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank">https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/</a><br>
+First, starting from sparse points produced during camera calibration, we represent the scene with 3D Gaussians that preserve desirable properties of continuous volumetric radiance fields for scene optimization while avoiding unnecessary computation in empty space;
+<br>
+Second, we perform interleaved optimization/density control of the 3D Gaussians, notably optimizing anisotropic covariance to achieve an accurate representation of the scene; 
+<br>
+Third, we develop a fast visibility-aware rendering algorithm that supports anisotropic splatting and both accelerates training and allows realtime rendering. \
+<br><br>三个部分：3D Gaussians、optimization of the properties of the 3D Gaussians、real-time rendering solution<br>论文主要贡献：<br>
+
+<br>The introduction of anisotropic 3D Gaussians as a high-quality, unstructured representation of radiance fields. 
+<br>An optimization method of 3D Gaussian properties, interleaved with adaptive density control that creates high-quality representations for captured scenes. 
+<br>A fast, differentiable rendering approach for the GPU, which is visibility-aware, allows anisotropic splatting and fast backpropagation to achieve high-quality novel view synthesis.
+
+<br><br><br>输入是静态场景的一组图像，和sfm重建得到的系数点云。<br>
+The input to our method is a set of images of a static scene, together with the corresponding cameras calibrated by SfM which produces a sparse point cloud as a sideeffect.
+<br>从稀疏点云中创建一组3D Gaussians，参数包含（平均位置坐标、协方差矩阵、密度）<br>
+From these points we create a set of 3D Gaussians (Sec. 4), defined by a position (mean), covariance matrix and opacity 𝛼, that allows a very flexible optimization regime. This results in a reasonably compact representation of the 3D scene, in part because highly anisotropic(各向异性) volumetric splats can be used to represent fine structures compactly.
+<br>使用球谐函数来表示颜色，使用辐射场表示光<br>
+The directional appearance component (color) of the radiance field is represented via spherical harmonics (SH), following standard practice.
+<br>anisotropic（各向异性）：这个词表示在不同方向上具有不同的特性。在图形学中，各向异性通常指纹理或光照在不同方向上表现出的不同效果。与各向同性（各个方向上特性相同）相对。<br>spherical harmonics(SH): 球谐函数<br>Tile-based renderer（基于块的渲染器）<br><img alt="Pasted image 20240620235810.png" src="lib\media\pasted-image-20240620235810.png"><br><br>使用3D协方差矩阵定义Gaussians, 其中<br><img alt="Pasted image 20240621132209.png" src="lib\media\pasted-image-20240621132209.png"><br><br><img alt="Pasted image 20240621001519.png" src="lib\media\pasted-image-20240621001519.png"><br>
+<br>雅可比矩阵
+<br>]]></description><link>paper-reading-notes\3d-gaussian-splatting-for-real-time-radiance-field-rendering.html</link><guid isPermaLink="false">Paper reading notes/3D gaussian splatting for real-time radiance field rendering.md</guid><pubDate>Fri, 21 Jun 2024 05:48:00 GMT</pubDate><enclosure url="lib\media\pasted-image-20240620235810.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20240620235810.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[3DIoUMatch Leveraging IoU prediction for semi-supervised 3D object detection]]></title><description><![CDATA[ 
+ <br>使用带IoU estimation模块的基于confidence-based filtering的方法来加强伪标签质量]]></description><link>paper-reading-notes\3dioumatch_-leveraging-iou-prediction-for-semi-supervised-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/3DIoUMatch_ Leveraging IoU prediction for semi-supervised 3D object detection.md</guid><pubDate>Fri, 23 Aug 2024 12:21:37 GMT</pubDate></item><item><title><![CDATA[A co-regularization approach to semi-supervised learning with multiple views]]></title><description><![CDATA[ 
+ <br>提出一种co-regularization 方法来利用两个view<br><img alt="Pasted image 20241126211456.png" src="lib\media\pasted-image-20241126211456.png">]]></description><link>paper-reading-notes\a-co-regularization-approach-to-semi-supervised-learning-with-multiple-views.html</link><guid isPermaLink="false">Paper reading notes/A co-regularization approach to semi-supervised learning with multiple views.md</guid><pubDate>Tue, 26 Nov 2024 13:15:44 GMT</pubDate><enclosure url="lib\media\pasted-image-20241126211456.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241126211456.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[A simple vision transformer for weakly semi-supervised 3D object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\a-simple-vision-transformer-for-weakly-semi-supervised-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/A simple vision transformer for weakly semi-supervised 3D object detection.md</guid><pubDate>Mon, 26 Aug 2024 00:58:37 GMT</pubDate></item><item><title><![CDATA[A-teacher Asymmetric network for 3D semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\a-teacher_-asymmetric-network-for-3d-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/A-teacher_ Asymmetric network for 3D semi-supervised object detection.md</guid><pubDate>Mon, 26 Aug 2024 00:44:13 GMT</pubDate></item><item><title><![CDATA[Active learning for deep object detection via probabilistic modeling]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\active-learning-for-deep-object-detection-via-probabilistic-modeling.html</link><guid isPermaLink="false">Paper reading notes/Active learning for deep object detection via probabilistic modeling.md</guid><pubDate>Tue, 10 Sep 2024 05:22:58 GMT</pubDate></item><item><title><![CDATA[Active learning strategies for weakly-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\active-learning-strategies-for-weakly-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Active learning strategies for weakly-supervised object detection.md</guid><pubDate>Tue, 10 Sep 2024 05:39:09 GMT</pubDate></item><item><title><![CDATA[Active teacher for semi-supervised object detection]]></title><description><![CDATA[ 
+ <br>
+<br>data initialization
+<br>iterative version: the label set is partially initialized and gradually augmented by three factors of unlabeled examples
+
+<br>difficulty
+<br>information
+<br>diversity
+
+
+<br>由于batch中包含了labeled和unlabelled数据，ground truth的信息对伪标签的生成质量起关键作用，因此如何选择合适的有标注数据和未标注数据的组合以及数据增强方法尤为重要
+]]></description><link>paper-reading-notes\active-teacher-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Active teacher for semi-supervised object detection.md</guid><pubDate>Wed, 11 Sep 2024 04:03:41 GMT</pubDate></item><item><title><![CDATA[Advanced active learning strategies for object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\advanced-active-learning-strategies-for-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Advanced active learning strategies for object detection.md</guid><pubDate>Tue, 10 Sep 2024 08:06:12 GMT</pubDate></item><item><title><![CDATA[Alleviating catastrophic forgetting of incremental object detection via within-class and between-class knowledge distillation]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\alleviating-catastrophic-forgetting-of-incremental-object-detection-via-within-class-and-between-class-knowledge-distillation.html</link><guid isPermaLink="false">Paper reading notes/Alleviating catastrophic forgetting of incremental object detection via within-class and between-class knowledge distillation.md</guid><pubDate>Fri, 16 Aug 2024 14:08:25 GMT</pubDate></item><item><title><![CDATA[ALWOD Active learning for weakly-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\alwod_-active-learning-for-weakly-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/ALWOD_ Active learning for weakly-supervised object detection.md</guid><pubDate>Tue, 10 Sep 2024 05:09:29 GMT</pubDate></item><item><title><![CDATA[Ambiguity-resistant semi-supervised learning for dense object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\ambiguity-resistant-semi-supervised-learning-for-dense-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Ambiguity-resistant semi-supervised learning for dense object detection.md</guid><pubDate>Mon, 26 Aug 2024 01:51:09 GMT</pubDate></item><item><title><![CDATA[Augmented box replay Overcoming foreground shift for incremental object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\augmented-box-replay_-overcoming-foreground-shift-for-incremental-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Augmented box replay_ Overcoming foreground shift for incremental object detection.md</guid><pubDate>Fri, 16 Aug 2024 14:08:45 GMT</pubDate></item><item><title><![CDATA[BAOD_ Budget-aware object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\baod_-budget-aware-object-detection.html</link><guid isPermaLink="false">Paper reading notes/BAOD_ Budget-aware object detection.md</guid><pubDate>Tue, 10 Sep 2024 05:37:55 GMT</pubDate></item><item><title><![CDATA[Box-level active detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\box-level-active-detection.html</link><guid isPermaLink="false">Paper reading notes/Box-level active detection.md</guid><pubDate>Tue, 10 Sep 2024 06:33:14 GMT</pubDate></item><item><title><![CDATA[Bridging non co-occurrence with unlabeled in-the-wild data for incremental object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\bridging-non-co-occurrence-with-unlabeled-in-the-wild-data-for-incremental-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Bridging non co-occurrence with unlabeled in-the-wild data for incremental object detection.md</guid><pubDate>Fri, 16 Aug 2024 13:39:31 GMT</pubDate></item><item><title><![CDATA[CoDA Collaborative novel box discovery and cross-modal alignment for open-vocabulary 3D object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\coda_-collaborative-novel-box-discovery-and-cross-modal-alignment-for-open-vocabulary-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/CoDA_ Collaborative novel box discovery and cross-modal alignment for open-vocabulary 3D object detection.md</guid><pubDate>Sat, 24 Aug 2024 07:31:44 GMT</pubDate></item><item><title><![CDATA[Combining labeled and unlabeled data with co-training]]></title><description><![CDATA[ 
+ <br>proposed a co-training strategy that trains two models simultaneously using two randomly selected labeled data. then enlarge labeled dataset from unlabeled dataset with positive and negative samples each iteration.<br>提出一种co-training策略，同时训练两个classifier(h1, h2)，使用不同的训练数据(x1, x2)，然后从U中挑选分最高的positive和negative样本加入到L中，然后补充U中的样本数量。<br><img alt="Pasted image 20241126191220.png" src="lib\media\pasted-image-20241126191220.png">]]></description><link>paper-reading-notes\combining-labeled-and-unlabeled-data-with-co-training.html</link><guid isPermaLink="false">Paper reading notes/Combining labeled and unlabeled data with co-training.md</guid><pubDate>Tue, 26 Nov 2024 12:06:35 GMT</pubDate><enclosure url="lib\media\pasted-image-20241126191220.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241126191220.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Consistent-teacher Towards reducing inconsistent pseudo-targets in semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\consistent-teacher_-towards-reducing-inconsistent-pseudo-targets-in-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Consistent-teacher_ Towards reducing inconsistent pseudo-targets in semi-supervised object detection.md</guid><pubDate>Mon, 26 Aug 2024 02:56:18 GMT</pubDate></item><item><title><![CDATA[Continual detection transformer for incremental object detection]]></title><description><![CDATA[ 
+ <br>code not yet<br>transformer-based detectors]]></description><link>paper-reading-notes\continual-detection-transformer-for-incremental-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Continual detection transformer for incremental object detection.md</guid><pubDate>Fri, 23 Aug 2024 07:30:31 GMT</pubDate></item><item><title><![CDATA[Correlation field for boosting 3D object detection in structured scenes]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\correlation-field-for-boosting-3d-object-detection-in-structured-scenes.html</link><guid isPermaLink="false">Paper reading notes/Correlation field for boosting 3D object detection in structured scenes.md</guid><pubDate>Sun, 20 Oct 2024 15:29:27 GMT</pubDate></item><item><title><![CDATA[Data-uncertainty guided multi-phase learning for semi-supervised object detection]]></title><description><![CDATA[ 
+ <br>解决 label noise overvitting问题：difficult label会产生更多的噪声，深度学习模型总是会倾向于拟合difficult的label而忽略easy label，从而导致在训练阶段，difficult的mAP上升反而easy的mAP下降。<br>提出了easy labels 和difficult labels的多阶段训练，使用多个模型分别训练easy和difficult label，使在各自的label都有较好的置信度，结合所有训练的模型共同预测结果<br>使用多个模型预测的伪标签的交集来生成伪标签]]></description><link>paper-reading-notes\data-uncertainty-guided-multi-phase-learning-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Data-uncertainty guided multi-phase learning for semi-supervised object detection.md</guid><pubDate>Tue, 27 Aug 2024 06:38:47 GMT</pubDate></item><item><title><![CDATA[De-biased teacher Rethinking iou matching for semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\de-biased-teacher_-rethinking-iou-matching-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/De-biased teacher_ Rethinking iou matching for semi-supervised object detection.md</guid><pubDate>Mon, 21 Oct 2024 14:08:23 GMT</pubDate></item><item><title><![CDATA[Deep active learning for efficient training of a LiDAR 3D object detector]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\deep-active-learning-for-efficient-training-of-a-lidar-3d-object-detector.html</link><guid isPermaLink="false">Paper reading notes/Deep active learning for efficient training of a LiDAR 3D object detector.md</guid><pubDate>Tue, 10 Sep 2024 08:03:33 GMT</pubDate></item><item><title><![CDATA[Deep hough voting for 3D object detection in point clouds]]></title><description><![CDATA[ 
+ <br>3D目标检测器（室内）<br><a data-href="PV-RCNN_ Point-voxel feature set abstraction for 3D object detection" href="paper-reading-notes\pv-rcnn_-point-voxel-feature-set-abstraction-for-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">PV-RCNN_ Point-voxel feature set abstraction for 3D object detection</a>]]></description><link>paper-reading-notes\deep-hough-voting-for-3d-object-detection-in-point-clouds.html</link><guid isPermaLink="false">Paper reading notes/Deep hough voting for 3D object detection in point clouds.md</guid><pubDate>Thu, 15 Aug 2024 14:32:24 GMT</pubDate></item><item><title><![CDATA[Dense learning based semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\dense-learning-based-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Dense learning based semi-supervised object detection.md</guid><pubDate>Mon, 26 Aug 2024 02:32:43 GMT</pubDate></item><item><title><![CDATA[DetMatch Two teachers are better than one for joint 2D and 3D semi-supervised object detection]]></title><description><![CDATA[ 
+ <br>多视角]]></description><link>paper-reading-notes\detmatch_-two-teachers-are-better-than-one-for-joint-2d-and-3d-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/DetMatch_ Two teachers are better than one for joint 2D and 3D semi-supervised object detection.md</guid><pubDate>Fri, 23 Aug 2024 12:22:48 GMT</pubDate></item><item><title><![CDATA[Diffusion-ss3d Diffusion model for semi-supervised 3D object detection]]></title><description><![CDATA[ 
+ <br>使用PointNet++作encoder，<a data-tooltip-position="top" aria-label="Deep hough voting for 3D object detection in point clouds" data-href="Deep hough voting for 3D object detection in point clouds" href="paper-reading-notes\deep-hough-voting-for-3d-object-detection-in-point-clouds.html" class="internal-link" target="_self" rel="noopener nofollow">VoteNet</a>作decoder<br>code<br>训练阶段，每个epoch中，iterative_train 了两遍，累计了两次的误差之后，之后才做反向过程？<br>结论中提到的<br>
+<br>物体标注box的方向：论文中diffusion的噪声加在了box size 和class label上，没有考虑box direction。旋转不变性（object-level rotation equivalence），scannet数据集是没有object orientation的。<a data-href="Rotationally equivariant 3D object detection" href="paper-reading-notes\rotationally-equivariant-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Rotationally equivariant 3D object detection</a>
+
+<br>旋转场景来增强数据？
+
+
+<br>室外数据集
+<br>实时性
+<br>TODO<br>
+<br>跨域问题
+<br>长尾分布问题
+]]></description><link>paper-reading-notes\diffusion-ss3d_-diffusion-model-for-semi-supervised-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Diffusion-ss3d_ Diffusion model for semi-supervised 3D object detection.md</guid><pubDate>Sat, 24 Aug 2024 06:38:06 GMT</pubDate></item><item><title><![CDATA[Does unlabeled data provably help? Worst-case analysis of the sample complexity of semi-supervised learning]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\does-unlabeled-data-provably-help_-worst-case-analysis-of-the-sample-complexity-of-semi-supervised-learning.html</link><guid isPermaLink="false">Paper reading notes/Does unlabeled data provably help_ Worst-case analysis of the sample complexity of semi-supervised learning.md</guid><pubDate>Wed, 27 Nov 2024 07:57:04 GMT</pubDate></item><item><title><![CDATA[DQS3D Densely-matched quantization-aware semi-supervised 3D detection]]></title><description><![CDATA[ 
+ <br>之前的 sparse spatial training signal --&gt; 提出 dense spatial training signal<br>由于之前像votenet的框架，先提取出seed points，然后再之上做预测，这导致了training signal的空间稀疏性。论文受全卷积3D检测的启发，设计了空间密集型的training signal。<br>实验表明，使用dense matching，伪标签的生成质量有明显的提升，并且提升曲线更加光滑。<br><img alt="Pasted image 20240830211025.png" src="lib\media\pasted-image-20240830211025.png"><br>模型细节；<br>使用Fcaf3d为3d检测头 <a data-href="FCAF3D_ Fully convolutional anchor-free 3D object detection" href="paper-reading-notes\fcaf3d_-fully-convolutional-anchor-free-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">FCAF3D_ Fully convolutional anchor-free 3D object detection</a><br>limitation<br>
+<br>性能对voxel size较灵敏：
+<br><img alt="Pasted image 20240831200342.png" src="lib\media\pasted-image-20240831200342.png"><br>
+<br>点云分辨率对体素化的影响较大
+]]></description><link>paper-reading-notes\dqs3d_-densely-matched-quantization-aware-semi-supervised-3d-detection.html</link><guid isPermaLink="false">Paper reading notes/DQS3D_ Densely-matched quantization-aware semi-supervised 3D detection.md</guid><pubDate>Tue, 03 Sep 2024 15:59:27 GMT</pubDate><enclosure url="lib\media\pasted-image-20240830211025.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20240830211025.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Dynamic neural radiance fields for monocular 4D facial avatar reconstruction]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\dynamic-neural-radiance-fields-for-monocular-4d-facial-avatar-reconstruction.html</link><guid isPermaLink="false">Paper reading notes/Dynamic neural radiance fields for monocular 4D facial avatar reconstruction.md</guid><pubDate>Mon, 08 Jul 2024 02:05:51 GMT</pubDate></item><item><title><![CDATA[End-to-end semi-supervised object detection with soft teacher]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\end-to-end-semi-supervised-object-detection-with-soft-teacher.html</link><guid isPermaLink="false">Paper reading notes/End-to-end semi-supervised object detection with soft teacher.md</guid><pubDate>Fri, 16 Aug 2024 05:44:37 GMT</pubDate></item><item><title><![CDATA[FCAF3D Fully convolutional anchor-free 3D object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\fcaf3d_-fully-convolutional-anchor-free-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/FCAF3D_ Fully convolutional anchor-free 3D object detection.md</guid><pubDate>Sun, 01 Sep 2024 08:00:11 GMT</pubDate></item><item><title><![CDATA[FixMatch Simplifying semi-supervised learning with consistency and confidence]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\fixmatch_-simplifying-semi-supervised-learning-with-consistency-and-confidence.html</link><guid isPermaLink="false">Paper reading notes/FixMatch_ Simplifying semi-supervised learning with consistency and confidence.md</guid><pubDate>Fri, 16 Aug 2024 05:34:46 GMT</pubDate></item><item><title><![CDATA[FlashAvatar_ High-fidelity head avatar with efficient gaussian embedding]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\flashavatar_-high-fidelity-head-avatar-with-efficient-gaussian-embedding.html</link><guid isPermaLink="false">Paper reading notes/FlashAvatar_ High-fidelity head avatar with efficient gaussian embedding.md</guid><pubDate>Sat, 15 Jun 2024 13:47:54 GMT</pubDate></item><item><title><![CDATA[Gaussian head avatar Ultra high-fidelity head avatar via dynamic gaussians]]></title><description><![CDATA[ 
+ <br>有代码]]></description><link>paper-reading-notes\gaussian-head-avatar_-ultra-high-fidelity-head-avatar-via-dynamic-gaussians.html</link><guid isPermaLink="false">Paper reading notes/Gaussian head avatar_ Ultra high-fidelity head avatar via dynamic gaussians.md</guid><pubDate>Wed, 10 Jul 2024 03:19:23 GMT</pubDate></item><item><title><![CDATA[GaussianAvatars Photorealistic head avatars with rigged 3D gaussians]]></title><description><![CDATA[ 
+ <br>代码还未公开<br>CVPR2024 highlight]]></description><link>paper-reading-notes\gaussianavatars_-photorealistic-head-avatars-with-rigged-3d-gaussians.html</link><guid isPermaLink="false">Paper reading notes/GaussianAvatars_ Photorealistic head avatars with rigged 3D gaussians.md</guid><pubDate>Mon, 08 Jul 2024 01:57:29 GMT</pubDate></item><item><title><![CDATA[GaussianHead High-fidelity head avatars with learnable gaussian derivation]]></title><description><![CDATA[ 
+ <br>有代码<br><br>motion deformation field]]></description><link>paper-reading-notes\gaussianhead_-high-fidelity-head-avatars-with-learnable-gaussian-derivation.html</link><guid isPermaLink="false">Paper reading notes/GaussianHead_ High-fidelity head avatars with learnable gaussian derivation.md</guid><pubDate>Wed, 10 Jul 2024 03:20:42 GMT</pubDate></item><item><title><![CDATA[Generalization error bounds in semi-supervised classiﬁcation under the cluster assumption]]></title><description><![CDATA[ 
+ <br>cluster assumption]]></description><link>paper-reading-notes\generalization-error-bounds-in-semi-supervised-classiﬁcation-under-the-cluster-assumption.html</link><guid isPermaLink="false">Paper reading notes/Generalization error bounds in semi-supervised classiﬁcation under the cluster assumption.md</guid><pubDate>Tue, 26 Nov 2024 13:22:56 GMT</pubDate></item><item><title><![CDATA[Gradient-based sampling for class imbalanced semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\gradient-based-sampling-for-class-imbalanced-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Gradient-based sampling for class imbalanced semi-supervised object detection.md</guid><pubDate>Mon, 26 Aug 2024 01:30:46 GMT</pubDate></item><item><title><![CDATA[HeadGaS Real-time animatable head avatars via 3D gaussian splatting]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\headgas_-real-time-animatable-head-avatars-via-3d-gaussian-splatting.html</link><guid isPermaLink="false">Paper reading notes/HeadGaS_ Real-time animatable head avatars via 3D gaussian splatting.md</guid><pubDate>Mon, 08 Jul 2024 02:00:38 GMT</pubDate></item><item><title><![CDATA[Hierarchical supervision and shuffle data augmentation for 3D semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\hierarchical-supervision-and-shuffle-data-augmentation-for-3d-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Hierarchical supervision and shuffle data augmentation for 3D semi-supervised object detection.md</guid><pubDate>Mon, 26 Aug 2024 02:57:59 GMT</pubDate></item><item><title><![CDATA[Humble teachers teach better students for semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\humble-teachers-teach-better-students-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Humble teachers teach better students for semi-supervised object detection.md</guid><pubDate>Tue, 27 Aug 2024 05:07:31 GMT</pubDate></item><item><title><![CDATA[Incremental object detection via meta-learning]]></title><description><![CDATA[ 
+ <br>TPAMI 2021]]></description><link>paper-reading-notes\incremental-object-detection-via-meta-learning.html</link><guid isPermaLink="false">Paper reading notes/Incremental object detection via meta-learning.md</guid><pubDate>Fri, 16 Aug 2024 14:22:38 GMT</pubDate></item><item><title><![CDATA[Incremental object detection with CLIP]]></title><description><![CDATA[ 
+ <br>
+<br>language-visual model
+]]></description><link>paper-reading-notes\incremental-object-detection-with-clip.html</link><guid isPermaLink="false">Paper reading notes/Incremental object detection with CLIP.md</guid><pubDate>Fri, 23 Aug 2024 07:04:33 GMT</pubDate></item><item><title><![CDATA[Instant-teaching An end-to-end semi-supervised object detection framework]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\instant-teaching_-an-end-to-end-semi-supervised-object-detection-framework.html</link><guid isPermaLink="false">Paper reading notes/Instant-teaching_ An end-to-end semi-supervised object detection framework.md</guid><pubDate>Mon, 26 Aug 2024 03:32:06 GMT</pubDate></item><item><title><![CDATA[Interactive self-training with mean teachers for semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\interactive-self-training-with-mean-teachers-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Interactive self-training with mean teachers for semi-supervised object detection.md</guid><pubDate>Mon, 26 Aug 2024 03:16:19 GMT</pubDate></item><item><title><![CDATA[Interpolation-based semi-supervised learning for object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\interpolation-based-semi-supervised-learning-for-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Interpolation-based semi-supervised learning for object detection.md</guid><pubDate>Mon, 26 Aug 2024 03:32:35 GMT</pubDate></item><item><title><![CDATA[Joint semi-supervised and active learning via 3D consistency for 3D object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\joint-semi-supervised-and-active-learning-via-3d-consistency-for-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Joint semi-supervised and active learning via 3D consistency for 3D object detection.md</guid><pubDate>Tue, 10 Sep 2024 07:38:15 GMT</pubDate></item><item><title><![CDATA[Label matching semi-supervised object detection]]></title><description><![CDATA[ 
+ <br>现有的问题：<br>label mismatch problem<br>
+<br>distribution level mismatch：每种类的 伪标签/GT  的分布不均匀，体现在某些类中伪标签数量远多于GT，而在另一些类中GT数量远多于伪标签
+<br>instance level mismatch：大概意思是用IoU的方法，会在可能的目标周围生成一簇候选框，但可能它们的objective分数十分相似，使用NMS筛选可能导致最终的候选框定位不准确
+<br>贡献<br>
+<br>提出使用蒙特卡洛采样Monte Carlo Sampling来解决distribution mismatch
+<br>将labels分为reliable和hard label，对hard做RPLM（伪标签挖掘）解决instance mismatch问题
+]]></description><link>paper-reading-notes\label-matching-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Label matching semi-supervised object detection.md</guid><pubDate>Wed, 28 Aug 2024 10:39:14 GMT</pubDate></item><item><title><![CDATA[Learning from labeled and unlabeled data with label propagation]]></title><description><![CDATA[ 
+ <br>proposed a label propagation iterative algorithm to propagate labels through the dataset along high density areas defined by unlabeled data.<br>基于这个假设：assume: closer data points tend to have similar class labels<br>提出了一种 label propagation 的算法<br><img alt="Pasted image 20241126200507.png" src="lib\media\pasted-image-20241126200507.png">]]></description><link>paper-reading-notes\learning-from-labeled-and-unlabeled-data-with-label-propagation.html</link><guid isPermaLink="false">Paper reading notes/Learning from labeled and unlabeled data with label propagation.md</guid><pubDate>Tue, 26 Nov 2024 12:06:22 GMT</pubDate><enclosure url="lib\media\pasted-image-20241126200507.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241126200507.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Learning from noisy data for semi-supervised 3D object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\learning-from-noisy-data-for-semi-supervised-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Learning from noisy data for semi-supervised 3D object detection.md</guid><pubDate>Mon, 26 Aug 2024 01:00:01 GMT</pubDate></item><item><title><![CDATA[Learning object-level point augmentor for semi-supervised 3D object detection]]></title><description><![CDATA[ 
+ <br>可训练的 object-level augmentor]]></description><link>paper-reading-notes\learning-object-level-point-augmentor-for-semi-supervised-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Learning object-level point augmentor for semi-supervised 3D object detection.md</guid><pubDate>Fri, 23 Aug 2024 12:22:21 GMT</pubDate></item><item><title><![CDATA[Learning task-aware language-image representation for class-incremental object detection]]></title><description><![CDATA[ 
+ <br>AAAI 2024<br>
+<br>language-image detector
+]]></description><link>paper-reading-notes\learning-task-aware-language-image-representation-for-class-incremental-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Learning task-aware language-image representation for class-incremental object detection.md</guid><pubDate>Fri, 23 Aug 2024 07:00:08 GMT</pubDate></item><item><title><![CDATA[Mean teachers are better role models Weight-averaged consistency targets improve semi-supervised deep learning results]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\mean-teachers-are-better-role-models_-weight-averaged-consistency-targets-improve-semi-supervised-deep-learning-results.html</link><guid isPermaLink="false">Paper reading notes/Mean teachers are better role models_ Weight-averaged consistency targets improve semi-supervised deep learning results.md</guid><pubDate>Wed, 27 Nov 2024 13:16:16 GMT</pubDate></item><item><title><![CDATA[MixTeacher Mining promising labels with mixed scale teacher for semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\mixteacher_-mining-promising-labels-with-mixed-scale-teacher-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/MixTeacher_ Mining promising labels with mixed scale teacher for semi-supervised object detection.md</guid><pubDate>Mon, 26 Aug 2024 01:56:28 GMT</pubDate></item><item><title><![CDATA[Monocular 3D object detection with LiDAR guided semi supervised active learning]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\monocular-3d-object-detection-with-lidar-guided-semi-supervised-active-learning.html</link><guid isPermaLink="false">Paper reading notes/Monocular 3D object detection with LiDAR guided semi supervised active learning.md</guid><pubDate>Tue, 10 Sep 2024 07:34:22 GMT</pubDate></item><item><title><![CDATA[MonoGaussianAvatar_ Monocular gaussian point-based head avatar]]></title><description><![CDATA[ 
+ <br>代码coming soon<br><br><br>a 4D facial avatar model based on NeRF：<a data-href="Dynamic neural radiance fields for monocular 4D facial avatar reconstruction" href="paper-reading-notes\dynamic-neural-radiance-fields-for-monocular-4d-facial-avatar-reconstruction.html" class="internal-link" target="_self" rel="noopener nofollow">Dynamic neural radiance fields for monocular 4D facial avatar reconstruction</a>]]></description><link>paper-reading-notes\monogaussianavatar_-monocular-gaussian-point-based-head-avatar.html</link><guid isPermaLink="false">Paper reading notes/MonoGaussianAvatar_ Monocular gaussian point-based head avatar.md</guid><pubDate>Tue, 09 Jul 2024 09:58:37 GMT</pubDate></item><item><title><![CDATA[MUM Mix image tiles and UnMix feature tiles for semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\mum_-mix-image-tiles-and-unmix-feature-tiles-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/MUM_ Mix image tiles and UnMix feature tiles for semi-supervised object detection.md</guid><pubDate>Mon, 26 Aug 2024 02:55:08 GMT</pubDate></item><item><title><![CDATA[NeRF-Art Text-driven neural radiance fields stylization]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\nerf-art_-text-driven-neural-radiance-fields-stylization.html</link><guid isPermaLink="false">Paper reading notes/NeRF-Art_ Text-driven neural radiance fields stylization.md</guid><pubDate>Thu, 18 Jul 2024 11:11:31 GMT</pubDate></item><item><title><![CDATA[Not all labels are equal Rationalizing the labeling costs for training object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\not-all-labels-are-equal_-rationalizing-the-labeling-costs-for-training-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Not all labels are equal_ Rationalizing the labeling costs for training object detection.md</guid><pubDate>Tue, 10 Sep 2024 07:43:11 GMT</pubDate></item><item><title><![CDATA[Not every side is equal Localization uncertainty estimation for semi-supervised 3D object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\not-every-side-is-equal_-localization-uncertainty-estimation-for-semi-supervised-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Not every side is equal_ Localization uncertainty estimation for semi-supervised 3D object detection.md</guid><pubDate>Sun, 03 Nov 2024 02:47:19 GMT</pubDate></item><item><title><![CDATA[Open-vocabulary point-cloud object detection without 3D annotation]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\open-vocabulary-point-cloud-object-detection-without-3d-annotation.html</link><guid isPermaLink="false">Paper reading notes/Open-vocabulary point-cloud object detection without 3D annotation.md</guid><pubDate>Fri, 23 Aug 2024 14:44:06 GMT</pubDate></item><item><title><![CDATA[Overcoming catastrophic forgetting in incremental object detection via elastic response distillation]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\overcoming-catastrophic-forgetting-in-incremental-object-detection-via-elastic-response-distillation.html</link><guid isPermaLink="false">Paper reading notes/Overcoming catastrophic forgetting in incremental object detection via elastic response distillation.md</guid><pubDate>Fri, 23 Aug 2024 07:51:20 GMT</pubDate></item><item><title><![CDATA[Plug and play active learning for object detection]]></title><description><![CDATA[ 
+ <br>batch active learning setting]]></description><link>paper-reading-notes\plug-and-play-active-learning-for-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Plug and play active learning for object detection.md</guid><pubDate>Thu, 05 Sep 2024 06:19:57 GMT</pubDate></item><item><title><![CDATA[PointNet++ Deep hierarchical feature learning on point sets in a metric space]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\pointnet++_-deep-hierarchical-feature-learning-on-point-sets-in-a-metric-space.html</link><guid isPermaLink="false">Paper reading notes/PointNet++_ Deep hierarchical feature learning on point sets in a metric space.md</guid><pubDate>Fri, 16 Aug 2024 03:10:43 GMT</pubDate></item><item><title><![CDATA[Proposal learning for semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\proposal-learning-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Proposal learning for semi-supervised object detection.md</guid><pubDate>Fri, 16 Aug 2024 05:43:12 GMT</pubDate></item><item><title><![CDATA[PSAvatar A point-based morphable shape model for real-time head avatar animation with 3D gaussian splatting]]></title><description><![CDATA[ 
+ <br>有动画驱动，目前没有公布代码]]></description><link>paper-reading-notes\psavatar_-a-point-based-morphable-shape-model-for-real-time-head-avatar-animation-with-3d-gaussian-splatting.html</link><guid isPermaLink="false">Paper reading notes/PSAvatar_ A point-based morphable shape model for real-time head avatar animation with 3D gaussian splatting.md</guid><pubDate>Mon, 08 Jul 2024 01:47:49 GMT</pubDate></item><item><title><![CDATA[PV-RCNN Point-voxel feature set abstraction for 3D object detection]]></title><description><![CDATA[ 
+ <br><a data-href="PointNet++_ Deep hierarchical feature learning on point sets in a metric space" href="paper-reading-notes\pointnet++_-deep-hierarchical-feature-learning-on-point-sets-in-a-metric-space.html" class="internal-link" target="_self" rel="noopener nofollow">PointNet++_ Deep hierarchical feature learning on point sets in a metric space</a>]]></description><link>paper-reading-notes\pv-rcnn_-point-voxel-feature-set-abstraction-for-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/PV-RCNN_ Point-voxel feature set abstraction for 3D object detection.md</guid><pubDate>Fri, 16 Aug 2024 03:10:37 GMT</pubDate></item><item><title><![CDATA[1 Introduction]]></title><description><![CDATA[ 
+ <br><a data-tooltip-position="top" aria-label="https://blog.csdn.net/qq_45752541/article/details/138244940" rel="noopener nofollow" class="external-link" href="https://blog.csdn.net/qq_45752541/article/details/138244940" target="_blank">【三维重建】中科院最新3DGS综述（近期进展更新中）_3dgs表面提取-CSDN博客</a><br><br>背景：虚拟现实和增强现实的发展，对真实的3D内容需求增长。传统3D内容创建方法包括<br>
+<br>从扫描仪或多视角图片进行3D重建：由于不完美的捕获和相机估计噪声，导致失败的重建结果
+<br>使用专业软件3D建模：内容真实，但需要专业的用户训练和交互，耗时
+<br>NeRF：为了自动生成真实的3D内容，神经隐式场（NeRF）提出分别使用密度场（density field）和颜色场（color field）来建模3D场景的几何和纹理。虽然NeRF大大提升了新视角合成（novel view synthesis）结果的质量，但是它训练和渲染的时间极慢。尽管有一些方法致力于提升NeRF的速度，但依旧无法达到一种鲁棒的方法，使其在通用设备上的训练时间小于等于1小时，渲染速度大于等于30FPS。<br>3DGS：为了解决NeRF的速度问题，3DGS使用了一组栅格化的高斯椭球来近似估计3D场景的纹理，这使其训练能够在30分钟左右收敛，在1080p的分辨率上达到30FPS的渲染速度，并且多视角合成的结果质量与NeRF可比。<br>这篇论文介绍了近期的基于3DGS的研究，主要包含了3DGS的以下几个研究方向：<br>
+<br>3D场景重建：Gaussian Splatting for 3D Reconstruction
+<br>3D编辑：Gaussian Splatting for 3D Editing
+<br>3DGS应用：Applications of Gaussian Splatting
+<br><br><br><br><br><br><br><br><br><br><br><br><br><a data-href="MonoGaussianAvatar_ Monocular gaussian point-based head avatar" href="paper-reading-notes\monogaussianavatar_-monocular-gaussian-point-based-head-avatar.html" class="internal-link" target="_self" rel="noopener nofollow">MonoGaussianAvatar_ Monocular gaussian point-based head avatar</a><br><a data-href="PSAvatar_ A point-based morphable shape model for real-time head avatar animation with 3D gaussian splatting" href="paper-reading-notes\psavatar_-a-point-based-morphable-shape-model-for-real-time-head-avatar-animation-with-3d-gaussian-splatting.html" class="internal-link" target="_self" rel="noopener nofollow">PSAvatar_ A point-based morphable shape model for real-time head avatar animation with 3D gaussian splatting</a><br><a data-href="GaussianHead_ High-fidelity head avatars with learnable gaussian derivation" href="paper-reading-notes\gaussianhead_-high-fidelity-head-avatars-with-learnable-gaussian-derivation.html" class="internal-link" target="_self" rel="noopener nofollow">GaussianHead_ High-fidelity head avatars with learnable gaussian derivation</a><br><a data-href="GaussianAvatars_ Photorealistic head avatars with rigged 3D gaussians" href="paper-reading-notes\gaussianavatars_-photorealistic-head-avatars-with-rigged-3d-gaussians.html" class="internal-link" target="_self" rel="noopener nofollow">GaussianAvatars_ Photorealistic head avatars with rigged 3D gaussians</a><br><a data-href="Rig3DGS_ Creating controllable portraits from casual monocular videos" href="paper-reading-notes\rig3dgs_-creating-controllable-portraits-from-casual-monocular-videos.html" class="internal-link" target="_self" rel="noopener nofollow">Rig3DGS_ Creating controllable portraits from casual monocular videos</a><br><a data-href="GaussianAvatars_ Photorealistic head avatars with rigged 3D gaussians" href="paper-reading-notes\gaussianavatars_-photorealistic-head-avatars-with-rigged-3d-gaussians.html" class="internal-link" target="_self" rel="noopener nofollow">GaussianAvatars_ Photorealistic head avatars with rigged 3D gaussians</a><br><a data-href="HeadGaS_ Real-time animatable head avatars via 3D gaussian splatting" href="paper-reading-notes\headgas_-real-time-animatable-head-avatars-via-3d-gaussian-splatting.html" class="internal-link" target="_self" rel="noopener nofollow">HeadGaS_ Real-time animatable head avatars via 3D gaussian splatting</a><br><a data-href="FlashAvatar_ High-fidelity head avatar with efficient gaussian embedding" href="paper-reading-notes\flashavatar_-high-fidelity-head-avatar-with-efficient-gaussian-embedding.html" class="internal-link" target="_self" rel="noopener nofollow">FlashAvatar_ High-fidelity head avatar with efficient gaussian embedding</a><br><a data-href="Gaussian head avatar_ Ultra high-fidelity head avatar via dynamic gaussians" href="paper-reading-notes\gaussian-head-avatar_-ultra-high-fidelity-head-avatar-via-dynamic-gaussians.html" class="internal-link" target="_self" rel="noopener nofollow">Gaussian head avatar_ Ultra high-fidelity head avatar via dynamic gaussians</a><br><br>]]></description><link>paper-reading-notes\recent-advances-in-3d-gaussian-splatting.html</link><guid isPermaLink="false">Paper reading notes/Recent advances in 3D gaussian splatting.md</guid><pubDate>Sat, 15 Jun 2024 13:48:57 GMT</pubDate></item><item><title><![CDATA[Revisiting class imbalance for end-to-end semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\revisiting-class-imbalance-for-end-to-end-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Revisiting class imbalance for end-to-end semi-supervised object detection.md</guid><pubDate>Tue, 10 Sep 2024 06:57:58 GMT</pubDate></item><item><title><![CDATA[Rig3DGS_ Creating controllable portraits from casual monocular videos]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\rig3dgs_-creating-controllable-portraits-from-casual-monocular-videos.html</link><guid isPermaLink="false">Paper reading notes/Rig3DGS_ Creating controllable portraits from casual monocular videos.md</guid><pubDate>Sat, 15 Jun 2024 13:45:49 GMT</pubDate></item><item><title><![CDATA[Rotationally equivariant 3D object detection]]></title><description><![CDATA[ 
+ <br>CVPR 2022]]></description><link>paper-reading-notes\rotationally-equivariant-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Rotationally equivariant 3D object detection.md</guid><pubDate>Fri, 23 Aug 2024 05:35:38 GMT</pubDate></item><item><title><![CDATA[S-CLIP_ Semi-supervised vision-language learning using few specialist captions]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\s-clip_-semi-supervised-vision-language-learning-using-few-specialist-captions.html</link><guid isPermaLink="false">Paper reading notes/S-CLIP_ Semi-supervised vision-language learning using few specialist captions.md</guid><pubDate>Tue, 27 Aug 2024 03:57:55 GMT</pubDate></item><item><title><![CDATA[Scale-equivalent distillation for semi-supervised object detection]]></title><description><![CDATA[ 
+ <br>在目前的任务中发现的问题：<br>
+<br>大量false negative 样本
+<br>不好的定位精度
+<br>物体size 有large variance
+<br>背景和object类别的class imbalance
+<br>提出了一种知识蒸馏框架对large object size variance 和 class imbalance有鲁棒性<br>尺度一致性约束 scale consistency regularization<br>提出一种自蒸馏方法来提升泛化能力<br>使用重采样策略来解决class imbalance问题]]></description><link>paper-reading-notes\scale-equivalent-distillation-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Scale-equivalent distillation for semi-supervised object detection.md</guid><pubDate>Tue, 27 Aug 2024 11:10:07 GMT</pubDate></item><item><title><![CDATA[SDDGR Stable diffusion-based deep generative replay for class incremental object detection]]></title><description><![CDATA[ 
+ <br>CVPR 2024<br>
+<br>diffusion-based deep generative replay
+<br>L2 knowledge distillation
+]]></description><link>paper-reading-notes\sddgr_-stable-diffusion-based-deep-generative-replay-for-class-incremental-object-detection.html</link><guid isPermaLink="false">Paper reading notes/SDDGR_ Stable diffusion-based deep generative replay for class incremental object detection.md</guid><pubDate>Fri, 23 Aug 2024 06:47:10 GMT</pubDate></item><item><title><![CDATA[SECOND Sparsely embedded convolutional detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\second_-sparsely-embedded-convolutional-detection.html</link><guid isPermaLink="false">Paper reading notes/SECOND_ Sparsely embedded convolutional detection.md</guid><pubDate>Sun, 20 Oct 2024 15:20:30 GMT</pubDate></item><item><title><![CDATA[Self-training with Noisy Student improves ImageNet classification]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\self-training-with-noisy-student-improves-imagenet-classification.html</link><guid isPermaLink="false">Paper reading notes/Self-training with Noisy Student improves ImageNet classification.md</guid><pubDate>Wed, 27 Nov 2024 13:49:36 GMT</pubDate></item><item><title><![CDATA[Semi-detr Semi-supervised object detection with detection transformers]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\semi-detr_-semi-supervised-object-detection-with-detection-transformers.html</link><guid isPermaLink="false">Paper reading notes/Semi-detr_ Semi-supervised object detection with detection transformers.md</guid><pubDate>Mon, 26 Aug 2024 02:08:50 GMT</pubDate></item><item><title><![CDATA[Semi-supervised and long-tailed object detection with cascadematch]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\semi-supervised-and-long-tailed-object-detection-with-cascadematch.html</link><guid isPermaLink="false">Paper reading notes/Semi-supervised and long-tailed object detection with cascadematch.md</guid><pubDate>Tue, 10 Sep 2024 06:45:30 GMT</pubDate></item><item><title><![CDATA[Semi-supervised dimension reduction for multi-label classification]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\semi-supervised-dimension-reduction-for-multi-label-classification.html</link><guid isPermaLink="false">Paper reading notes/Semi-supervised dimension reduction for multi-label classification.md</guid><pubDate>Wed, 27 Nov 2024 08:14:27 GMT</pubDate></item><item><title><![CDATA[Semi-supervised learning by entropy minimization]]></title><description><![CDATA[ 
+ <br>minimum entropy regularizer]]></description><link>paper-reading-notes\semi-supervised-learning-by-entropy-minimization.html</link><guid isPermaLink="false">Paper reading notes/Semi-supervised learning by entropy minimization.md</guid><pubDate>Tue, 26 Nov 2024 13:04:51 GMT</pubDate></item><item><title><![CDATA[Semi-supervised learning by sparse representation]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\semi-supervised-learning-by-sparse-representation.html</link><guid isPermaLink="false">Paper reading notes/Semi-supervised learning by sparse representation.md</guid><pubDate>Wed, 27 Nov 2024 08:01:28 GMT</pubDate></item><item><title><![CDATA[Semi-supervised learning of mixture models]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\semi-supervised-learning-of-mixture-models.html</link><guid isPermaLink="false">Paper reading notes/Semi-supervised learning of mixture models.md</guid><pubDate>Tue, 26 Nov 2024 12:07:25 GMT</pubDate></item><item><title><![CDATA[Semi-supervised learning using gaussian fields and harmonic functions]]></title><description><![CDATA[ 
+ <br>weighted graph <br>Gaussian random field model.]]></description><link>paper-reading-notes\semi-supervised-learning-using-gaussian-fields-and-harmonic-functions.html</link><guid isPermaLink="false">Paper reading notes/Semi-supervised learning using gaussian fields and harmonic functions.md</guid><pubDate>Tue, 26 Nov 2024 12:57:43 GMT</pubDate></item><item><title><![CDATA[Semi-supervised learning via generalized maximum entropy]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\semi-supervised-learning-via-generalized-maximum-entropy.html</link><guid isPermaLink="false">Paper reading notes/Semi-supervised learning via generalized maximum entropy.md</guid><pubDate>Wed, 27 Nov 2024 08:06:12 GMT</pubDate></item><item><title><![CDATA[Semi-supervised object detection via multi-instance alignment with global class prototypes]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\semi-supervised-object-detection-via-multi-instance-alignment-with-global-class-prototypes.html</link><guid isPermaLink="false">Paper reading notes/Semi-supervised object detection via multi-instance alignment with global class prototypes.md</guid><pubDate>Mon, 26 Aug 2024 02:42:20 GMT</pubDate></item><item><title><![CDATA[SESS Self-ensembling semi-supervised 3D object detection]]></title><description><![CDATA[ 
+ <br>使用 teacher-student framework with pseudo-labeling<br>模型训练：<br>
+<br>同时训练两个模型（student&amp;teacher）
+<br>使用有标签和无标签的数据，经过随机变换后，给student模型训练
+<br>使用有标签和无标签的数据，给teacher模型，得到伪标签，然后使用相同的随机变换，得到变换后的伪标签
+<br>student模型的损失包含两个部分：监督损失和一致性损失
+
+<br>监督损失 (supervised loss) 为有标签的数据，经过随机变换后，模型的预测结果与经过变换后的标注，计算损失
+<br>一致性损失 (consistency loss) 为student使用经过变换后的数据（包括有标签和无标签的）得到的预测结果，与teacher模型的预测结果，经过相同的随机变换后，得到的预测结果，有标签和无标签的预测，计算（center-aware, class-aware和size-aware）
+
+
+<br><img alt="Pasted image 20240817162119.png" src="lib\media\pasted-image-20240817162119.png">]]></description><link>paper-reading-notes\sess_-self-ensembling-semi-supervised-3d-object-detection.html</link><guid isPermaLink="false">Paper reading notes/SESS_ Self-ensembling semi-supervised 3D object detection.md</guid><pubDate>Sat, 17 Aug 2024 08:21:21 GMT</pubDate><enclosure url="lib\media\pasted-image-20240817162119.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20240817162119.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[SOOD Towards semi-supervised oriented object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\sood_-towards-semi-supervised-oriented-object-detection.html</link><guid isPermaLink="false">Paper reading notes/SOOD_ Towards semi-supervised oriented object detection.md</guid><pubDate>Mon, 26 Aug 2024 02:07:30 GMT</pubDate></item><item><title><![CDATA[Sparse semi-detr Sparse learnable queries for semi-supervised object detection]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\sparse-semi-detr_-sparse-learnable-queries-for-semi-supervised-object-detection.html</link><guid isPermaLink="false">Paper reading notes/Sparse semi-detr_ Sparse learnable queries for semi-supervised object detection.md</guid><pubDate>Mon, 26 Aug 2024 00:47:16 GMT</pubDate></item><item><title><![CDATA[Towards open vocabulary learning A survey]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\towards-open-vocabulary-learning_-a-survey.html</link><guid isPermaLink="false">Paper reading notes/Towards open vocabulary learning_ A survey.md</guid><pubDate>Fri, 23 Aug 2024 14:54:54 GMT</pubDate></item><item><title><![CDATA[Unbiased teacher v2 Semi-supervised object detection for anchor-free and anchor-based detectors]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\unbiased-teacher-v2_-semi-supervised-object-detection-for-anchor-free-and-anchor-based-detectors.html</link><guid isPermaLink="false">Paper reading notes/Unbiased teacher v2_ Semi-supervised object detection for anchor-free and anchor-based detectors.md</guid><pubDate>Mon, 26 Aug 2024 02:51:44 GMT</pubDate></item><item><title><![CDATA[UpCycling Semi-supervised 3D object detection without sharing raw-level unlabeled scenes]]></title><description><![CDATA[ 
+ ]]></description><link>paper-reading-notes\upcycling_-semi-supervised-3d-object-detection-without-sharing-raw-level-unlabeled-scenes.html</link><guid isPermaLink="false">Paper reading notes/UpCycling_ Semi-supervised 3D object detection without sharing raw-level unlabeled scenes.md</guid><pubDate>Mon, 26 Aug 2024 01:25:10 GMT</pubDate></item><item><title><![CDATA[Weight-averaged consistency targets improve semi-supervised deep learning results]]></title><description><![CDATA[ 
+ <br><img alt="Pasted image 20240816161651.png" src="lib\media\pasted-image-20240816161651.png"><br>teacher model参数的更新用到了EMA平均：<br><img alt="Pasted image 20240816161750.png" src="lib\media\pasted-image-20240816161750.png">]]></description><link>paper-reading-notes\weight-averaged-consistency-targets-improve-semi-supervised-deep-learning-results.html</link><guid isPermaLink="false">Paper reading notes/Weight-averaged consistency targets improve semi-supervised deep learning results.md</guid><pubDate>Fri, 16 Aug 2024 08:17:52 GMT</pubDate><enclosure url="lib\media\pasted-image-20240816161651.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20240816161651.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Active&SS3DOD]]></title><description><![CDATA[ 
+ <br>
+<br>预训练
+
+<br>使用有标签数据训练学生
+
+
+<br>半监督学习
+
+<br>输入：有标注+无标注
+
+<br>有标注数据
+<br>无标注数据
+<br>（+主动学习）每次迭代使用主动学习依次扩充有标注数据集
+<br>（+主动学习）不是对整个数据集做主动学习筛选，而是在batch层面，筛选适合学习的未标注数据 --&gt; batch active learning setting?
+
+<br>需要修改指标，是更难的数据还是更容易的数据？（待确定）
+
+
+<br>相对于2D目标检测主动学习指标difficulty，information，diversity，设计更适合3D目标检测的指标
+
+
+<br>半监督框架：mean-teacher
+
+<br>数据增强：可以结合主动学习过程中计算的指标来筛选数据增强的方式吗？
+<br>目标检测器
+
+<br>votenet
+
+<br>输入：point clouds
+<br>pointnet2 -&gt; seed points
+<br>霍夫投票 -&gt; vote points
+<br>fps最远点采样
+<br>proposal
+
+
+
+
+<br>伪标签
+
+<br>结合主动学习的指标，动态调整伪标签的阈值
+
+
+<br>loss
+
+
+
+
+<br>主动学习：从数据集中使用最少的有标注数据来训练达到需要的效果<br>主动学习+2D半监督：<a data-href="Active teacher for semi-supervised object detection" href="paper-reading-notes\active-teacher-for-semi-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Active teacher for semi-supervised object detection</a><br>
+<br>迭代地从未标注数据中挑选加入到有标注数据集中
+<br>使用传统的主动学习/图像目标检测指标：difficulty，information，diversity
+<br>limitations
+
+<br>模型需要迭代地训练K遍，需要k倍的训练时间
+<br>对不同阶段不同difficulty的训练样本使用相同的置信度阈值来筛选伪标签，没有很好结合主动学习的优点
+
+
+<br>3DIoUMatch<br>mAP 0..25<br><br>mAP 0.5<br><br>Exp: ActiveSampler<br>mAP 0..25<br><br>mAP 0.5<br><br><br>如何利用主动学习的思想，将其融入到3D半监督目标检测中？<br>主动学习2D目标检测指标：<a data-href="Active teacher for semi-supervised object detection" href="paper-reading-notes\active-teacher-for-semi-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Active teacher for semi-supervised object detection</a><br>difficulty:<br><br>information:<br><br>diversity:<br><br>目前使用的思路：<br>if epoch % update_interval == 0:
+    for all samples in unlabeled datasets:
+	    model inference
+        compute active scores: (diff, info, dive)
+    max_normalize(active_scores)
+    new_sample_weight &lt;- nonlinear_transform(active_scores)
+<br>nonlinear transform: （使得样本的权重差异不会过于大，指标的分数只使用max归一化作为权重，会导致权重过于分散（0.4~1.0））<br><br><img alt="Pasted image 20240927160434.png" src="lib\media\pasted-image-20240927160434.png"><br>目前的实验效果（测试单独的指标）<br><br><br>分析：active learning的思想在于从数据集中挑选最informative的样本给模型学习。在上面半监督的实验中，通过对unlabeled data计算active learning指标，根据计算得到的指标高低赋予样本采样权重。这种resample的方式，使得在经过伪标签生成之后，模型会更关注informative的样本，从而提高了模型的性能。<br>改进：伪标签筛选过程中，低于cls_threshold和obj_threshold的样本都会被筛出，前后样本的信息量会变化。两种改进方向，一是修改计算的指标，加入阈值的考虑，二是在训练过程中每次生成伪标签后计算指标，动态调整权重。<br>方向一：<br>information:<br><br>修改为：<br><br>缺点是只能用于3DIoUMatch 这类使用固定阈值的方法，不够灵活<br>方向二：<br>for epoch in range(max_epoches)
+	for each batch:
+	    get_pseudo_label
+	    compute active scores for each sample
+	if epoch % update_interval == 0:
+		new_sample_weight &lt;- nonlinear_transform(active_scores)
+<br>需要解决：<br>
+<br>重复出现的样本会有多个active scores：取平均
+<br>有些样本可能并没有出现过，因此没有active scores：取中值？
+<br>优点是较方向一，训练速度更快（模型不需要额外做推理）<br><br>Bonus：<br>发现3DIoUMatch和DiffusionSS3D在训练后半阶段（epoch&gt;500）class分类会出现过拟合现象，表现为evalcls_acc上升，同样的问题在[[Consistent-teacher Towards reducing inconsistent pseudo-targets in semi-supervised object detection]]中也提到过<br>在使用active 指标的实验中，过拟合现象有缓解<br><img alt="W&amp;B Chart 2024_9_27 15_52_46.png" src="lib\media\w&amp;b-chart-2024_9_27-15_52_46.png"><br><img alt="W&amp;B Chart 2024_9_27 15_59_26.png" src="lib\media\w&amp;b-chart-2024_9_27-15_59_26.png"><br><br>Future:<br>
+<br>2D的主动学习指标-&gt;3D的指标，是否需要增加或修改？要分析一下
+<br>difficult的样本，有些正确的box因为confidence低而被去除，是否可以利用active的指标来调整伪标签筛选的阈值？
+<br><br>adaptive threthold<br>both (t4)               46.9286    27.1209<br>
+obj_thre (t6)         46.2200    28.4349<br>
+cls_thre(t5)           47.2853    28.0837          <br>no decay <br>scan 0.05<br>
+baseline  40.0           22.5<br>
+复现        39.7603     23.1997<br>
+复现2      39.5772     22.3310<br>
+obj          40.2493     23.1322<br>
+cls           40.3231     23.1570<br>
+both        39.7643     22.9632<br>sun 0.01<br>
+baseline  21.9           8.0<br>
+fuxian      21.3581     7.8691<br>
+cls           21.6591     7.7251<br>
+obj          17.7722     6.7264<br>reweight_batch<br>scan_0.05     gamma=0.15<br>
+fuxian       39.6383      21.6398<br>
+all             39.1293      22.5985<br>
+obj_cls      40.2029      23.6400<br>sun_0.01     gamma=0.15<br>
+obj_cls     23.2249       9.3678<br>
+22.9201       8.6029<br>resample+adaptive thresh<br>
+cls_thresh_0.1      40.9022    22.9702<br>
+cls_thresh_0.3      39.7219    22.2020<br>adaptive thresh_alone<br>cls_thresh_0.3      38.7497    22.4689<br>
+384206   227936<br>gamma=0.5<br>
+obj_cls      38.6804     21.3836<br>scan_20<br>
+3dioumatch     52.8            35.2<br>
+obj_cls_0.5       54.3256      35.6095<br><br><br><br><br><a data-href="active_reweight.xlsx" href="results\active_reweight.xlsx" class="internal-link" target="_self" rel="noopener nofollow">active_reweight.xlsx</a>]]></description><link>projects\active&amp;ss3dod.html</link><guid isPermaLink="false">Projects/Active&amp;SS3DOD.md</guid><pubDate>Fri, 22 Nov 2024 08:48:44 GMT</pubDate><enclosure url="lib\media\pasted-image-20240927160434.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20240927160434.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Instance-Level Strong Augmentation]]></title><description><![CDATA[ 
+ <br>Mix-Teaching: 半监督单目3d目标检测<br>crop-and-paste augmentation<br>teacher model<br>
+<br>first predict pseudo-labels for unlabeled data by self-training
+<br>then split into image patches collection with high-quality pseudo labels and the collection of background images containing no objects
+<br>train student model on<br>
+<br>empty backgrounds + instance image patches
+<br>human labeled images + instance image patches
+<br>使用 2D bounding box collision test 移除 invalid pastes<br><img alt="Pasted image 20241014151311.png" src="lib\media\pasted-image-20241014151311.png"><br>instance image patch 在图片中的相对位置没有改变<br><br>CorrelaBoost: 3d目标检测<br>mixing approach,  correlation energy field<br>首先计算每类之间的correlation energy field，然后将instance crop and paste到合适的位置上（low energy）<br>引入了类间实例相对位置关系先验<br>
+<br>Category Consistent Exchanging：交换相同类别，并且大小、朝向相似的两个实例
+<br>Energy Optimized Transformation：将一个实例移动到另一个可能合适的位置上
+<br><br><br><br><br>目前的3D半监督目标检测方法（SESS. 2020; 3DIoUMatch, 2021; DiffusionSS3D, 2023等），使用scene-level的数据增强方式，包括 scaling，rotation，flipping和jittering来防止模型过拟合。<br>在3D目标检测任务中，一些方法（Yan et al. 2018; Sun et al. 2022）提出利用instance-level的mixing数据增强方式，以进一步提高模型的性能，并且取得了可观的提升。具体来说，这类方法从training dataset中收集目标实例，创建了一个instance database，在训练过程中，从training database中选择ground truth instance，添加到当前训练的点云中。<br>但是在半监督任务中，student模型使用经过强数据增强的labeled数据和unlabelled数据，在labeled数据上的instance-level的数据增强方法无法直接用于unlabelled数据上，因为unlabelled数据中不存在ground truth instance，且伪标签的bbox有时并不可靠；另外，半监督任务下，mixing可以不局限于单独在labeled或unlabelled数据中，也可以应用在二者间。<br>本工作旨在研究instance-level data augmentation在3D半监督目标检测任务中的应用，提出适用于该任务下的可靠有效方法。<br><br><br>根据database实例的来源和增强的数据集，mixing可能的增强方式可以分为：<br>
+<br>ground truth instance --&gt; labeled scene
+<br>ground truth instance --&gt; unlabeled scene
+<br>pseudo instance --&gt; labeled scene
+<br>pseudo instance --&gt; unlabeled scene
+<br>其中，第一种方法与全监督情景完全相同，但在半监督任务中效果有限。因为标注样本稀少（sun-rgbd 5%数据下，ground truth instance数量只有200左右），只在标注数据中做mix数据增强有效的mix数量很少。<br><br>与第一种方式相似，只是增强的目标数据为unlabeled scene<br>简要步骤：<br>
+<br>遍历有标注数据集，根据标签创建ground truth dataset
+<br>在训练时，每次dataset读取数据时，概率p进行mix增强输入给student模型，teacher使用未增强的数据生成伪标签
+<br>
+mix增强后的数据是否需要输入给teacher？
+<br>
+粘贴位置的选择，避免重合、碰撞 ——&gt; 设计 collision test
+<br>
+不仅需要避免碰撞，还需要避免与其他物体距离过远
+<br><br>与ground truth instance 不同，使用pseudo instance会有问题。当模型一开始学习效果不好时，可能会出现cls、object置信度都很高，但是边界框范围不准，使用不准的box会产生不完整的目标物体。<br>
+使用多个proposal的box范围取并集，避免产生不完整目标
+<br>由于labeled scene中包含ground truth的bbox，相比unlabeled scene，有两种可能的mix方式：<br>
+<br>添加到场景中一个新的位置中（与 unlabeled scene方式相同）
+<br>替换场景中的一个相同class的物体
+<br>替换的两个物体的size不相同，直接替换会与相邻物体产生碰撞。（Sun et al. 2022）中通过计算（l，w，h）的余弦相似度来选择形状相近的物体。（试一下，如果伪标签数量过少可能没有匹配的形状）。<br>另一种可能的方式是使用resize来fit，<br><img alt="Pasted image 20241021191415.png" src="lib\media\pasted-image-20241021191415.png"><br><br>将pseudo instance放回到未标注场景中，mix的方式同 ground truth instance —&gt; unlabeled scene; pseudo instance box的范围同pseudo instance —&gt; labeled scene<br><br><br><a data-href="SECOND_ Sparsely embedded convolutional detection" href="paper-reading-notes\second_-sparsely-embedded-convolutional-detection.html" class="internal-link" target="_self" rel="noopener nofollow">SECOND_ Sparsely embedded convolutional detection</a><br><a data-href="Correlation field for boosting 3D object detection in structured scenes" href="paper-reading-notes\correlation-field-for-boosting-3d-object-detection-in-structured-scenes.html" class="internal-link" target="_self" rel="noopener nofollow">Correlation field for boosting 3D object detection in structured scenes</a><br><br><br><br>center坐标对齐修正<br><br>在 augment_helper_10_31_1.py 基础上<br>
+密度、点云数量筛选模块：line 720-722<br><br>不保持mix instance 前后总数量不变，而是gt A% + pseudo (1-A)% &gt;=N ，然后在整个场景的点云重采样到40000，不带密度筛选模块<br><br>在 augment_helper_11_01_3.py 基础上，从 每个样本中随机选择一个伪标签mixup 改为 增加每个样本伪标签mixup数量的比例，设定为0.5：line 745<br><br>A：mixup instance 点数约束（gt A% + pseudo (1-A)% &gt;=N ）<br>
+B：pseudo instance 密度、点云点数筛选模块<br>
+C：每个场景多个 mixup pseudo instance / 单个<br><br><br><br>3DIoUMatch<br>sunrgbd<br>
+<br>1%: 1d
+<br>5%: 2d
+<br>10%: 3d
+<br>20%: 6d
+<br>scannet<br>
+<br>5%: 6h
+<br>10%: 12h
+<br>20%: 1d
+<br>单次实验总时间：7.75d<br>mixup策略消融实验总时间：6  (scan5%) + 6  (sun 1%) = 7.5d<br>mixup_ratio 比例调优(0.3, 0.5, 0.7, 1.0)：3  (scan5%)  + 3  (sun1%)= 3.75d <br><br>单卡总时间：17.5d<br><br><br>ground truth instance —&gt; unlabeled scene,，随机位置，只有student使用mix后样本<br>
+<br>4090 GPU1
+<br>LOG_DIR="results/train/exp_mix_random/scan_0.1"
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2 v4
+<br>results | map 0.25 | map 0.50<br>
+v1 | 49.0086 | 27.7310<br>
+v2 | 47.2400 | 29.0669<br>
+v4 | 50.6233 | 30.5021<br><br>ground truth instance —&gt; unlabeled scene,，随机位置，只有student使用mix后样本<br>
+<br>4090 GPU0
+<br>LOG_DIR="results/train/exp_mix_random/sun_0.05"
+<br>DATASET=sunrgbd_0.05
+<br>VERSION=v4 v7 v8
+<br>results | map 0.25 | map 0.50<br>
+v4 | 42.1826 | 24.5071<br>
+v7 | 42.5572 | 23.2031<br>
+v8 | <br><br>scannet 10% 训练时间异常，不使用数据增强策略，对比时长。<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/debug_time/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1
+<br>每epoch耗时25s<br><br>ground truth instance —&gt; unlabeled scene,，附近空位置，只有student使用mix后样本<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mix_empty/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2 v4
+<br>results | map 0.25 | map 0.50<br>
+v1 | 48.2659 | 28.0515<br>
+v2 | 47.4078 | 28.9533<br>
+v4 | 48.5970 | 28.9941<br><br>ground truth instance —&gt; unlabeled scene，附近空位置，只有student使用mix后样本<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/exp_mix_empty/sun_0.05
+<br>DATASET=sunrgbd_0.05
+<br>VERSION=v4 v7 v8
+<br>results | map 0.25 | map 0.50<br>
+v4 | 42.0110 | 25.2361<br>
+v7 | 41.2513 | 24.0500<br>
+v8 | 41.3347 | 21.0572<br><br>前面的效果不太好，验证不同卡的效果<br>
+ground truth instance —&gt; unlabeled scene,，附近空位置，只有student使用mix后样本<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/train/exp_mix_empty/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2 v4
+<br>results | map 0.25 | map 0.50<br>
+v1 | 48.2249 | 28.7654<br>
+v2 | 46.9337 | 28.1312<br>
+v4 | 49.6711 | 29.4796<br><br>pseudo instance —&gt; labeled scene, add empty<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mix_pseudo_empty/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2 v4
+<br>results | map 0.25 | map 0.50<br>
+v1 | 48.6067 | 28.5803<br>
+v2 | 46.4287 | 27.9852<br>
+v4 | 48.6594 | 27.1702<br><br>选择空位置效果反而不好，难道是有太多样本中找不到合适的位置？<br>ground truth instance —&gt; unlabeled scene,，附近空位置，如果找不到空位置，使用随机位置，只有student使用mix后样本<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/train/exp_mix_empty/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2 v4
+<br>v2 | 46.9337 | 28.1312<br>
+v4 | 49.6711 | 29.4796<br><br>mixup 策略1<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup_1/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>v1 | 48.7984 | 28.3462<br>
+v2 | 46.3598 | 28.1137<br>
+v4 | 48.2726 | 28.6435<br><br>mixup 策略2<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/exp_mixup_2/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2
+<br>SCRIPT=exp_mixup_2_scan_1.sh
+<br>v1 | 48.1797 | 29.0132<br>
+v2 | 48.4467 | 28.9935<br><br>mixup 策略3<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/train/exp_mixup_3/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2
+<br>SCRIPT=exp_mixup_3_scan_1.sh
+<br>v1 | 49.3566 | 27.8274<br>
+v2 | 46.0526 | 28.2909<br><br>昨天的代码有错误，混合点云的时候没有对齐center坐标；加入密度、点云数量进一步筛选需要mixup的伪标签<br>mixup 策略1<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup_1_2/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>v1 | 48.2789 | 29.9236<br>
+v2 | 46.0034 | 28.9876<br><br>mixup 策略2<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/exp_mixup_2_2/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v1 v2
+<br>SCRIPT=exp_mixup_2_scan_1.sh
+<br>v1 | 48.0871 | 28.4064<br>
+v2 | 47.6146 | 28.3722<br><br>mixup 策略3<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/train/exp_mixup_3_2/scan_0.1
+<br>DATASET=scannet_0.1
+<br>VERSION=v2 v4
+<br>SCRIPT=exp_mixup_3_scan_1.sh
+<br>v1 | 46.6500 | 27.3655<br>
+v4 | 47.5137 | 28.2747<br><br>修改了mix前后点云数量，不保持总数量不变，而是gt A% + pseudo (1-A)% &gt;=N ，然后在整个场景的点云重采样到40000，不带昨天的密度筛选模块<br>策略文件：augment_helper_11_01_3.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/d767puqv" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/d767puqv" target="_blank">wandb</a><br>mixup 策略1<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup_1_3/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>v4 |  40.0947 | 22.5539<br><br>策略文件：augment_helper_11_01_4.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/ynct7qb6" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/ynct7qb6" target="_blank">wandb</a><br>超参数：<br>
+<br>伪标签mixup比例=0.5
+<br>mixup 策略1<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/train/exp_mixup_1_4/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_1_scan_1.sh
+<br>v4 | 42.5278 | 23.6537<br><br>策略文件：augment_helper_11_01_3.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/l4rvay5x" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/l4rvay5x" target="_blank">wandb</a><br>mixup 策略2<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup_2_3/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>v4 | 40.2911 | 22.7576<br>
+v6 | 39.6959 | 22.9028<br><br>策略文件：augment_helper_11_01_4.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/6b4z9z07" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/6b4z9z07" target="_blank">wandb</a><br>超参数：<br>
+<br>伪标签mixup比例=0.5
+<br>mixup 策略2<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/exp_mixup_2_4/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_2_scan_1.sh
+<br>v4 |  41.6675 | 23.8388<br><br>策略文件：augment_helper_11_01_4.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/hb7vsdkx" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/hb7vsdkx" target="_blank">wandb</a><br>超参数：<br>
+<br>伪标签mixup比例=0.5
+<br>mixup 策略3<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/exp_mixup_3_4/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_3_scan_1.sh
+<br>v4 |  42.2338 | 23.6369<br><br>策略文件：augment_helper_11_01_3.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/n50e0lvf" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/n50e0lvf" target="_blank">wandb</a><br>mixup 策略3<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/train/exp_mixup_3_3/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_3_scan_1.sh
+<br>v4 | 40.1940 | 23.8254<br><br>对照试验<br>策略文件：augment_helper_10_31_1.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/nmvutlp5" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/nmvutlp5" target="_blank">wandb</a><br>mixup 策略1<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup1_10_31_1/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>v4 |  37.6985 | 22.8207<br><br>策略文件：augment_helper_11_02_1.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/m35ailcc" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/m35ailcc" target="_blank">wandb</a><br>mixup 策略1<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/exp_mixup1_11_02_1/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_1_scan_1.sh
+<br>v4 |  41.5972 | 23.4578<br><br>策略文件：augment_helper_11_02_1.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/vf5wznux" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/vf5wznux" target="_blank">wandb</a><br>mixup 策略2<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/train/exp_mixup2_11_02_1/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_2_scan_1.sh
+<br>v4 |  39.7267 | 22.9489<br><br>策略文件：augment_helper_11_02_1.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/ltthhqd6" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/ltthhqd6" target="_blank">wandb</a><br>mixup 策略3<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup3_11_02_1/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_3_scan_1.sh
+<br>v4 |  40.0779 | 23.7552<br><br>策略文件：augment_helper_11_01_4.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/5fkg2s3i" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/5fkg2s3i" target="_blank">wandb</a><br>超参数：<br>
+<br>伪标签mixup比例=0.5
+<br>mixup 策略1|2|3<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup123_11_01_4/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>v4 | 42.9969 | 24.0625<br><br>策略文件：augment_helper_11_01_4.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/nwv8phjx" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/nwv8phjx" target="_blank">wandb</a><br>超参数：<br>
+<br>伪标签mixup比例=0.5
+<br>mixup 策略1&amp;2&amp;3<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/exp_mixup1-2-3_11_01_4/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_1-2-3_scan_1.sh
+<br>v4 | 41.5698 | 22.8128<br><br>策略文件：augment_helper_11_01_4.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/heb8nd92" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/heb8nd92" target="_blank">wandb</a><br>超参数：<br>
+<br>伪标签mixup比例=0.5
+<br>mixup 策略1|2|3<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/train/exp_mixup123_11_01_4/sun_0.05
+<br>DATASET=sunrgbd_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_123_sun.sh
+<br>v4 | 42.3491 | 25.9211<br>待登记<br><br>消融实验 mixup 1&amp;2<br>策略文件：augment_helper_11_01_4.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/i1e0effp" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/i1e0effp" target="_blank">wandb</a><br>超参数：<br>
+<br>伪标签mixup比例=0.5
+<br>mixup 策略1|2|3<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup12_11_01_4/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>v4 | 41.5024 | 24.1251<br><br>消融实验 mixup 1&amp;3<br>策略文件：augment_helper_11_01_4.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/vs8iykuu" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/vs8iykuu" target="_blank">wandb</a><br>超参数：<br>
+<br>伪标签mixup比例=0.5
+<br>mixup 策略1|3<br>
+<br>4060T GPU0
+<br>LOG_DIR=results/train/exp_mixup13_11_01_4/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>v4 | 40.6122 | 23.4175<br>
+v6 | 41.9697 | 22.2207<br><br>消融实验 mixup 2&amp;3<br>策略文件：augment_helper_11_01_4.py<br>
+可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/zb9h7aka" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Active_Sampler_train/runs/zb9h7aka" target="_blank">wandb</a><br>超参数：<br>
+<br>伪标签mixup比例=0.5
+<br>mixup 策略2|3<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/exp_mixup23_11_01_4/scan_0.05
+<br>DATASET=scannet_0.05
+<br>VERSION=v4
+<br>SCRIPT=exp_mixup_123_scan_1.sh
+<br>v4 | 41.5220 | 23.3983<br>
+v6 | 40.6888 | 24.3937<br><br>mixup_ratio参数灵敏度分析<br>策略文件：augment_helper_11_01_4.py<br>超参数：<br>
+<br>伪标签mixup比例=1.0, 0.7, 0.3
+<br>mixup 策略1|2|3<br>
+<br>
+4060T GPU0
+
+<br>
+LOG_DIR=results/train/ablation_mixup123/mixup_ratio/
+
+<br>
+DATASET=scannet_0.05
+
+<br>
+VERSION=v4
+
+<br>
+SCRIPT=ablation_mixup_123_mixup_ratio_scan.sh
+1.0 | 41.2398 | 22.6567<br>
+0.7 | 42.4988 | 23.4858<br>
+0.3 | 40.4732 | 22.6708
+
+<br><br>Diffusion-SS3D sunrgbd 预训练复现<br>可视化：<a data-tooltip-position="top" aria-label="https://wandb.ai/3265168281-south-china-university-of-technology/Diffusion-SS3D_pretrain_0.01/runs/tw7jejbu" rel="noopener nofollow" class="external-link" href="https://wandb.ai/3265168281-south-china-university-of-technology/Diffusion-SS3D_pretrain_0.01/runs/tw7jejbu" target="_blank">wandb</a><br>
+<br>4090 GPU0
+<br>LOG_DIR=results/pretrain/sun_0.01/v4/
+<br>DATASET=sunrgbd_0.01
+<br>VERSION=v4
+<br>SCRIPT=pretrain_sun.sh
+<br>v4 | <br><br>mixup_ratio参数灵敏度分析<br>策略文件：augment_helper_11_01_4.py<br>超参数：<br>
+<br>伪标签mixup比例=1.0, 0.5, 0.7, 0.3
+<br>mixup 策略1|2|3<br>
+<br>
+4060T GPU0
+
+<br>
+LOG_DIR=results/train/ablation_mixup123/mixup_ratio/
+
+<br>
+DATASET=sunrgbd_0.01
+
+<br>
+VERSION=v7
+
+<br>
+SCRIPT=ablation_mixup_123_mixup_ratio_sun.sh
+1.0 | 23.5746 | 9.1484<br>
+0.7 | 21.1248 | 7.9669<br>
+0.5 | 22.9031 | 8.7449<br>
+0.3 | 22.8716 | 8.1766
+
+<br><br>Diffusion-SS3D scannet 0.1 0.2 预训练<br>
+<br>4090 GPU1
+<br>LOG_DIR=results/pretrain/
+<br>DATASET=scannet
+<br>SCRIPT=pretrain_scan_0.1_0.2.sh
+<br>scannet_0.1_v1 |<br>
+scannet_0.2_v2 | <br><br>ISA-Diffusion-SS3D on scan 0.05<br>
+<br>4090 GPU0
+<br>LOG_DIR=results/train/scan_0.1
+<br>DATASET=scannet
+<br>SCRIPT=train_scan.sh
+<br><br>mixup_ratio参数灵敏度分析<br>策略文件：augment_helper_11_01_4.py<br>超参数：<br>
+<br>伪标签mixup比例=0.5, 0.7, 1.0
+<br>mixup 策略1|2|3<br>
+<br>
+4060T GPU0
+
+<br>
+LOG_DIR=results/train/ablation_mixup123/mixup_ratio/
+
+<br>
+DATASET=sunrgbd_0.01
+
+<br>
+VERSION=v10
+
+<br>
+SCRIPT=ablation_mixup_123_mixup_ratio_sun.sh
+1.0 | 26.1401 | 10.9358<br>
+0.7 | 27.3297 | 12.0621<br>
+0.5 | 27.5041 | 11.4116
+
+<br><br>]]></description><link>projects\instance-level-strong-augmentation.html</link><guid isPermaLink="false">Projects/Instance-Level Strong Augmentation.md</guid><pubDate>Fri, 22 Nov 2024 07:25:59 GMT</pubDate><enclosure url="lib\media\pasted-image-20241014151311.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;lib\media\pasted-image-20241014151311.png&quot;&gt;&lt;/figure&gt;</content:encoded></item><item><title><![CDATA[Time-Efficient SSL]]></title><description><![CDATA[ 
+ <br><br><br><br>在半监督学习过程中，模型第一步在部分标注的样本上进行有监督的预训练，第二步同时在有标注和无标注样本上训练。<br>在3D半监督目标检测训练中，发现3DIoUMatch和Diffusion-SS3D在各种比例划分下，在第二步半监督训练开始（前200epoch），都会出现过拟合现象。表现为train loss都下降，而eval loss上升，mAP降低。<br>
+<br>这种现象在半监督训练任务中是普遍存在的吗？和室内室外的数据集有关系吗？需要比较2D和3D分类，检测和分割任务的训练过程。
+<br>使用预训练的模式真的高效吗？需要找到哪几篇文章首先使用预训练的方法的，为什么使用预训练。
+<br>能否提出一种方法，让模型性能能够随着训练epoch稳定提升，使得用更少的训练时间，达到相同甚至更好的效果？借鉴模型微调的思路。 
+<br><br>列出相关的参考文献及其主要观点。<br><br><br>实现思路<br><br><br><br><br><br><br><br><br><br><br><br><br>]]></description><link>projects\time-efficient-ssl.html</link><guid isPermaLink="false">Projects/Time-Efficient SSL.md</guid><pubDate>Fri, 22 Nov 2024 12:49:11 GMT</pubDate></item><item><title><![CDATA[工作计划（2024年11月-2025年3月）]]></title><description><![CDATA[ 
+ <br><br><br><br>项目背景：在上一个工作中积累了大量的代码片段（如推理结果可视化等），分散的代码降低了后续研究的效率。 <br>目标：整理已有代码，提取可能重复使用的功能模块，封装成一个易用的Python包。 <br>工作计划： <br>
+<br>梳理研究中重复使用的代码（如推理结果可视化、数据预处理等）。
+<br>设计并实现统一的接口，封装为功能模块。 
+<br>算力需求： <br>
+<br>涉及可视化和推理，需要1张4090 GPU，约2周。
+<br><br>项目背景：在3D目标检测任务中，发现同一场景的不同扫描结果 模型推理表现存在较大差异，即便有一致性约束，仍无法显著改善鲁棒性。 <br>研究目标：分析场景扫描差异对推理结果的影响，尝试通过实例对齐或鲁棒性训练策略改进模型表现。  <br>工作计划：<br>
+<br>对不同的数据集（ScanNet、SUN RGB-D）使用同一个模型对同一场景下不同采样的数据进行推理，对比推理结果的差异。
+<br>验证现有方法是否都有这个问题。
+<br>算力需求：<br>
+<br>1张4090 GPU，约2周。
+<br><br><br>项目背景：在半监督训练初期，3DIoUMatch和Diffusion-SS3D模型均表现出过拟合现象，表现为train loss下降而eval loss上升。  <br>研究目标：分析这种现象在不同任务和数据集上的普遍性，并验证是否与预训练策略有关。  <br>工作计划：<br>
+<br>收集2D和3D分类、检测、分割任务的相关实验数据。
+<br>分析过拟合现象是否与任务类型和数据集有关。
+<br>复现相关论文，确认预训练策略的有效性。
+<br>初步尝试通过动态学习率、损失调整等方法缓解过拟合。
+<br>算力需求：<br>
+<br>数据分析及实验复现：2张4090 GPU，约1个月。
+<br><br><br><br>项目背景：现有半监督学习方法在性能提升和训练时间效率之间难以平衡，需设计新方法提升性能的同时减少训练时间。  <br>研究目标：借鉴微调策略，提出一种稳定提升模型性能的方法，实现更高效的半监督学习。  <br>工作计划：<br>
+<br>调研微调策略在半监督学习中的潜在应用场景。
+<br>设计结合微调思路的高效半监督学习方法。
+<br>系统实验验证新方法的有效性，确保在训练时间和性能上均优于现有方法。
+<br>撰写最终论文。
+<br>算力需求：<br>
+<br>模型训练及性能验证：4张4090 GPU，约2个月。
+<br><br><br>
+<br>时间段一：数据预处理与模型训练共计2张4090 GPU，预计2个月。
+<br>时间段二：方法设计与验证共计4张4090 GPU，预计2个月。
+]]></description><link>reports\工作计划（2024年11月-2025年3月）.html</link><guid isPermaLink="false">Reports/工作计划（2024年11月-2025年3月）.md</guid><pubDate>Fri, 22 Nov 2024 13:16:55 GMT</pubDate></item><item><title><![CDATA[Active Learning]]></title><description><![CDATA[ 
+ <br>一般只讨论 pool-based AL<br>batch mode AL<br>
+stream-based AL<br><br>
+<br>迭代地选择最informative的data
+<br>acquisition function 
+<br>Querying Strategy
+
+<br>Uncertainty-based：选择high aleatoric uncertainty or epistemic uncertainty 的data
+
+<br>最大熵（Entropy）
+<br>Margin
+<br>Least Confidence（LeastConf）
+<br>Bayesian Active Learning by Disagreements (BALD)
+<br>Mean Standard Deviation (MeanSTD)
+<br>利用gradient：Batch Active learning by Diverse Gradient Embeddings (BADGE)等
+
+
+<br>Representative/Diversity-based
+
+<br>Clustering methods
+<br>selects a batch of representative points based on a core set
+
+
+<br>Hybrid/combined（balance uncertainty &amp; diversity）
+
+<br>Weighted-sum optimization
+<br>Two-stage (multi-stage) optimization
+
+
+
+
+<br>Enhancing of DAL Methods
+
+<br>Data aspect
+<br>Model aspect
+
+
+<br>Ref<br>
+<br>Batch Active learning by Diverse Gradient Embeddings (BADGE)
+<br>Discriminative AL (DiscAL)：two different distributions (unlabeled/labeled)
+<br><br>
+<br><a data-href="Plug and play active learning for object detection" href="paper-reading-notes\plug-and-play-active-learning-for-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Plug and play active learning for object detection</a>
+<br>Active learning for deep object detection via probabilistic modeling. In ICCV, 2021
+<br>Not all labels are equal: Rationalizing the labeling costs for training object detection. In CVPR, 2022
+<br>Multiple instance active learning for object detection. In CVPR, 2021
+<br>Entropy-based active learning for object detection with progressive diversity constraint. In CVPR, 2022
+<br><br><br><br><a data-tooltip-position="top" aria-label="https://github.com/baifanxxx/awesome-active-learning" rel="noopener nofollow" class="external-link" href="https://github.com/baifanxxx/awesome-active-learning" target="_blank">baifanxxx/awesome-active-learning: A curated list of awesome Active Learning (github.com)</a>]]></description><link>research-notes\active-learning.html</link><guid isPermaLink="false">Research Notes/Active Learning.md</guid><pubDate>Tue, 10 Sep 2024 09:17:33 GMT</pubDate></item><item><title><![CDATA[Class-Incremental Object Detection]]></title><description><![CDATA[ 
+ <br><br>主要解决问题<br>
+<br>catastrophic forgetting 灾难性遗忘
+<br>方法流派<br>
+<br>knowledge distillation（知识蒸馏）
+<br>replay
+
+<br>partial experience replay
+<br>deep generative replay
+
+
+<br><br><br><br>Papers about incremental learning: <a data-tooltip-position="top" aria-label="https://github.com/xialeiliu/Awesome-Incremental-Learning" rel="noopener nofollow" class="external-link" href="https://github.com/xialeiliu/Awesome-Incremental-Learning" target="_blank">xialeiliu/Awesome-Incremental-Learning: Awesome Incremental Learning (github.com)</a>]]></description><link>research-notes\class-incremental-object-detection.html</link><guid isPermaLink="false">Research Notes/Class-Incremental Object Detection.md</guid><pubDate>Fri, 23 Aug 2024 14:58:06 GMT</pubDate></item><item><title><![CDATA[Open Vocabulary Learning]]></title><description><![CDATA[ 
+ <br><br><a data-href="Towards open vocabulary learning_ A survey" href="paper-reading-notes\towards-open-vocabulary-learning_-a-survey.html" class="internal-link" target="_self" rel="noopener nofollow">Towards open vocabulary learning_ A survey</a><br><br><br><br><br><a data-tooltip-position="top" aria-label="https://github.com/jianzongwu/Awesome-Open-Vocabulary" rel="noopener nofollow" class="external-link" href="https://github.com/jianzongwu/Awesome-Open-Vocabulary" target="_blank">jianzongwu/Awesome-Open-Vocabulary: (TPAMI 2024) A Survey on Open Vocabulary Learning (github.com)</a>]]></description><link>research-notes\open-vocabulary-learning.html</link><guid isPermaLink="false">Research Notes/Open Vocabulary Learning.md</guid><pubDate>Fri, 23 Aug 2024 15:00:15 GMT</pubDate></item><item><title><![CDATA[Semi-supervised 3D Object Detection]]></title><description><![CDATA[ 
+ <br><br>
+<br>consistency regularization
+<br>pseudo-labeling
+<br>teacher-student framework: <a data-href="FixMatch_ Simplifying semi-supervised learning with consistency and confidence" href="paper-reading-notes\fixmatch_-simplifying-semi-supervised-learning-with-consistency-and-confidence.html" class="internal-link" target="_self" rel="noopener nofollow">FixMatch_ Simplifying semi-supervised learning with consistency and confidence</a> | <a data-href="Weight-averaged consistency targets improve semi-supervised deep learning results" href="paper-reading-notes\weight-averaged-consistency-targets-improve-semi-supervised-deep-learning-results.html" class="internal-link" target="_self" rel="noopener nofollow">Weight-averaged consistency targets improve semi-supervised deep learning results</a><br><br>SSL(Semi-supervised Learning)<br><br>
+<br>consistency regularization 一致性正则化 : <a data-href="Proposal learning for semi-supervised object detection" href="paper-reading-notes\proposal-learning-for-semi-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Proposal learning for semi-supervised object detection</a>
+<br>teacher-student learning framework: <a data-href="End-to-end semi-supervised object detection with soft teacher" href="paper-reading-notes\end-to-end-semi-supervised-object-detection-with-soft-teacher.html" class="internal-link" target="_self" rel="noopener nofollow">End-to-end semi-supervised object detection with soft teacher</a>
+<br><br><br>papers: <br>
+<br><a data-href="SESS_ Self-ensembling semi-supervised 3D object detection" href="paper-reading-notes\sess_-self-ensembling-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">SESS_ Self-ensembling semi-supervised 3D object detection</a> 
+<br><a data-href="3DIoUMatch_ Leveraging IoU prediction for semi-supervised 3D object detection" href="paper-reading-notes\3dioumatch_-leveraging-iou-prediction-for-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">3DIoUMatch_ Leveraging IoU prediction for semi-supervised 3D object detection</a> 
+<br><a data-href="Learning object-level point augmentor for semi-supervised 3D object detection" href="paper-reading-notes\learning-object-level-point-augmentor-for-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Learning object-level point augmentor for semi-supervised 3D object detection</a> 
+<br><a data-href="DetMatch_ Two teachers are better than one for joint 2D and 3D semi-supervised object detection" href="paper-reading-notes\detmatch_-two-teachers-are-better-than-one-for-joint-2d-and-3d-semi-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">DetMatch_ Two teachers are better than one for joint 2D and 3D semi-supervised object detection</a> 
+<br><a data-href="Diffusion-ss3d_ Diffusion model for semi-supervised 3D object detection" href="paper-reading-notes\diffusion-ss3d_-diffusion-model-for-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Diffusion-ss3d_ Diffusion model for semi-supervised 3D object detection</a>
+<br><br><br><br><br><br>
+<br>
+<a data-href="Active teacher for semi-supervised object detection" href="paper-reading-notes\active-teacher-for-semi-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Active teacher for semi-supervised object detection</a>  CVPR 2022
+
+<br>
+<a data-href="ALWOD_ Active learning for weakly-supervised object detection" href="paper-reading-notes\alwod_-active-learning-for-weakly-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">ALWOD_ Active learning for weakly-supervised object detection</a>  ICCV 2023
+
+<br>
+<a data-href="Active learning for deep object detection via probabilistic modeling" href="paper-reading-notes\active-learning-for-deep-object-detection-via-probabilistic-modeling.html" class="internal-link" target="_self" rel="noopener nofollow">Active learning for deep object detection via probabilistic modeling</a> ICCV 2021
+
+<br>
+<a data-href="Not all labels are equal_ Rationalizing the labeling costs for training object detection" href="paper-reading-notes\not-all-labels-are-equal_-rationalizing-the-labeling-costs-for-training-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Not all labels are equal_ Rationalizing the labeling costs for training object detection</a> CVPR 2022
+
+<br>
+<a data-href="BAOD_ Budget-aware object detection" href="paper-reading-notes\baod_-budget-aware-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">BAOD_ Budget-aware object detection</a> CVPR 2021
+
+<br>
+<a data-href="Active learning strategies for weakly-supervised object detection" href="paper-reading-notes\active-learning-strategies-for-weakly-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Active learning strategies for weakly-supervised object detection</a> ECCV 2022
+
+<br>
+<a data-href="Box-level active detection" href="paper-reading-notes\box-level-active-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Box-level active detection</a> CVPR 2023
+
+<br>
+<a data-href="Monocular 3D object detection with LiDAR guided semi supervised active learning" href="paper-reading-notes\monocular-3d-object-detection-with-lidar-guided-semi-supervised-active-learning.html" class="internal-link" target="_self" rel="noopener nofollow">Monocular 3D object detection with LiDAR guided semi supervised active learning</a> WACV 2024
+
+<br>
+<a data-href="Joint semi-supervised and active learning via 3D consistency for 3D object detection" href="paper-reading-notes\joint-semi-supervised-and-active-learning-via-3d-consistency-for-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Joint semi-supervised and active learning via 3D consistency for 3D object detection</a> ICRA 2023
+
+<br><br>
+<br><a data-href="Deep active learning for efficient training of a LiDAR 3D object detector" href="paper-reading-notes\deep-active-learning-for-efficient-training-of-a-lidar-3d-object-detector.html" class="internal-link" target="_self" rel="noopener nofollow">Deep active learning for efficient training of a LiDAR 3D object detector</a> IV 2019 (IEEE Intelligent Vehicles Symposium)
+<br><a data-href="Advanced active learning strategies for object detection" href="paper-reading-notes\advanced-active-learning-strategies-for-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Advanced active learning strategies for object detection</a> IV 2020
+]]></description><link>research-notes\semi-supervised-3d-object-detection.html</link><guid isPermaLink="false">Research Notes/Semi-supervised 3D Object Detection.md</guid><pubDate>Thu, 26 Sep 2024 09:25:36 GMT</pubDate></item><item><title><![CDATA[SSL Theory]]></title><description><![CDATA[ 
+ <br><a data-href="Combining labeled and unlabeled data with co-training" href="paper-reading-notes\combining-labeled-and-unlabeled-data-with-co-training.html" class="internal-link" target="_self" rel="noopener nofollow">Combining labeled and unlabeled data with co-training</a> proposed a co-training strategy that trains two models simultaneously using two randomly selected labeled data. then enlarge labeled dataset from unlabeled dataset with positive and negative samples each iteration.<br><a data-href="Learning from labeled and unlabeled data with label propagation" href="paper-reading-notes\learning-from-labeled-and-unlabeled-data-with-label-propagation.html" class="internal-link" target="_self" rel="noopener nofollow">Learning from labeled and unlabeled data with label propagation</a>  proposed a label propagation iterative algorithm to propagate labels through the dataset along high density areas defined by unlabeled data.<br><a data-href="Semi-supervised learning using gaussian fields and harmonic functions" href="paper-reading-notes\semi-supervised-learning-using-gaussian-fields-and-harmonic-functions.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised learning using gaussian fields and harmonic functions</a> <br><a data-href="Semi-supervised learning by entropy minimization" href="paper-reading-notes\semi-supervised-learning-by-entropy-minimization.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised learning by entropy minimization</a><br><a data-href="A co-regularization approach to semi-supervised learning with multiple views" href="paper-reading-notes\a-co-regularization-approach-to-semi-supervised-learning-with-multiple-views.html" class="internal-link" target="_self" rel="noopener nofollow">A co-regularization approach to semi-supervised learning with multiple views</a><br><a data-href="Generalization error bounds in semi-supervised classiﬁcation under the cluster assumption" href="paper-reading-notes\generalization-error-bounds-in-semi-supervised-classiﬁcation-under-the-cluster-assumption.html" class="internal-link" target="_self" rel="noopener nofollow">Generalization error bounds in semi-supervised classiﬁcation under the cluster assumption</a><br><a data-href="Does unlabeled data provably help_ Worst-case analysis of the sample complexity of semi-supervised learning" href="paper-reading-notes\does-unlabeled-data-provably-help_-worst-case-analysis-of-the-sample-complexity-of-semi-supervised-learning.html" class="internal-link" target="_self" rel="noopener nofollow">Does unlabeled data provably help_ Worst-case analysis of the sample complexity of semi-supervised learning</a><br><a data-href="Semi-supervised learning by sparse representation" href="paper-reading-notes\semi-supervised-learning-by-sparse-representation.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised learning by sparse representation</a><br><a data-href="Semi-supervised learning via generalized maximum entropy" href="paper-reading-notes\semi-supervised-learning-via-generalized-maximum-entropy.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised learning via generalized maximum entropy</a><br><a data-href="Semi-supervised dimension reduction for multi-label classification" href="paper-reading-notes\semi-supervised-dimension-reduction-for-multi-label-classification.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised dimension reduction for multi-label classification</a><br><br>timeline<br>
+<br>
+<br><a data-href="Mean teachers are better role models_ Weight-averaged consistency targets improve semi-supervised deep learning results" href="paper-reading-notes\mean-teachers-are-better-role-models_-weight-averaged-consistency-targets-improve-semi-supervised-deep-learning-results.html" class="internal-link" target="_self" rel="noopener nofollow">Mean teachers are better role models_ Weight-averaged consistency targets improve semi-supervised deep learning results</a>
+<br><a data-href="SESS_ Self-ensembling semi-supervised 3D object detection" href="paper-reading-notes\sess_-self-ensembling-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">SESS_ Self-ensembling semi-supervised 3D object detection</a>
+]]></description><link>research-notes\ssl-theory.html</link><guid isPermaLink="false">Research Notes/SSL Theory.md</guid><pubDate>Wed, 27 Nov 2024 13:18:28 GMT</pubDate></item><item><title><![CDATA[{{title}}]]></title><description><![CDATA[ 
+ <br><br><br><br>描述问题的来源或意义。<br><br>列出相关的参考文献及其主要观点。<br><br><br>实现思路<br><br><br><br>
+<br>实验目标：简要描述实验目的。 
+<br>参数设置：训练参数设置。
+<br>实验结果：表格、图表、结果描述等。 
+<br><br>
+<br>实验目标：简要描述实验目的。
+<br>参数设置：训练参数设置。
+<br>实验结果：表格、图表、结果描述等。 
+<br><br><br>使用表格或简短描述记录实验结果：<br><br><br><br>记录撰写进展：<br>
+<br>Introduction-v1
+<br>Method-v1
+<br>Experiments-v1
+<br><br><br>使用任务列表记录项目中需要完成的具体工作：<br>
+<br>阅读某篇文献（具体名称）
+<br>完成实验 X
+<br>校对论文草稿
+<br><br><br>]]></description><link>templates\project-template.html</link><guid isPermaLink="false">Templates/project-template.md</guid><pubDate>Fri, 22 Nov 2024 07:23:09 GMT</pubDate></item><item><title><![CDATA[citation_config]]></title><description><![CDATA[ 
+ <br>---
+citekey: {{citekey}}
+title: {{title}}
+authors: {{authorString}}
+year: {{year}}
+URL: {{URL}}
+code: 
+project-page: 
+---
+]]></description><link>wiki\citation_config.html</link><guid isPermaLink="false">Wiki/citation_config.md</guid><pubDate>Fri, 20 Sep 2024 04:59:07 GMT</pubDate></item><item><title><![CDATA[标签系统说明]]></title><description><![CDATA[ 
+ <br><br>本仓库的标签体系及其使用规范。<br><br><br><br>标记项目当前的科研进度：<br>
+<br>#idea：初步想法阶段，进行文献调研或概念验证。
+<br>#experiment：实验阶段，设计与验证。
+<br>#manuscript：论文撰写阶段。
+<br>#submitted：论文已提交，等待评审结果。
+<br>#revision：修改或转投阶段。
+<br>#completed：项目已完成。
+<br><br>表示项目的紧急程度：<br>
+<br>#priority-high：高优先级。
+<br>#priority-medium：中等优先级。
+<br>#priority-low：低优先级。
+<br><br>描述项目的研究方向，例如：<br>
+<br>#semi-supervised：半监督学习。
+<br>#3d-object-detection：3D目标检测。
+<br>#neural-radiance-fields：神经辐射场。
+<br><br>标记投稿目标，例如：<br>
+<br>#cvpr：CVPR会议。
+<br>#iccv：ICCV会议。
+<br>#journal：期刊投稿。
+<br><br><br><br>标签统一放置在笔记的顶部。例如：<br>---
+tags: 
+  - submitted 
+  - cvpr 
+  - 3d-object-detection
+---
+<br><br>
+<br>根据项目进展，更新 #idea → #experiment → #manuscript 等状态标签。
+<br>若投稿完成，添加 #submitted；进入修改时切换为 #revision。
+<br><br>
+<br>使用 Obsidian 的标签搜索功能定位特定状态的项目：
+
+<br>例如，tag:#submitted 查询所有待结果项目。
+
+
+<br>结合其他标签进行细化筛选，如 tag:#submitted tag:#cvpr。
+<br><br><br>以下是一个项目的标签示例：<br>---
+tags: 
+  - experiment 
+  - priority-high 
+  - semi-supervised 
+  - iccv
+---
+<br>
+<br>当前状态：实验阶段。
+<br>优先级：高。
+<br>研究主题：半监督学习。
+<br>投稿目标：ICCV会议。
+]]></description><link>wiki\tags.html</link><guid isPermaLink="false">Wiki/tags.md</guid><pubDate>Fri, 22 Nov 2024 06:23:08 GMT</pubDate></item><item><title><![CDATA[🔑 活跃项目]]></title><description><![CDATA[ 
+ <br><br><br><br><br><br><a data-tooltip-position="top" aria-label="Research Notes/Active Learning.md" data-href="Research Notes/Active Learning.md" href="research-notes\active-learning.html" class="internal-link" target="_self" rel="noopener nofollow">Active Learning</a><br><a data-tooltip-position="top" aria-label="Research Notes/Class-Incremental Object Detection.md" data-href="Research Notes/Class-Incremental Object Detection.md" href="research-notes\class-incremental-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Class-Incremental Object Detection</a><br><a data-tooltip-position="top" aria-label="Research Notes/Open Vocabulary Learning.md" data-href="Research Notes/Open Vocabulary Learning.md" href="research-notes\open-vocabulary-learning.html" class="internal-link" target="_self" rel="noopener nofollow">Open Vocabulary Learning</a><br><a data-tooltip-position="top" aria-label="Research Notes/Semi-supervised 3D Object Detection.md" data-href="Research Notes/Semi-supervised 3D Object Detection.md" href="research-notes\semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised 3D Object Detection</a><br><a data-tooltip-position="top" aria-label="Research Notes/SSL Theory.md" data-href="Research Notes/SSL Theory.md" href="research-notes\ssl-theory.html" class="internal-link" target="_self" rel="noopener nofollow">SSL Theory</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>Wiki: 
+
+<br><a data-href="tags" href="wiki\tags.html" class="internal-link" target="_self" rel="noopener nofollow">tags</a>
+<br><a data-tooltip-position="top" aria-label="citation_config" data-href="citation_config" href="wiki\citation_config.html" class="internal-link" target="_self" rel="noopener nofollow">citation</a>
+
+
+<br>Templates:
+
+<br><a data-href="project-template" href="templates\project-template.html" class="internal-link" target="_self" rel="noopener nofollow">project-template</a>
+
+
+]]></description><link>🌏home.html</link><guid isPermaLink="false">🌏Home.md</guid><pubDate>Fri, 22 Nov 2024 09:19:25 GMT</pubDate></item><item><title><![CDATA[fields]]></title><description><![CDATA[ 
+ <br><a data-href="Class-Incremental Object Detection" href="research-notes\class-incremental-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Class-Incremental Object Detection</a><br><a data-href="Semi-supervised 3D Object Detection" href="research-notes\semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Semi-supervised 3D Object Detection</a><br><a data-href="Active Learning" href="research-notes\active-learning.html" class="internal-link" target="_self" rel="noopener nofollow">Active Learning</a><br><a data-href="Open Vocabulary Learning" href="research-notes\open-vocabulary-learning.html" class="internal-link" target="_self" rel="noopener nofollow">Open Vocabulary Learning</a><br>Referring Expression Comprehension (REC)<br>Abstract 3D instance segmentation (3DIS)<br>Abstract Domain adaptation  <a data-tooltip-position="top" aria-label="https://openaccess.thecvf.com/content/CVPR2024/html/Nakamura_Active_Domain_Adaptation_with_False_Negative_Prediction_for_Object_Detection_CVPR_2024_paper.html" rel="noopener nofollow" class="external-link" href="https://openaccess.thecvf.com/content/CVPR2024/html/Nakamura_Active_Domain_Adaptation_with_False_Negative_Prediction_for_Object_Detection_CVPR_2024_paper.html" target="_blank">CVPR 2024 Open Access Repository (thecvf.com)</a><br>Unsupervised domain adaptation (UDA)  <a data-tooltip-position="top" aria-label="https://ieeexplore.ieee.org/abstract/document/10474037" rel="noopener nofollow" class="external-link" href="https://ieeexplore.ieee.org/abstract/document/10474037" target="_blank">Remote Sensing Teacher: Cross-Domain Detection Transformer With Learnable Frequency-Enhanced Feature Alignment in Remote Sensing Imagery | IEEE Journals &amp; Magazine | IEEE Xplore</a>]]></description><link>fields.html</link><guid isPermaLink="false">fields.md</guid><pubDate>Tue, 10 Sep 2024 07:02:29 GMT</pubDate></item><item><title><![CDATA[reading list]]></title><description><![CDATA[ 
+ <br><br>
+<br><a data-href="3D gaussian splatting for real-time radiance field rendering" href="paper-reading-notes\3d-gaussian-splatting-for-real-time-radiance-field-rendering.html" class="internal-link" target="_self" rel="noopener nofollow">3D gaussian splatting for real-time radiance field rendering</a>
+<br><a data-href="Recent advances in 3D gaussian splatting" href="paper-reading-notes\recent-advances-in-3d-gaussian-splatting.html" class="internal-link" target="_self" rel="noopener nofollow">Recent advances in 3D gaussian splatting</a>
+
+<br><a data-href="MonoGaussianAvatar_ Monocular gaussian point-based head avatar" href="paper-reading-notes\monogaussianavatar_-monocular-gaussian-point-based-head-avatar.html" class="internal-link" target="_self" rel="noopener nofollow">MonoGaussianAvatar_ Monocular gaussian point-based head avatar</a>
+
+<br><a data-href="Dynamic neural radiance fields for monocular 4D facial avatar reconstruction" href="paper-reading-notes\dynamic-neural-radiance-fields-for-monocular-4d-facial-avatar-reconstruction.html" class="internal-link" target="_self" rel="noopener nofollow">Dynamic neural radiance fields for monocular 4D facial avatar reconstruction</a>
+
+
+<br><a data-href="PSAvatar_ A point-based morphable shape model for real-time head avatar animation with 3D gaussian splatting" href="paper-reading-notes\psavatar_-a-point-based-morphable-shape-model-for-real-time-head-avatar-animation-with-3d-gaussian-splatting.html" class="internal-link" target="_self" rel="noopener nofollow">PSAvatar_ A point-based morphable shape model for real-time head avatar animation with 3D gaussian splatting</a>
+<br><a data-href="GaussianHead_ High-fidelity head avatars with learnable gaussian derivation" href="paper-reading-notes\gaussianhead_-high-fidelity-head-avatars-with-learnable-gaussian-derivation.html" class="internal-link" target="_self" rel="noopener nofollow">GaussianHead_ High-fidelity head avatars with learnable gaussian derivation</a>
+<br><a data-href="GaussianAvatars_ Photorealistic head avatars with rigged 3D gaussians" href="paper-reading-notes\gaussianavatars_-photorealistic-head-avatars-with-rigged-3d-gaussians.html" class="internal-link" target="_self" rel="noopener nofollow">GaussianAvatars_ Photorealistic head avatars with rigged 3D gaussians</a>
+<br><a data-href="Rig3DGS_ Creating controllable portraits from casual monocular videos" href="paper-reading-notes\rig3dgs_-creating-controllable-portraits-from-casual-monocular-videos.html" class="internal-link" target="_self" rel="noopener nofollow">Rig3DGS_ Creating controllable portraits from casual monocular videos</a>
+<br><a data-href="HeadGaS_ Real-time animatable head avatars via 3D gaussian splatting" href="paper-reading-notes\headgas_-real-time-animatable-head-avatars-via-3d-gaussian-splatting.html" class="internal-link" target="_self" rel="noopener nofollow">HeadGaS_ Real-time animatable head avatars via 3D gaussian splatting</a>
+<br><a data-href="FlashAvatar_ High-fidelity head avatar with efficient gaussian embedding" href="paper-reading-notes\flashavatar_-high-fidelity-head-avatar-with-efficient-gaussian-embedding.html" class="internal-link" target="_self" rel="noopener nofollow">FlashAvatar_ High-fidelity head avatar with efficient gaussian embedding</a>
+<br><a data-href="Gaussian head avatar_ Ultra high-fidelity head avatar via dynamic gaussians" href="paper-reading-notes\gaussian-head-avatar_-ultra-high-fidelity-head-avatar-via-dynamic-gaussians.html" class="internal-link" target="_self" rel="noopener nofollow">Gaussian head avatar_ Ultra high-fidelity head avatar via dynamic gaussians</a>
+
+
+<br><br>
+<br>Semi-supervised Learning
+
+<br><a data-href="FixMatch_ Simplifying semi-supervised learning with consistency and confidence" href="paper-reading-notes\fixmatch_-simplifying-semi-supervised-learning-with-consistency-and-confidence.html" class="internal-link" target="_self" rel="noopener nofollow">FixMatch_ Simplifying semi-supervised learning with consistency and confidence</a>
+<br><a data-href="Weight-averaged consistency targets improve semi-supervised deep learning results" href="paper-reading-notes\weight-averaged-consistency-targets-improve-semi-supervised-deep-learning-results.html" class="internal-link" target="_self" rel="noopener nofollow">Weight-averaged consistency targets improve semi-supervised deep learning results</a>
+
+
+<br>2D Object Detection in SSL
+
+<br><a data-href="Proposal learning for semi-supervised object detection" href="paper-reading-notes\proposal-learning-for-semi-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Proposal learning for semi-supervised object detection</a>
+<br><a data-href="End-to-end semi-supervised object detection with soft teacher" href="paper-reading-notes\end-to-end-semi-supervised-object-detection-with-soft-teacher.html" class="internal-link" target="_self" rel="noopener nofollow">End-to-end semi-supervised object detection with soft teacher</a>
+
+
+<br>3D Object Detection in SSL
+
+<br><a data-href="SESS_ Self-ensembling semi-supervised 3D object detection" href="paper-reading-notes\sess_-self-ensembling-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">SESS_ Self-ensembling semi-supervised 3D object detection</a>
+<br><a data-href="3DIoUMatch_ Leveraging IoU prediction for semi-supervised 3D object detection" href="paper-reading-notes\3dioumatch_-leveraging-iou-prediction-for-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">3DIoUMatch_ Leveraging IoU prediction for semi-supervised 3D object detection</a>
+<br><a data-href="Diffusion-ss3d_ Diffusion model for semi-supervised 3D object detection" href="paper-reading-notes\diffusion-ss3d_-diffusion-model-for-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Diffusion-ss3d_ Diffusion model for semi-supervised 3D object detection</a>
+
+<br>code PointNet2 <a data-tooltip-position="top" aria-label="https://github.com/erikwijmans/Pointnet2_PyTorch" rel="noopener nofollow" class="external-link" href="https://github.com/erikwijmans/Pointnet2_PyTorch" target="_blank">erikwijmans/Pointnet2_PyTorch: PyTorch implementation of Pointnet2/Pointnet++ (github.com)</a>
+<br>code votenet <a data-tooltip-position="top" aria-label="https://github.com/facebookresearch/votenet" rel="noopener nofollow" class="external-link" href="https://github.com/facebookresearch/votenet" target="_blank">facebookresearch/votenet: Deep Hough Voting for 3D Object Detection in Point Clouds (github.com)</a>
+<br>code OpenPCDet <a data-tooltip-position="top" aria-label="https://github.com/open-mmlab/OpenPCDet" rel="noopener nofollow" class="external-link" href="https://github.com/open-mmlab/OpenPCDet" target="_blank">open-mmlab/OpenPCDet: OpenPCDet Toolbox for LiDAR-based 3D Object Detection. (github.com)</a>
+<br>code DiffusionDet <a data-tooltip-position="top" aria-label="https://github.com/ShoufaChen/DiffusionDet" rel="noopener nofollow" class="external-link" href="https://github.com/ShoufaChen/DiffusionDet" target="_blank">ShoufaChen/DiffusionDet: [ICCV2023 Best Paper Finalist] PyTorch implementation of DiffusionDet (https://arxiv.org/abs/2211.09788) (github.com)</a>
+
+
+<br><a data-href="Learning object-level point augmentor for semi-supervised 3D object detection" href="paper-reading-notes\learning-object-level-point-augmentor-for-semi-supervised-3d-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">Learning object-level point augmentor for semi-supervised 3D object detection</a> 
+<br><a data-href="DetMatch_ Two teachers are better than one for joint 2D and 3D semi-supervised object detection" href="paper-reading-notes\detmatch_-two-teachers-are-better-than-one-for-joint-2d-and-3d-semi-supervised-object-detection.html" class="internal-link" target="_self" rel="noopener nofollow">DetMatch_ Two teachers are better than one for joint 2D and 3D semi-supervised object detection</a> 
+
+
+<br><br><br><br>
+<br>incremental learning
+<br>对比学习
+<br>蒸馏
+<br>迁移学习
+<br>3D目标检测的域自适应 domain adaptation
+<br>3D目标检测 弱监督
+<br>3D目标检测 自监督
+<br>重采样
+<br>重参数化（VAE）
+<br>KL散度
+<br>diffusion model
+<br>KAN
+<br>mamba
+]]></description><link>reading-list.html</link><guid isPermaLink="false">reading list.md</guid><pubDate>Fri, 23 Aug 2024 15:00:51 GMT</pubDate></item><item><title><![CDATA[thoughts]]></title><description><![CDATA[ 
+ <br><br><br><br>输入是静态场景的一组图像，和sfm重建得到的系数点云。<br>
+The input to our method is a set of images of a static scene, together with the corresponding cameras calibrated by SfM which produces a sparse point cloud as a sideeffect.
+<br>从稀疏点云中创建一组3D Gaussians，参数包含（平均位置坐标、协方差矩阵、密度）<br>
+From these points we create a set of 3D Gaussians (Sec. 4), defined by a position (mean), covariance matrix and opacity 𝛼, that allows a very flexible optimization regime. This results in a reasonably compact representation of the 3D scene, in part because highly anisotropic(各向异性) volumetric splats can be used to represent fine structures compactly.
+<br>使用球谐函数来表示颜色，使用辐射场表示光<br>
+The directional appearance component (color) of the radiance field is represented via spherical harmonics (SH), following standard practice.
+<br>anisotropic（各向异性）：这个词表示在不同方向上具有不同的特性。在图形学中，各向异性通常指纹理或光照在不同方向上表现出的不同效果。与各向同性（各个方向上特性相同）相对。<br>spherical harmonics(SH): 球谐函数<br>Tile-based renderer（基于块的渲染器）<br><img alt="Pasted image 20240620235810.png" src="attachments\pasted-image-20240620235810.png"><br>不管是3DGS还是NeRF，数据的输入都是一组静态场景的图像集合，以及对应的sfm重建得到的相机位姿和稀疏点云。但是，这些算法的前提都是假设这些估计都是正确的，在一些复杂场景中，sfm误差较大，是否可以在优化过程中将sfm估计的结果也考虑进去？<br><br>目前的3d风格化方案，是先从视频重建成三维模型，然后进行风格化。是否有端到端的方案？输入原始视频和风格化的图像，输出风格化的模型。]]></description><link>thoughts.html</link><guid isPermaLink="false">thoughts.md</guid><pubDate>Tue, 09 Jul 2024 09:55:47 GMT</pubDate><enclosure url="attachments\pasted-image-20240620235810.png" length="0" type="image/png"/><content:encoded>&lt;figure&gt;&lt;img src=&quot;attachments\pasted-image-20240620235810.png&quot;&gt;&lt;/figure&gt;</content:encoded></item></channel></rss>
