@@ -1,0 +1,1358 @@
+@misc{xieSelftrainingNoisyStudent2020,
+  title = {Self-Training with {{Noisy Student}} Improves {{ImageNet}} Classification},
+  author = {Xie, Qizhe and Luong, Minh-Thang and Hovy, Eduard and Le, Quoc V.},
+  year = {2020},
+  month = jun,
+  number = {arXiv:1911.04252},
+  eprint = {1911.04252},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.1911.04252},
+  urldate = {2024-11-27},
+  archiveprefix = {arXiv}
+}
+
+@inproceedings{tarvainenMeanTeachersAre2017,
+  title = {Mean Teachers Are Better Role Models: {{Weight-averaged}} Consistency Targets Improve Semi-Supervised Deep Learning Results},
+  shorttitle = {Mean Teachers Are Better Role Models},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Tarvainen, Antti and Valpola, Harri},
+  year = {2017},
+  volume = {30},
+  publisher = {Curran Associates, Inc.},
+  urldate = {2024-11-27}
+}
+
+@article{attias_characterization_2022,
+	title = {A Characterization of Semi-Supervised Adversarially Robust {PAC} Learnability},
+	volume = {35},
+	url = {https://papers.nips.cc/paper_files/paper/2022/hash/95a704bd2fdf8ef8242b4adcc7ce3c93-Abstract-Conference.html},
+	pages = {23646--23659},
+	journaltitle = {Advances in Neural Information Processing Systems},
+	author = {Attias, Idan and Hanneke, Steve and Mansour, Yishay},
+	urldate = {2024-11-26},
+	date = {2022-12-06},
+	langid = {english},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\CCUU68K2\\Attias et al. - 2022 - A Characterization of Semi-Supervised Adversarially Robust PAC Learnability.pdf:application/pdf},
+}
+
+@inproceedings{cabannes_overcoming_2021,
+	title = {Overcoming the curse of dimensionality with Laplacian regularization in semi-supervised learning},
+	volume = {34},
+	url = {https://papers.nips.cc/paper/2021/hash/ff4d5fbbafdf976cfdc032e3bde78de5-Abstract.html},
+	abstract = {As annotations of data can be scarce in large-scale practical problems, leveraging unlabelled examples is one of the most important aspects of machine learning. This is the aim of semi-supervised learning. To benefit from the access to unlabelled data, it is natural to diffuse smoothly knowledge of labelled data to unlabelled one. This induces to the use of Laplacian regularization. Yet, current implementations of Laplacian regularization suffer from several drawbacks, notably the well-known curse of dimensionality. In this paper, we design a new class of algorithms overcoming this issue, unveiling a large body of spectral filtering methods. Additionally, we provide a statistical analysis showing that our estimators exhibit desirable behaviors. They are implemented through (reproducing) kernel methods, for which we provide realistic computational guidelines in order to make our method usable with large amounts of data.},
+	pages = {30439--30451},
+	booktitle = {Advances in Neural Information Processing Systems},
+	publisher = {Curran Associates, Inc.},
+	author = {Cabannes, Vivien and Pillaud-Vivien, Loucas and Bach, Francis and Rudi, Alessandro},
+	urldate = {2024-11-26},
+	date = {2021},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\LBEZF443\\Cabannes et al. - 2021 - Overcoming the curse of dimensionality with Laplacian regularization in semi-supervised learning.pdf:application/pdf},
+}
+
+@misc{zhang_semi-supervised_2021,
+	title = {Semi-Supervised Learning with Meta-Gradient},
+	url = {http://arxiv.org/abs/2007.03966},
+	doi = {10.48550/arXiv.2007.03966},
+	abstract = {In this work, we propose a simple yet effective meta-learning algorithm in semi-supervised learning. We notice that most existing consistency-based approaches suffer from overfitting and limited model generalization ability, especially when training with only a small number of labeled data. To alleviate this issue, we propose a learn-to-generalize regularization term by utilizing the label information and optimize the problem in a meta-learning fashion. Specifically, we seek the pseudo labels of the unlabeled data so that the model can generalize well on the labeled data, which is formulated as a nested optimization problem. We address this problem using the meta-gradient that bridges between the pseudo label and the regularization term. In addition, we introduce a simple first-order approximation to avoid computing higher-order derivatives and provide theoretic convergence analysis. Extensive evaluations on the {SVHN}, {CIFAR}, and {ImageNet} datasets demonstrate that the proposed algorithm performs favorably against state-of-the-art methods.},
+	number = {{arXiv}:2007.03966},
+	publisher = {{arXiv}},
+	author = {Zhang, Xin-Yu and Xiao, Taihong and Jia, Haolin and Cheng, Ming-Ming and Yang, Ming-Hsuan},
+	urldate = {2024-11-26},
+	date = {2021-03-17},
+	eprinttype = {arxiv},
+	eprint = {2007.03966},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\VBACYJ7W\\Zhang et al. - 2021 - Semi-Supervised Learning with Meta-Gradient.pdf:application/pdf;Snapshot:C\:\\Users\\sxdl\\Zotero\\storage\\9CSNYJA4\\2007.html:text/html},
+}
+
+@misc{sun_tcgm_2020,
+	title = {{TCGM}: An Information-Theoretic Framework for Semi-Supervised Multi-Modality Learning},
+	url = {http://arxiv.org/abs/2007.06793},
+	doi = {10.48550/arXiv.2007.06793},
+	shorttitle = {{TCGM}},
+	abstract = {Fusing data from multiple modalities provides more information to train machine learning systems. However, it is prohibitively expensive and time-consuming to label each modality with a large amount of data, which leads to a crucial problem of semi-supervised multi-modal learning. Existing methods suffer from either ineffective fusion across modalities or lack of theoretical guarantees under proper assumptions. In this paper, we propose a novel information-theoretic approach, namely {\textbackslash}textbf\{T\}otal {\textbackslash}textbf\{C\}orrelation {\textbackslash}textbf\{G\}ain {\textbackslash}textbf\{M\}aximization ({TCGM}), for semi-supervised multi-modal learning, which is endowed with promising properties: (i) it can utilize effectively the information across different modalities of unlabeled data points to facilitate training classifiers of each modality (ii) it has theoretical guarantee to identify Bayesian classifiers, i.e., the ground truth posteriors of all modalities. Specifically, by maximizing {TC}-induced loss (namely {TC} gain) over classifiers of all modalities, these classifiers can cooperatively discover the equivalent class of ground-truth classifiers; and identify the unique ones by leveraging limited percentage of labeled data. We apply our method to various tasks and achieve state-of-the-art results, including news classification, emotion recognition and disease prediction.},
+	number = {{arXiv}:2007.06793},
+	publisher = {{arXiv}},
+	author = {Sun, Xinwei and Xu, Yilun and Cao, Peng and Kong, Yuqing and Hu, Lingjing and Zhang, Shanghang and Wang, Yizhou},
+	urldate = {2024-11-26},
+	date = {2020-07-14},
+	eprinttype = {arxiv},
+	eprint = {2007.06793},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning},
+	file = {Preprint PDF:C\:\\Users\\sxdl\\Zotero\\storage\\W2KVDBNJ\\Sun et al. - 2020 - TCGM An Information-Theoretic Framework for Semi-Supervised Multi-Modality Learning.pdf:application/pdf;Snapshot:C\:\\Users\\sxdl\\Zotero\\storage\\C5TXGZSF\\2007.html:text/html},
+}
+
+@misc{wang_meta-semi_2021,
+	title = {Meta-Semi: A Meta-learning Approach for Semi-supervised Learning},
+	url = {http://arxiv.org/abs/2007.02394},
+	doi = {10.48550/arXiv.2007.02394},
+	shorttitle = {Meta-Semi},
+	abstract = {Deep learning based semi-supervised learning ({SSL}) algorithms have led to promising results in recent years. However, they tend to introduce multiple tunable hyper-parameters, making them less practical in real {SSL} scenarios where the labeled data is scarce for extensive hyper-parameter search. In this paper, we propose a novel meta-learning based {SSL} algorithm (Meta-Semi) that requires tuning only one additional hyper-parameter, compared with a standard supervised deep learning algorithm, to achieve competitive performance under various conditions of {SSL}. We start by defining a meta optimization problem that minimizes the loss on labeled data through dynamically reweighting the loss on unlabeled samples, which are associated with soft pseudo labels during training. As the meta problem is computationally intensive to solve directly, we propose an efficient algorithm to dynamically obtain the approximate solutions. We show theoretically that Meta-Semi converges to the stationary point of the loss function on labeled data under mild conditions. Empirically, Meta-Semi outperforms state-of-the-art {SSL} algorithms significantly on the challenging semi-supervised {CIFAR}-100 and {STL}-10 tasks, and achieves competitive performance on {CIFAR}-10 and {SVHN}.},
+	number = {{arXiv}:2007.02394},
+	publisher = {{arXiv}},
+	author = {Wang, Yulin and Guo, Jiayi and Song, Shiji and Huang, Gao},
+	urldate = {2024-11-26},
+	date = {2021-09-07},
+	eprinttype = {arxiv},
+	eprint = {2007.02394},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning, Statistics - Machine Learning},
+	file = {Preprint PDF:C\:\\Users\\sxdl\\Zotero\\storage\\ZWXBECEN\\Wang et al. - 2021 - Meta-Semi A Meta-learning Approach for Semi-supervised Learning.pdf:application/pdf;Snapshot:C\:\\Users\\sxdl\\Zotero\\storage\\5NZ7UF8M\\2007.html:text/html},
+}
+
+@misc{ren_not_2020,
+	title = {Not All Unlabeled Data are Equal: Learning to Weight Data in Semi-supervised Learning},
+	url = {http://arxiv.org/abs/2007.01293},
+	doi = {10.48550/arXiv.2007.01293},
+	shorttitle = {Not All Unlabeled Data are Equal},
+	abstract = {Existing semi-supervised learning ({SSL}) algorithms use a single weight to balance the loss of labeled and unlabeled examples, i.e., all unlabeled examples are equally weighted. But not all unlabeled data are equal. In this paper we study how to use a different weight for every unlabeled example. Manual tuning of all those weights -- as done in prior work -- is no longer possible. Instead, we adjust those weights via an algorithm based on the influence function, a measure of a model's dependency on one training example. To make the approach efficient, we propose a fast and effective approximation of the influence function. We demonstrate that this technique outperforms state-of-the-art methods on semi-supervised image and language classification tasks.},
+	number = {{arXiv}:2007.01293},
+	publisher = {{arXiv}},
+	author = {Ren, Zhongzheng and Yeh, Raymond A. and Schwing, Alexander G.},
+	urldate = {2024-11-26},
+	date = {2020-10-29},
+	eprinttype = {arxiv},
+	eprint = {2007.01293},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning, Statistics - Machine Learning},
+	file = {Preprint PDF:C\:\\Users\\sxdl\\Zotero\\storage\\Z8QE8ECZ\\Ren et al. - 2020 - Not All Unlabeled Data are Equal Learning to Weight Data in Semi-supervised Learning.pdf:application/pdf;Snapshot:C\:\\Users\\sxdl\\Zotero\\storage\\A5XTNRWH\\2007.html:text/html},
+}
+
+@misc{golovnev_information-theoretic_2019,
+	title = {The information-theoretic value of unlabeled data in semi-supervised learning},
+	url = {http://arxiv.org/abs/1901.05515},
+	doi = {10.48550/arXiv.1901.05515},
+	abstract = {We quantify the separation between the numbers of labeled examples required to learn in two settings: Settings with and without the knowledge of the distribution of the unlabeled data. More specifically, we prove a separation by \${\textbackslash}Theta({\textbackslash}log n)\$ multiplicative factor for the class of projections over the Boolean hypercube of dimension \$n\$. We prove that there is no separation for the class of all functions on domain of any size. Learning with the knowledge of the distribution (a.k.a. fixed-distribution learning) can be viewed as an idealized scenario of semi-supervised learning where the number of unlabeled data points is so great that the unlabeled distribution is known exactly. For this reason, we call the separation the value of unlabeled data.},
+	number = {{arXiv}:1901.05515},
+	publisher = {{arXiv}},
+	author = {Golovnev, Alexander and Pál, Dávid and Szörényi, Balázs},
+	urldate = {2024-11-26},
+	date = {2019-05-13},
+	eprinttype = {arxiv},
+	eprint = {1901.05515},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+	file = {Preprint PDF:C\:\\Users\\sxdl\\Zotero\\storage\\69W6JVG5\\Golovnev et al. - 2019 - The information-theoretic value of unlabeled data in semi-supervised learning.pdf:application/pdf;Snapshot:C\:\\Users\\sxdl\\Zotero\\storage\\QW6DEJTG\\1901.html:text/html},
+}
+
+@inproceedings{jung_analysis_2019,
+	title = {Analysis of Network Lasso for Semi-Supervised Regression},
+	url = {https://proceedings.mlr.press/v89/jung19a.html},
+	abstract = {We apply network Lasso to semi-supervised regression problems involving network-structured data. This approach lends quite naturally to highly scalable learning algorithms in the form of message passing over an empirical graph which represents the network structure of the data. By using a simple non-parametric regression model, which is motivated by a clustering hypothesis, we provide an analysis of the estimation error incurred by network Lasso. This analysis reveals conditions on the network structure and the available training data which guarantee network Lasso to be accurate. Remarkably, the accuracy of network Lasso is related to the existence of sufficiently large network flows over the empirical graph. Thus, our analysis reveals a connection between network Lasso and maximum network flow problems.},
+	eventtitle = {The 22nd International Conference on Artificial Intelligence and Statistics},
+	pages = {380--387},
+	booktitle = {Proceedings of the Twenty-Second International Conference on Artificial Intelligence and Statistics},
+	publisher = {{PMLR}},
+	author = {Jung, Alexander and Vesselinova, Natalia},
+	urldate = {2024-11-26},
+	date = {2019-04-11},
+	langid = {english},
+	note = {{ISSN}: 2640-3498},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\MFQDGDBA\\Jung and Vesselinova - 2019 - Analysis of Network Lasso for Semi-Supervised Regression.pdf:application/pdf},
+}
+
+@inproceedings{kushagra_semi-supervised_2019,
+	title = {Semi-supervised clustering for de-duplication},
+	url = {https://proceedings.mlr.press/v89/kushagra19a.html},
+	abstract = {Data de-duplication is the task of detecting multiple records in a database that correspond to the same real-world entity. In this work, we view de-duplication as a clustering problem where the goal is to put records corresponding to the same physical entity in the same cluster and putting records corresponding to different physical entities into different clusters.  We introduce a framework which we call promise correlation clustering. Given a complete graph G with the edges labelled 0 and 1, the goal is to find a clustering that minimizes the number of 0 edges within a cluster plus the number of 1 edges across different clusters (or correlation loss). The optimal clustering can also be viewed as a complete graph \$G{\textasciicircum}*\$ with edges corresponding to points in the same cluster being labelled 0 and other edges being labelled 1. Under the promise that the edge difference between G and \$G{\textasciicircum}*\$ is “small", we prove that finding the optimal clustering (or \$G{\textasciicircum}*\$) is still {NP}-Hard. {\textbackslash}cite\{ashtiani2016clustering\} introduced the framework of semi-supervised clustering, where the learning algorithm has access to an oracle, which answers whether two points belong to the same or different clusters. We further prove that even with access to a same-cluster oracle, the promise version is {NP}-Hard as long as the number queries to the oracle is not too large (o(n) where n is the number of vertices).   Given these negative results, we consider a restricted version of correlation clustering. As before, the goal is to find a clustering that minimizes the correlation loss. However, we restrict ourselves to a given class F of clusterings. We offer a semi-supervised algorithmic approach to solve the restricted variant with success guarantees.},
+	eventtitle = {The 22nd International Conference on Artificial Intelligence and Statistics},
+	pages = {1659--1667},
+	booktitle = {Proceedings of the Twenty-Second International Conference on Artificial Intelligence and Statistics},
+	publisher = {{PMLR}},
+	author = {Kushagra, Shrinu and Ben-David, Shai and Ilyas, Ihab},
+	urldate = {2024-11-26},
+	date = {2019-04-11},
+	langid = {english},
+	note = {{ISSN}: 2640-3498},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\6KZCA2AW\\Kushagra et al. - 2019 - Semi-supervised clustering for de-duplication.pdf:application/pdf},
+}
+
+@misc{li_learning_2020,
+	title = {Learning to Impute: A General Framework for Semi-supervised Learning},
+	url = {http://arxiv.org/abs/1912.10364},
+	doi = {10.48550/arXiv.1912.10364},
+	shorttitle = {Learning to Impute},
+	abstract = {Recent semi-supervised learning methods have shown to achieve comparable results to their supervised counterparts while using only a small portion of labels in image classification tasks thanks to their regularization strategies. In this paper, we take a more direct approach for semi-supervised learning and propose learning to impute the labels of unlabeled samples such that a network achieves better generalization when it is trained on these labels. We pose the problem in a learning-to-learn formulation which can easily be incorporated to the state-of-the-art semi-supervised techniques and boost their performance especially when the labels are limited. We demonstrate that our method is applicable to both classification and regression problems including image classification and facial landmark detection tasks.},
+	number = {{arXiv}:1912.10364},
+	publisher = {{arXiv}},
+	author = {Li, Wei-Hong and Foo, Chuan-Sheng and Bilen, Hakan},
+	urldate = {2024-11-26},
+	date = {2020-09-24},
+	eprinttype = {arxiv},
+	eprint = {1912.10364},
+	keywords = {Computer Science - Computer Vision and Pattern Recognition, Computer Science - Machine Learning},
+	file = {Preprint PDF:C\:\\Users\\sxdl\\Zotero\\storage\\7225YBHZ\\Li et al. - 2020 - Learning to Impute A General Framework for Semi-supervised Learning.pdf:application/pdf;Snapshot:C\:\\Users\\sxdl\\Zotero\\storage\\X87J3325\\1912.html:text/html},
+}
+
+@inproceedings{rosenfeld_semi-supervised_2018,
+	title = {Semi-Supervised Learning with Competitive Infection Models},
+	url = {https://proceedings.mlr.press/v84/rosenfeld18a.html},
+	abstract = {The goal in semi-supervised learning is to effectively combine labeled and unlabeled data. One way to do this is by encouraging smoothness across edges in a graph whose nodes correspond to input examples. In many graph-based methods, labels can be thought of as propagating over the graph, where the underlying propagation mechanism is based on random walks or on averaging dynamics. While theoretically elegant, these dynamics suffer from several drawbacks which can hurt predictive performance. Our goal in this work is to explore alternative mechanisms for propagating labels. In particular, we propose a method based on dynamic infection processes, where unlabeled nodes can be "infected" with the label of their already infected neighbors. Our algorithm is efficient and scalable, and an analysis of the underlying optimization objective reveals a surprising relation to other Laplacian approaches. We conclude with a thorough set of experiments across multiple benchmarks and various learning settings.},
+	eventtitle = {International Conference on Artificial Intelligence and Statistics},
+	pages = {336--346},
+	booktitle = {Proceedings of the Twenty-First International Conference on Artificial Intelligence and Statistics},
+	publisher = {{PMLR}},
+	author = {Rosenfeld, Nir and Globerson, Amir},
+	urldate = {2024-11-26},
+	date = {2018-03-31},
+	langid = {english},
+	note = {{ISSN}: 2640-3498},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\N953MAUK\\Rosenfeld and Globerson - 2018 - Semi-Supervised Learning with Competitive Infection Models.pdf:application/pdf},
+}
+
+@misc{krijthe_pessimistic_2019,
+	title = {The Pessimistic Limits and Possibilities of Margin-based Losses in Semi-supervised Learning},
+	url = {http://arxiv.org/abs/1612.08875},
+	doi = {10.48550/arXiv.1612.08875},
+	abstract = {Consider a classification problem where we have both labeled and unlabeled data available. We show that for linear classifiers defined by convex margin-based surrogate losses that are decreasing, it is impossible to construct any semi-supervised approach that is able to guarantee an improvement over the supervised classifier measured by this surrogate loss on the labeled and unlabeled data. For convex margin-based loss functions that also increase, we demonstrate safe improvements are possible.},
+	number = {{arXiv}:1612.08875},
+	publisher = {{arXiv}},
+	author = {Krijthe, Jesse H. and Loog, Marco},
+	urldate = {2024-11-26},
+	date = {2019-01-08},
+	eprinttype = {arxiv},
+	eprint = {1612.08875},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+	file = {Preprint PDF:C\:\\Users\\sxdl\\Zotero\\storage\\ICQAE29S\\Krijthe and Loog - 2019 - The Pessimistic Limits and Possibilities of Margin-based Losses in Semi-supervised Learning.pdf:application/pdf;Snapshot:C\:\\Users\\sxdl\\Zotero\\storage\\M9J4H5HN\\1612.html:text/html},
+}
+
+@inproceedings{dan_sample_2018,
+	title = {The Sample Complexity of Semi-Supervised Learning with Nonparametric Mixture Models},
+	volume = {31},
+	url = {https://proceedings.neurips.cc/paper_files/paper/2018/hash/8ba6c657b03fc7c8dd4dff8e45defcd2-Abstract.html},
+	booktitle = {Advances in Neural Information Processing Systems},
+	publisher = {Curran Associates, Inc.},
+	author = {Dan, Chen and Leqi, Liu and Aragam, Bryon and Ravikumar, Pradeep K and Xing, Eric P},
+	urldate = {2024-11-26},
+	date = {2018},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\J7CMN9QL\\Dan et al. - 2018 - The Sample Complexity of Semi-Supervised Learning with Nonparametric Mixture Models.pdf:application/pdf},
+}
+
+@inproceedings{sakai_semi-supervised_2017,
+	title = {Semi-Supervised Classification Based on Classification from Positive and Unlabeled Data},
+	url = {https://proceedings.mlr.press/v70/sakai17a.html},
+	abstract = {Most of the semi-supervised classification methods developed so far use unlabeled data for regularization purposes under particular distributional assumptions such as the cluster assumption. In contrast, recently developed methods of classification from positive and unlabeled data ({PU} classification) use unlabeled data for risk evaluation, i.e., label information is directly extracted from unlabeled data. In this paper, we extend {PU} classification to also incorporate negative data and propose a novel semi-supervised learning approach. We establish generalization error bounds for our novel methods and show that the bounds decrease with respect to the number of unlabeled data without the distributional assumptions that are required in existing semi-supervised learning methods. Through experiments, we demonstrate the usefulness of the proposed methods.},
+	eventtitle = {International Conference on Machine Learning},
+	pages = {2998--3006},
+	booktitle = {Proceedings of the 34th International Conference on Machine Learning},
+	publisher = {{PMLR}},
+	author = {Sakai, Tomoya and Plessis, Marthinus Christoffel and Niu, Gang and Sugiyama, Masashi},
+	urldate = {2024-11-26},
+	date = {2017-07-17},
+	langid = {english},
+	note = {{ISSN}: 2640-3498},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\JK93WVMJ\\Sakai et al. - 2017 - Semi-Supervised Classification Based on Classification from Positive and Unlabeled Data.pdf:application/pdf},
+}
+
+@article{liu_semi-supervised_2016,
+	title = {Semi-Supervised Learning with Adaptive Spectral Transform},
+	abstract = {This paper proposes a novel nonparametric framework for semi-supervised learning and for optimizing the Laplacian spectrum of the data manifold simultaneously. Our formulation leads to a convex optimization problem that can be eﬃciently solved via the bundle method, and can be interpreted as to asymptotically minimize the generalization error bound of semi-supervised learning with respect to the graph spectrum. Experiments over benchmark datasets in various domains show advantageous performance of the proposed method over strong baselines.},
+	author = {Liu, Hanxiao and Yang, Yiming},
+	date = {2016},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\IDLE8DPR\\Liu and Yang - Semi-Supervised Learning with Adaptive Spectral Transform.pdf:application/pdf},
+}
+
+@article{ravi_large_2016,
+	title = {Large Scale Distributed Semi-Supervised Learning Using Streaming Approximation},
+	abstract = {Traditional graph-based semi-supervised learning ({SSL}) approaches are not suited for massive data and large label scenarios since they scale linearly with the number of edges {\textbar}E{\textbar} and distinct labels m. To deal with the large label size problem, recent works propose sketch-based methods to approximate the label distribution per node thereby achieving a space reduction from O(m) to O(log m), under certain conditions. In this paper, we present a novel streaming graphbased {SSL} approximation that eﬀectively captures the sparsity of the label distribution and further reduces the space complexity per node to O(1). We also provide a distributed version of the algorithm that scales well to large data sizes. Experiments on real-world datasets demonstrate that the new method achieves better performance than existing state-of-the-art algorithms with signiﬁcant reduction in memory footprint. Finally, we propose a robust graph augmentation strategy using unsupervised deep learning architectures that yields further signiﬁcant quality gains for {SSL} in natural language applications.},
+	author = {Ravi, Sujith and Diao, Qiming},
+	date = {2016},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\5KJ2B373\\Ravi and Diao - Large Scale Distributed Semi-Supervised Learning Using Streaming Approximation.pdf:application/pdf},
+}
+
+@article{solomon_wasserstein_2014,
+	title = {Wasserstein Propagation for Semi-Supervised Learning},
+	abstract = {Probability distributions and histograms are natural representations for product ratings, trafﬁc measurements, and other data considered in many machine learning applications. Thus, this paper introduces a technique for graph-based semisupervised learning of histograms, derived from the theory of optimal transportation. Our method has several properties making it suitable for this application; in particular, its behavior can be characterized by the moments and shapes of the histograms at the labeled nodes. In addition, it can be used for histograms on non-standard domains like circles, revealing a strategy for manifold-valued semi-supervised learning. We also extend this technique to related problems such as smoothing distributions on graph nodes.},
+	author = {Solomon, Justin and Solomon, Justin and Rustamov, Raif M and Guibas, Leonidas and Butscher, Adrian and Butscher, Adrian},
+	date = {2014},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\3QGACADT\\Solomon et al. - Wasserstein Propagation for Semi-Supervised Learning.pdf:application/pdf},
+}
+
+@article{li_high_2014,
+	title = {High Order Regularization for Semi-Supervised Learning of Structured Output Problems},
+	abstract = {Semi-supervised learning, which uses unlabeled data to help learn a discriminative model, is especially important for structured output problems, as considerably more effort is needed to label its multi-dimensional outputs versus standard single output problems. We propose a new max-margin framework for semi-supervised structured output learning, that allows the use of powerful discrete optimization algorithms and high order regularizers deﬁned directly on model predictions for the unlabeled examples. We show that our framework is closely related to Posterior Regularization, and the two frameworks optimize special cases of the same objective. The new framework is instantiated on two image segmentation tasks, using both a graph regularizer and a cardinality regularizer. Experiments also demonstrate that this framework can utilize unlabeled data from a different source than the labeled data to signiﬁcantly improve performance while saving labeling effort.},
+	author = {Li, Yujia and Zemel, Richard},
+	date = {2014},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\J66JUYPJ\\Li and Zemel - High Order Regularization for Semi-Supervised Learning of Structured Output Problems.pdf:application/pdf},
+}
+
+@inproceedings{mcwilliams_correlated_2013,
+	title = {Correlated random features for fast semi-supervised learning},
+	volume = {26},
+	url = {https://proceedings.neurips.cc/paper_files/paper/2013/hash/839ab46820b524afda05122893c2fe8e-Abstract.html},
+	abstract = {This paper presents Correlated Nystrom Views ({XNV}), a fast semi-supervised algorithm for regression and classification. The algorithm draws on two main ideas. First, it generates two views consisting of computationally inexpensive random features. Second, multiview regression, using Canonical Correlation Analysis ({CCA}) on unlabeled data, biases the regression towards useful features. It has been shown that {CCA} regression can substantially reduce variance with a minimal increase in bias if the views contains accurate estimators. Recent theoretical and empirical work shows that regression with random features closely approximates kernel regression, implying that the accuracy requirement holds for random views. We show that {XNV} consistently outperforms a state-of-the-art algorithm for semi-supervised learning: substantially improving predictive performance and reducing the variability of performance on a wide variety of real-world datasets, whilst also reducing runtime by orders of magnitude.},
+	booktitle = {Advances in Neural Information Processing Systems},
+	publisher = {Curran Associates, Inc.},
+	author = {{McWilliams}, Brian and Balduzzi, David and Buhmann, Joachim M},
+	urldate = {2024-11-26},
+	date = {2013},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\AIN8SUAC\\McWilliams et al. - 2013 - Correlated random features for fast semi-supervised learning.pdf:application/pdf},
+}
+
+@article{niu_squared-loss_2013,
+	title = {Squared-loss Mutual Information Regularization: A Novel Information-theoretic Approach to Semi-supervised Learning},
+	abstract = {We propose squared-loss mutual information regularization ({SMIR}) for multi-class probabilistic classiﬁcation, following the information maximization principle. {SMIR} is convex under mild conditions and thus improves the nonconvexity of mutual information regularization. It oﬀers all of the following four abilities to semi-supervised algorithms: Analytical solution, out-of-sample/multi-class classiﬁcation, and probabilistic output. Furthermore, novel generalization error bounds are derived. Experiments show {SMIR} compares favorably with state-of-the-art methods.},
+	author = {Niu, Gang and Jitkrittum, Wittawat and Dai, Bo and Hachiya, Hirotaka and Sugiyama, Masashi},
+	date = {2013},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\ZQN4QQGJ\\Niu et al. - Squared-loss Mutual Information Regularization A Novel Information-theoretic Approach to Semi-super.pdf:application/pdf},
+}
+
+@article{ogawa_nitesimal_2013,
+	title = {Inﬁnitesimal Annealing for Training Semi-Supervised Support Vector Machines},
+	abstract = {The semi-supervised support vector machine (S3VM) is a maximum-margin classiﬁcation algorithm based on both labeled and unlabeled data. Training S3VM involves either a combinatorial or non-convex optimization problem and thus ﬁnding the global optimal solution is intractable in practice. It has been demonstrated that a key to successfully ﬁnd a good (local) solution of S3VM is to gradually increase the eﬀect of unlabeled data, `a la annealing. However, existing algorithms suffer from the trade-oﬀ between the resolution of annealing steps and the computation cost. In this paper, we go beyond this trade-oﬀ by proposing a novel training algorithm that eﬃciently performs annealing with an inﬁnitesimal resolution. Through experiments, we demonstrate that the proposed inﬁnitesimal annealing algorithm tends to produce better solutions with less computation time than existing approaches.},
+	author = {Ogawa, Kohei and Imamura, Motoki and Takeuchi, Ichiro and Sugiyama, Masashi},
+	date = {2013},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\SJHR3TGF\\Ogawa et al. - Inﬁnitesimal Annealing for Training Semi-Supervised Support Vector Machines.pdf:application/pdf},
+}
+
+@article{yi_semi-supervised_2013,
+	title = {Semi-supervised Clustering by Input Pattern Assisted Pairwise Similarity Matrix Completion},
+	abstract = {Many semi-supervised clustering algorithms have been proposed to improve the clustering accuracy by eﬀectively exploring the available side information that is usually in the form of pairwise constraints. However, there are two main shortcomings of the existing semi-supervised clustering algorithms. First, they have to deal with non-convex optimization problems, leading to clustering results that are sensitive to the initialization. Second, none of these algorithms is equipped with theoretical guarantee regarding the clustering performance. We address these limitations by developing a framework for semisupervised clustering based on input pattern assisted matrix completion. The key idea is to cast clustering into a matrix completion problem, and solve it eﬃciently by exploiting the correlation between input patterns and cluster assignments. Our analysis shows that under appropriate conditions, only O(log n) pairwise constraints are needed to accurately recover the true cluster partition. We verify the eﬀectiveness of the proposed algorithm by comparing it to the state-of-the-art semisupervised clustering algorithms on several benchmark datasets.},
+	author = {Yi, Jinfeng and Zhang, Lijun and Jin, Rong and Qian, Qi and Jain, Anil K},
+	date = {2013},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\GKFM8TQM\\Yi et al. - Semi-supervised Clustering by Input Pattern Assisted Pairwise Similarity Matrix Completion.pdf:application/pdf},
+}
+
+@misc{ji_simple_2012,
+	title = {A Simple Algorithm for Semi-supervised Learning with Improved Generalization Error Bound},
+	url = {http://arxiv.org/abs/1206.6412},
+	doi = {10.48550/arXiv.1206.6412},
+	abstract = {In this work, we develop a simple algorithm for semi-supervised regression. The key idea is to use the top eigenfunctions of integral operator derived from both labeled and unlabeled examples as the basis functions and learn the prediction function by a simple linear regression. We show that under appropriate assumptions about the integral operator, this approach is able to achieve an improved regression error bound better than existing bounds of supervised learning. We also verify the effectiveness of the proposed algorithm by an empirical study.},
+	number = {{arXiv}:1206.6412},
+	publisher = {{arXiv}},
+	author = {Ji, Ming and Yang, Tianbao and Lin, Binbin and Jin, Rong and Han, Jiawei},
+	urldate = {2024-11-26},
+	date = {2012-06-27},
+	eprinttype = {arxiv},
+	eprint = {1206.6412},
+	keywords = {Computer Science - Machine Learning, Statistics - Machine Learning},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\KPLKTIVX\\Ji et al. - 2012 - A Simple Algorithm for Semi-supervised Learning with Improved Generalization Error Bound.pdf:application/pdf;Snapshot:C\:\\Users\\sxdl\\Zotero\\storage\\HY53EACN\\1206.html:text/html},
+}
+
+@inproceedings{dhillon_deterministic_2012,
+	title = {Deterministic Annealing for Semi-Supervised Structured Output Learning},
+	url = {https://proceedings.mlr.press/v22/dhillon12.html},
+	abstract = {In this paper we propose a new approach for semi-supervised structured output learning. Our approach uses relaxed labeling on unlabeled data to deal with the combinatorial nature of the label space and further uses domain constraints to guide the learning.  Since the overall objective is non-convex, we alternate between the optimization of the model parameters and the label distribution of unlabeled data. The alternating optimization coupled with deterministic annealing helps us achieve better local optima and as a result our approach leads to better constraint satisfaction during inference. Experimental results on sequence labeling benchmarks show superior performance of our approach compared to Constraint Driven Learning ({CoDL}) and Posterior Regularization ({PR}).},
+	eventtitle = {Artificial Intelligence and Statistics},
+	pages = {299--307},
+	booktitle = {Proceedings of the Fifteenth International Conference on Artificial Intelligence and Statistics},
+	publisher = {{PMLR}},
+	author = {Dhillon, Paramveer and Keerthi, Sathiya and Bellare, Kedar and Chapelle, Olivier and Sellamanickam, Sundararajan},
+	urldate = {2024-11-26},
+	date = {2012-03-21},
+	langid = {english},
+	note = {{ISSN}: 1938-7228},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\YIFLWBCY\\Dhillon et al. - 2012 - Deterministic Annealing for Semi-Supervised Structured Output Learning.pdf:application/pdf},
+}
+
+@inproceedings{zhou_semi-supervised_2011,
+	title = {Semi-supervised Learning by Higher Order Regularization},
+	url = {https://proceedings.mlr.press/v15/zhou11b.html},
+	abstract = {In semi-supervised learning, at the limit of infinite unlabeled points while fixing labeled ones, the solutions of several graph Laplacian regularization based algorithms were shown by Nadler et al. (2009) to degenerate to constant functions with “spikes” at labeled points in \${\textbackslash}mathbb\{R\}{\textasciicircum}d\$ for \$d {\textbackslash}ge 2\$. These optimization problems all use the graph Laplacian regularizer as a common penalty term.  In this paper, we address this problem by using regularization based on an iterated Laplacian, which is equivalent to a higher  order Sobolev semi-norm. Alternatively, it can be viewed as a generalization of the thin plate spline to an unknown submanifold in high dimensions. We also discuss relationships between Reproducing Kernel Hilbert Spaces and Green’s  functions. Experimental results support our analysis by showing consistently improved results using iterated Laplacians.},
+	eventtitle = {Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics},
+	pages = {892--900},
+	booktitle = {Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics},
+	publisher = {{JMLR} Workshop and Conference Proceedings},
+	author = {Zhou, Xueyuan and Belkin, Mikhail},
+	urldate = {2024-11-26},
+	date = {2011-06-14},
+	langid = {english},
+	note = {{ISSN}: 1938-7228},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\7VPCLXKM\\Zhou and Belkin - 2011 - Semi-supervised Learning by Higher Order Regularization.pdf:application/pdf},
+}
+
+@inproceedings{zhou_error_2011,
+	title = {Error Analysis of Laplacian Eigenmaps for Semi-supervised Learning},
+	url = {https://proceedings.mlr.press/v15/zhou11c.html},
+	abstract = {We study the error and sample complexity of semi-supervised learning by Laplacian Eignmaps at the limit of infinite unlabeled data. We provide a bound on the error, and show that it is controlled by the graph Laplacian regularizer. Our analysis also gives guidance to the choice of the number of eigenvectors \$k\$ to use: when the data lies on a \$d\$-dimensional domain, the optimal choice of \$k\$ is of order \$(n/{\textbackslash}log(n)){\textasciicircum}\{{\textbackslash}frac\{d\}\{d+2\}\}\$, yielding an asymptotic error rate of \$(n/{\textbackslash}log(n)){\textasciicircum}\{-{\textbackslash}frac\{2\}\{2+d\}\}\$.},
+	eventtitle = {Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics},
+	pages = {901--908},
+	booktitle = {Proceedings of the Fourteenth International Conference on Artificial Intelligence and Statistics},
+	publisher = {{JMLR} Workshop and Conference Proceedings},
+	author = {Zhou, Xueyuan and Srebro, Nathan},
+	urldate = {2024-11-26},
+	date = {2011-06-14},
+	langid = {english},
+	note = {{ISSN}: 1938-7228},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\WA434PTF\\Zhou and Srebro - 2011 - Error Analysis of Laplacian Eigenmaps for Semi-supervised Learning.pdf:application/pdf},
+}
+
+@article{qian_semi-supervised_2010,
+	title = {Semi-Supervised Dimension Reduction for Multi-Label Classification},
+	volume = {24},
+	issn = {2374-3468, 2159-5399},
+	url = {https://ojs.aaai.org/index.php/AAAI/article/view/7693},
+	doi = {10.1609/aaai.v24i1.7693},
+	abstract = {A signiﬁcant challenge to make learning techniques more suitable for general purpose use in {AI} is to move beyond i) complete supervision, ii) low dimensional data and iii) a single label per instance. Solving this challenge would allow making predictions for high dimensional large dataset with multiple (but possibly incomplete) labelings. While other work has addressed each of these problems separately, in this paper we show how to address them together, namely the problem of semi-supervised dimension reduction for multi-labeled classiﬁcation, {SSDR}-{MC}. To our knowledge this is the ﬁrst paper that attempts to address all challenges together. In this work, we study a novel joint learning framework which performs optimization for dimension reduction and multi-label inference in semi-supervised setting. The experimental results validate the performance of our approach, and demonstrate the effectiveness of connecting dimension reduction and learning.},
+	pages = {569--574},
+	number = {1},
+	journaltitle = {{AAAI}},
+	author = {Qian, Buyue and Davidson, Ian},
+	urldate = {2024-11-26},
+	date = {2010-07-03},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\9JMFVA46\\Qian and Davidson - 2010 - Semi-Supervised Dimension Reduction for Multi-Label Classification.pdf:application/pdf},
+}
+
+@inproceedings{erkan_semi-supervised_2010,
+	title = {Semi-Supervised Learning via Generalized Maximum Entropy},
+	url = {https://proceedings.mlr.press/v9/erkan10a.html},
+	abstract = {Various supervised inference methods can be analyzed as convex duals of the generalized maximum entropy ({MaxEnt}) framework. Generalized {MaxEnt} aims to find a distribution that maximizes an entropy function while respecting prior information represented as potential functions in miscellaneous forms of constraints and/or penalties. We extend this framework to semi-supervised learning by incorporating unlabeled data via modifications to these potential functions reflecting structural assumptions on the data geometry. The proposed approach leads to a family of discriminative semi-supervised algorithms, that are convex, scalable, inherently multi-class, easy to implement, and that can be kernelized naturally. Experimental evaluation of special cases shows the competitiveness of our methodology.},
+	eventtitle = {Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics},
+	pages = {209--216},
+	booktitle = {Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics},
+	publisher = {{JMLR} Workshop and Conference Proceedings},
+	author = {Erkan, Ayse and Altun, Yasemin},
+	urldate = {2024-11-26},
+	date = {2010-03-31},
+	langid = {english},
+	note = {{ISSN}: 1938-7228},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\WXJXV6RX\\Erkan and Altun - 2010 - Semi-Supervised Learning via Generalized Maximum Entropy.pdf:application/pdf},
+}
+
+@article{zhou_semi-supervised_2010,
+	title = {Semi-supervised learning by disagreement},
+	volume = {24},
+	issn = {0219-3116},
+	url = {https://doi.org/10.1007/s10115-009-0209-z},
+	doi = {10.1007/s10115-009-0209-z},
+	abstract = {In many real-world tasks, there are abundant unlabeled examples but the number of labeled training examples is limited, because labeling the examples requires human efforts and expertise. So, semi-supervised learning which tries to exploit unlabeled examples to improve learning performance has become a hot topic. Disagreement-based semi-supervised learning is an interesting paradigm, where multiple learners are trained for the task and the disagreements among the learners are exploited during the semi-supervised learning process. This survey article provides an introduction to research advances in this paradigm.},
+	pages = {415--439},
+	number = {3},
+	journaltitle = {Knowl Inf Syst},
+	author = {Zhou, Zhi-Hua and Li, Ming},
+	urldate = {2024-11-26},
+	date = {2010-09-01},
+	langid = {english},
+	keywords = {Data mining, Disagreement-based semi-supervised learning, Machine learning, Semi-supervised learning},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\VE2PLDTT\\Zhou and Li - 2010 - Semi-supervised learning by disagreement.pdf:application/pdf},
+}
+
+@inproceedings{yan_semi-supervised_2009,
+	title = {Semi-supervised Learning by Sparse Representation},
+	isbn = {978-0-89871-682-5 978-1-61197-279-5},
+	url = {https://epubs.siam.org/doi/10.1137/1.9781611972795.68},
+	doi = {10.1137/1.9781611972795.68},
+	eventtitle = {Proceedings of the 2009 {SIAM} International Conference on Data Mining},
+	pages = {792--801},
+	booktitle = {Proceedings of the 2009 {SIAM} International Conference on Data Mining},
+	publisher = {Society for Industrial and Applied Mathematics},
+	author = {Yan, Shuicheng and Wang, Huan},
+	urldate = {2024-11-26},
+	date = {2009-04-30},
+	langid = {english},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\93ZVV6KD\\Yan and Wang - 2009 - Semi-supervised Learning by Sparse Representation.pdf:application/pdf},
+}
+
+@article{ben-david_does_2008,
+	title = {Does Unlabeled Data Provably Help? Worst-case Analysis of the Sample Complexity of Semi-Supervised Learning},
+	abstract = {We study the potential beneﬁts to classiﬁcation prediction that arise from having access to unlabeled samples. We compare learning in the semi-supervised model to the standard, supervised {PAC} (distribution free) model, considering both the realizable and the unrealizable (agnostic) settings.},
+	author = {Ben-David, Shai and Lu, Tyler and Pal, David},
+	date = {2008},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\RC99BNTA\\Ben-David et al. - Does Unlabeled Data Provably Help Worst-case Analysis of the Sample Complexity of Semi-Supervised L.pdf:application/pdf},
+}
+
+@article{rigollet_generalization_2007,
+	title = {Generalization Error Bounds in Semi-supervised Classiﬁcation Under the Cluster Assumption},
+	abstract = {We consider semi-supervised classiﬁcation when part of the available data is unlabeled. These unlabeled data can be useful for the classiﬁcation problem when we make an assumption relating the behavior of the regression function to that of the marginal distribution. Seeger (2000) proposed the well-known cluster assumption as a reasonable one. We propose a mathematical formulation of this assumption and a method based on density level sets estimation that takes advantage of it to achieve fast rates of convergence both in the number of unlabeled examples and the number of labeled examples.},
+	author = {Rigollet, Philippe},
+	date = {2007},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\NP36I5J5\\Rigollet - Generalization Error Bounds in Semi-supervised Classiﬁcation Under the Cluster Assumption.pdf:application/pdf},
+}
+
+@inproceedings{grandvalet_semi-supervised_2004,
+	title = {Semi-supervised Learning by Entropy Minimization},
+	volume = {17},
+	url = {https://proceedings.neurips.cc/paper_files/paper/2004/hash/96f2b50b5d3613adf9c27049b2a888c7-Abstract.html},
+	abstract = {We consider the semi-supervised learning problem, where a decision rule            is to be learned from labeled and unlabeled data. In this framework, we            motivate minimum entropy regularization, which enables to incorporate            unlabeled data in the standard supervised learning. Our approach in-            cludes other approaches to the semi-supervised problem as particular or            limiting cases. A series of experiments illustrates that the proposed solu-            tion benefits from unlabeled data. The method challenges mixture mod-            els when the data are sampled from the distribution class spanned by the            generative model. The performances are definitely in favor of minimum            entropy regularization when generative models are misspecified, and the            weighting of unlabeled data provides robustness to the violation of the            "cluster assumption". Finally, we also illustrate that the method can also            be far superior to manifold learning in high dimension spaces.},
+	booktitle = {Advances in Neural Information Processing Systems},
+	publisher = {{MIT} Press},
+	author = {Grandvalet, Yves and Bengio, Yoshua},
+	urldate = {2024-11-26},
+	date = {2004},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\2LZ4FVF2\\Grandvalet and Bengio - 2004 - Semi-supervised Learning by Entropy Minimization.pdf:application/pdf},
+}
+
+@article{sindhwani_co-regularization_2005,
+	title = {A Co-Regularization Approach to Semi-supervised Learning with Multiple Views},
+	abstract = {The Co-Training algorithm uses unlabeled examples in multiple views to bootstrap classiﬁers in each view, typically in a greedy manner, and operating under assumptions of view-independence and compatibility. In this paper, we propose a Co-Regularization framework where classiﬁers are learnt in each view through forms of multi-view regularization. We propose algorithms within this framework that are based on optimizing measures of agreement and smoothness over labeled and unlabeled examples. These algorithms naturally extend standard regularization methods like Support Vector Machines ({SVM}) and Regularized Least squares ({RLS}) for multi-view semi-supervised learning, and inherit their beneﬁts and applicability to high-dimensional classiﬁcation problems. An empirical investigation is presented that conﬁrms the promise of this approach.},
+	author = {Sindhwani, Vikas and Niyogi, Partha and Belkin, Mikhail},
+	date = {2005},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\Q6SHR7VR\\Sindhwani et al. - A Co-Regularization Approach to Semi-supervised Learning with Multiple Views.pdf:application/pdf},
+}
+
+@article{zhou_tri-training_2005,
+	title = {Tri-training: exploiting unlabeled data using three classifiers},
+	volume = {17},
+	issn = {1558-2191},
+	url = {https://ieeexplore.ieee.org/abstract/document/1512038},
+	doi = {10.1109/TKDE.2005.186},
+	shorttitle = {Tri-training},
+	abstract = {In many practical data mining applications, such as Web page classification, unlabeled training examples are readily available, but labeled ones are fairly expensive to obtain. Therefore, semi-supervised learning algorithms such as co-training have attracted much attention. In this paper, a new co-training style semi-supervised learning algorithm, named tri-training, is proposed. This algorithm generates three classifiers from the original labeled example set. These classifiers are then refined using unlabeled examples in the tri-training process. In detail, in each round of tri-training, an unlabeled example is labeled for a classifier if the other two classifiers agree on the labeling, under certain conditions. Since tri-training neither requires the instance space to be described with sufficient and redundant views nor does it put any constraints on the supervised learning algorithm, its applicability is broader than that of previous co-training style algorithms. Experiments on {UCI} data sets and application to the Web page classification task indicate that tri-training can effectively exploit unlabeled data to enhance the learning performance.},
+	pages = {1529--1541},
+	number = {11},
+	journaltitle = {{IEEE} Transactions on Knowledge and Data Engineering},
+	author = {Zhou, Zhi-Hua and Li, Ming},
+	urldate = {2024-11-26},
+	date = {2005-11},
+	note = {Conference Name: {IEEE} Transactions on Knowledge and Data Engineering},
+	keywords = {co-training, Data mining, Humans, Index Terms- Data mining, Labeling, learning from unlabeled data, machine learning, Machine learning, Machine learning algorithms, Parameter estimation, Partitioning algorithms, semi-supervised learning, Semisupervised learning, Supervised learning, tri-training, Web page classification., Web pages},
+	file = {IEEE Xplore Abstract Record:C\:\\Users\\sxdl\\Zotero\\storage\\YJDCLFBJ\\1512038.html:text/html},
+}
+
+@article{zhu_semi-supervised_2003,
+	title = {Semi-Supervised Learning Using Gaussian Fields and Harmonic Functions},
+	abstract = {An approach to semi-supervised learning is proposed that is based on a Gaussian random ﬁeld model. Labeled and unlabeled data are represented as vertices in a weighted graph, with edge weights encoding the similarity between instances. The learning problem is then formulated in terms of a Gaussian random ﬁeld on this graph, where the mean of the ﬁeld is characterized in terms of harmonic functions, and is efﬁciently obtained using matrix methods or belief propagation. The resulting learning algorithms have intimate connections with random walks, electric networks, and spectral graph theory. We discuss methods to incorporate class priors and the predictions of classiﬁers obtained by supervised learning. We also propose a method of parameter learning by entropy minimization, and show the algorithm’s ability to perform feature selection. Promising experimental results are presented for synthetic data, digit classiﬁcation, and text classiﬁcation tasks.},
+	author = {Zhu, Xiaojin and Ghahramani, Zoubin and Lafferty, John},
+	date = {2003},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\SBJTT59B\\Zhu et al. - Semi-Supervised Learning Using Gaussian Fields and Harmonic Functions.pdf:application/pdf},
+}
+
+@article{cozman_semi-supervised_2003,
+	title = {Semi-Supervised Learning of Mixture Models},
+	abstract = {This paper analyzes the performance of semisupervised learning of mixture models. We show that unlabeled data can lead to an increase in classiﬁcation error even in situations where additional labeled data would decrease classiﬁcation error. We present a mathematical analysis of this “degradation” phenomenon and show that it is due to the fact that bias may be adversely affected by unlabeled data. We discuss the impact of these theoretical results to practical situations.},
+	author = {Cozman, Fabio Gagliardi and Cohen, Ira and Cirelo, Marcelo Cesar},
+	date = {2003},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\QF8LIM8H\\Cozman et al. - Semi-Supervised Learning of Mixture Models.pdf:application/pdf},
+}
+
+@article{zhu_learning_2002,
+	title = {Learning from Labeled and Unlabeled Data with Label Propagation},
+	abstract = {We investigate the use of unlabeled data to help labeled data in classiﬁcation. We propose a simple iterative algorithm, label propagation, to propagate labels through the dataset along high density areas deﬁned by unlabeled data. We analyze the algorithm, show its solution, and its connection to several other algorithms. We also show how to learn parameters by minimum spanning tree heuristic and entropy minimization, and the algorithm’s ability to perform feature selection. Experiment results are promising.},
+	author = {Zhu, Xiaojin and Ghahramani, Zoubin},
+	date = {2002},
+	langid = {english},
+	file = {PDF:C\:\\Users\\sxdl\\Zotero\\storage\\C3AMJEAH\\Zhu and Ghahramani - Learning from Labeled and Unlabeled Data with Label Propagation.pdf:application/pdf},
+}
+
+@inproceedings{blum_combining_1998,
+	location = {New York, {NY}, {USA}},
+	title = {Combining labeled and unlabeled data with co-training},
+	isbn = {978-1-58113-057-7},
+	url = {https://dl.acm.org/doi/10.1145/279943.279962},
+	doi = {10.1145/279943.279962},
+	series = {{COLT}' 98},
+	pages = {92--100},
+	booktitle = {Proceedings of the eleventh annual conference on Computational learning theory},
+	publisher = {Association for Computing Machinery},
+	author = {Blum, Avrim and Mitchell, Tom},
+	urldate = {2024-11-26},
+	date = {1998},
+	file = {Full Text PDF:C\:\\Users\\sxdl\\Zotero\\storage\\6LZJL6V5\\Blum and Mitchell - 1998 - Combining labeled and unlabeled data with co-training.pdf:application/pdf},
+}
+
+@article{Sun_Fang_Zhu_Li_Lu_2022, title={Correlation Field for Boosting 3D Object Detection in Structured Scenes}, volume={36}, url={https://ojs.aaai.org/index.php/AAAI/article/view/20128}, DOI={10.1609/aaai.v36i2.20128}, abstractNote={Data augmentation is an efficient way to elevate 3D object detection performance. In this paper, we propose a simple but effective online crop-and-paste data augmentation pipeline for structured 3D point cloud scenes, named CorrelaBoost. Observing that 3D objects should have reasonable relative positions in a structured scene because of the objects’ functionalities and natural relationships, we express this correlation as a kind of interactive force. An energy field called Correlation Field can be calculated correspondingly across the whole 3D space. According to the Correlation Field, we propose two data augmentation strategies to explore highly congruent positions that a designated object may be pasted to: 1) Category Consistent Exchanging and 2) Energy Optimized Transformation. We conduct exhaustive experiments on various popular benchmarks with different detection frameworks and the results illustrate that our method brings huge free-lunch improvement and significantly outperforms state-of-the-art approaches in terms of data augmentation. It is worth noting that the performance of VoteNet with mAP@0.5 is improved by 7.7 on ScanNetV2 dataset and 5.0 on SUN RGB-D dataset. Our method is simple to implement and increases few computational overhead.}, number={2}, journal={Proceedings of the AAAI Conference on Artificial Intelligence}, author={Sun, Jianhua and Fang, Hao-Shu and Zhu, Xianghui and Li, Jiefeng and Lu, Cewu}, year={2022}, month={Jun.}, pages={2298-2306} }
+@Article{s18103337,
+AUTHOR = {Yan, Yan and Mao, Yuxing and Li, Bo},
+TITLE = {SECOND: Sparsely Embedded Convolutional Detection},
+JOURNAL = {Sensors},
+VOLUME = {18},
+YEAR = {2018},
+NUMBER = {10},
+ARTICLE-NUMBER = {3337},
+URL = {https://www.mdpi.com/1424-8220/18/10/3337},
+PubMedID = {30301196},
+ISSN = {1424-8220},
+ABSTRACT = {LiDAR-based or RGB-D-based object detection is used in numerous applications, ranging from autonomous driving to robot vision. Voxel-based 3D convolutional networks have been used for some time to enhance the retention of information when processing point cloud LiDAR data. However, problems remain, including a slow inference speed and low orientation estimation performance. We therefore investigate an improved sparse convolution method for such networks, which significantly increases the speed of both training and inference. We also introduce a new form of angle loss regression to improve the orientation estimation performance and a new data augmentation approach that can enhance the convergence speed and performance. The proposed network produces state-of-the-art results on the KITTI 3D object detection benchmarks while maintaining a fast inference speed.},
+DOI = {10.3390/s18103337}
+}
+@misc{xiao2024surveylabelefficientdeeplearning,
+      title={A Survey of Label-Efficient Deep Learning for 3D Point Clouds}, 
+      author={Aoran Xiao and Xiaoqin Zhang and Ling Shao and Shijian Lu},
+      year={2024},
+      eprint={2305.19812},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2305.19812}, 
+}
+@misc{deng2024diff3detragentbaseddiffusionmodelsemisupervised,
+      title={Diff3DETR:Agent-based Diffusion Model for Semi-supervised 3D Object Detection}, 
+      author={Jiacheng Deng and Jiahao Lu and Tianzhu Zhang},
+      year={2024},
+      eprint={2408.00286},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2408.00286}, 
+}
+@INPROCEEDINGS{9304565,
+  author={Schmidt, Sebastian and Rao, Qing and Tatsch, Julian and Knoll, Alois},
+  booktitle={2020 IEEE Intelligent Vehicles Symposium (IV)}, 
+  title={Advanced Active Learning Strategies for Object Detection}, 
+  year={2020},
+  volume={},
+  number={},
+  pages={871-876},
+  keywords={Uncertainty;Training;Object detection;Task analysis;Two dimensional displays;Estimation;Feature extraction},
+  doi={10.1109/IV47402.2020.9304565}
+}
+@misc{feng2019deepactivelearningefficient,
+      title={Deep Active Learning for Efficient Training of a LiDAR 3D Object Detector}, 
+      author={Di Feng and Xiao Wei and Lars Rosenbaum and Atsuto Maki and Klaus Dietmayer},
+      year={2019},
+      eprint={1901.10609},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/1901.10609}, 
+}
+@INPROCEEDINGS{10160433,
+  author={Hwang, Sihwan and Kim, Sanmin and Kim, Youngseok and Kum, Dongsuk},
+  booktitle={2023 IEEE International Conference on Robotics and Automation (ICRA)}, 
+  title={Joint Semi-Supervised and Active Learning via 3D Consistency for 3D Object Detection}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={4819-4825},
+  keywords={Training;Learning systems;Solid modeling;Three-dimensional displays;Uncertainty;Annotations;Measurement uncertainty},
+  doi={10.1109/ICRA48891.2023.10160433}
+}
+@InProceedings{Hekimoglu_2024_WACV,
+    author    = {Hekimoglu, Aral and Schmidt, Michael and Marcos-Ramiro, Alvaro},
+    title     = {Monocular 3D Object Detection With LiDAR Guided Semi Supervised Active Learning},
+    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {January},
+    year      = {2024},
+    pages     = {2346-2355}
+}
+@InProceedings{Kar_2023_CVPR,
+    author    = {Kar, Purbayan and Chudasama, Vishal and Onoe, Naoyuki and Wasnik, Pankaj},
+    title     = {Revisiting Class Imbalance for End-to-End Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops},
+    month     = {June},
+    year      = {2023},
+    pages     = {4570-4579}
+}
+@article{zang2023semi,
+  title={Semi-supervised and long-tailed object detection with cascadematch},
+  author={Zang, Yuhang and Zhou, Kaiyang and Huang, Chen and Loy, Chen Change},
+  journal={International Journal of Computer Vision},
+  volume={131},
+  number={4},
+  pages={987--1001},
+  year={2023},
+  publisher={Springer}
+}
+@inproceedings{wang2023biased,
+  title={De-biased teacher: Rethinking iou matching for semi-supervised object detection},
+  author={Wang, Kuo and Zhuang, Jingyu and Li, Guanbin and Fang, Chaowei and Cheng, Lechao and Lin, Liang and Zhou, Fan},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={37},
+  number={2},
+  pages={2573--2580},
+  year={2023}
+}
+@misc{lyu2023boxlevelactivedetection,
+      title={Box-Level Active Detection}, 
+      author={Mengyao Lyu and Jundong Zhou and Hui Chen and Yijie Huang and Dongdong Yu and Yaqian Li and Yandong Guo and Yuchen Guo and Liuyu Xiang and Guiguang Ding},
+      year={2023},
+      eprint={2303.13089},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2303.13089}, 
+}
+@misc{vo2022activelearningstrategiesweaklysupervised,
+      title={Active Learning Strategies for Weakly-supervised Object Detection}, 
+      author={Huy V. Vo and Oriane Siméoni and Spyros Gidaris and Andrei Bursuc and Patrick Pérez and Jean Ponce},
+      year={2022},
+      eprint={2207.12112},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2207.12112}, 
+}
+@misc{pardo2021baodbudgetawareobjectdetection,
+      title={BAOD: Budget-Aware Object Detection}, 
+      author={Alejandro Pardo and Mengmeng Xu and Ali Thabet and Pablo Arbelaez and Bernard Ghanem},
+      year={2021},
+      eprint={1904.05443},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/1904.05443}, 
+}
+@misc{elezi2021labelsequalrationalizinglabeling,
+      title={Not All Labels Are Equal: Rationalizing The Labeling Costs for Training Object Detection}, 
+      author={Ismail Elezi and Zhiding Yu and Anima Anandkumar and Laura Leal-Taixe and Jose M. Alvarez},
+      year={2021},
+      eprint={2106.11921},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2106.11921}, 
+}
+@misc{choi2021activelearningdeepobject,
+      title={Active Learning for Deep Object Detection via Probabilistic Modeling}, 
+      author={Jiwoong Choi and Ismail Elezi and Hyuk-Jae Lee and Clement Farabet and Jose M. Alvarez},
+      year={2021},
+      eprint={2103.16130},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2103.16130}, 
+}
+@misc{wang2023alwodactivelearningweaklysupervised,
+      title={ALWOD: Active Learning for Weakly-Supervised Object Detection}, 
+      author={Yuting Wang and Velibor Ilic and Jiatong Li and Branislav Kisacanin and Vladimir Pavlovic},
+      year={2023},
+      eprint={2309.07914},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2309.07914}, 
+}
+@misc{yang2024plugplayactivelearning,
+      title={Plug and Play Active Learning for Object Detection}, 
+      author={Chenhongyi Yang and Lichao Huang and Elliot J. Crowley},
+      year={2024},
+      eprint={2211.11612},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2211.11612}, 
+}
+@misc{rukhovich2022fcaf3dfullyconvolutionalanchorfree,
+      title={FCAF3D: Fully Convolutional Anchor-Free 3D Object Detection}, 
+      author={Danila Rukhovich and Anna Vorontsova and Anton Konushin},
+      year={2022},
+      eprint={2112.00322},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2112.00322}, 
+}
+@article{Wu_Yuan_Zhang_Yang_Cao_Yan_Gao,
+  title    = {Recent Advances in 3D Gaussian Splatting},
+  author   = {Wu, Tong and Yuan, Yu-Jie and Zhang, Ling-Xiao and Yang, Jie and Cao, Yan-Pei and Yan, Ling-Qi and Gao, Lin},
+  language = {en-US}
+}
+@misc{chen2023monogaussianavatar,
+  title         = {MonoGaussianAvatar: Monocular Gaussian Point-based Head Avatar},
+  author        = {Yufan Chen and Lizhen Wang and Qijing Li and Hongjiang Xiao and Shengping Zhang and Hongxun Yao and Yebin Liu},
+  year          = {2023},
+  eprint        = {2312.04558},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
+}
+@misc{zhao2024psavatar,
+  title         = {PSAvatar: A Point-based Morphable Shape Model for Real-Time Head Avatar Animation with 3D Gaussian Splatting},
+  author        = {Zhongyuan Zhao and Zhenyu Bao and Qing Li and Guoping Qiu and Kanglin Liu},
+  year          = {2024},
+  eprint        = {2401.12900},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.GR' full_name='Graphics' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers all aspects of computer graphics. Roughly includes material in all of ACM Subject Class I.3, except that I.3.5 is is likely to have Computational Geometry as the primary subject area.'}
+}
+@misc{wang2024gaussianhead,
+  title         = {GaussianHead: High-fidelity Head Avatars with Learnable Gaussian Derivation},
+  author        = {Jie Wang and Jiu-Cheng Xie and Xianyan Li and Feng Xu and Chi-Man Pun and Hao Gao},
+  year          = {2024},
+  eprint        = {2312.01632},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
+}
+@misc{qian2024gaussianavatars,
+  title         = {GaussianAvatars: Photorealistic Head Avatars with Rigged 3D Gaussians},
+  author        = {Shenhan Qian and Tobias Kirschstein and Liam Schoneveld and Davide Davoli and Simon Giebenhain and Matthias Nießner},
+  year          = {2024},
+  eprint        = {2312.02069},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
+}
+@misc{rivero2024rig3dgs,
+  title         = {Rig3DGS: Creating Controllable Portraits from Casual Monocular Videos},
+  author        = {Alfredo Rivero and ShahRukh Athar and Zhixin Shu and Dimitris Samaras},
+  year          = {2024},
+  eprint        = {2402.03723},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
+}
+@misc{dhamo2023headgas,
+  title         = {HeadGaS: Real-Time Animatable Head Avatars via 3D Gaussian Splatting},
+  author        = {Helisa Dhamo and Yinyu Nie and Arthur Moreau and Jifei Song and Richard Shaw and Yiren Zhou and Eduardo Pérez-Pellitero},
+  year          = {2023},
+  eprint        = {2312.02902},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
+}
+@misc{xiang2024flashavatar,
+  title         = {FlashAvatar: High-fidelity Head Avatar with Efficient Gaussian Embedding},
+  author        = {Jun Xiang and Xuan Gao and Yudong Guo and Juyong Zhang},
+  year          = {2024},
+  eprint        = {2312.02214},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
+}
+@misc{xu2024gaussian,
+  title         = {Gaussian Head Avatar: Ultra High-fidelity Head Avatar via Dynamic Gaussians},
+  author        = {Yuelang Xu and Benwang Chen and Zhe Li and Hongwen Zhang and Lizhen Wang and Zerong Zheng and Yebin Liu},
+  year          = {2024},
+  eprint        = {2312.03029},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
+}
+@misc{gafni2020dynamic,
+  title         = {Dynamic Neural Radiance Fields for Monocular 4D Facial Avatar Reconstruction},
+  author        = {Guy Gafni and Justus Thies and Michael Zollhöfer and Matthias Nießner},
+  year          = {2020},
+  eprint        = {2012.03065},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.CV' full_name='Computer Vision and Pattern Recognition' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers image processing, computer vision, pattern recognition, and scene understanding. Roughly includes material in ACM Subject Classes I.2.10, I.4, and I.5.'}
+}
+@misc{kerbl20233d,
+  title         = {3D Gaussian Splatting for Real-Time Radiance Field Rendering},
+  author        = {Bernhard Kerbl and Georgios Kopanas and Thomas Leimkühler and George Drettakis},
+  year          = {2023},
+  eprint        = {2308.04079},
+  archiveprefix = {arXiv},
+  primaryclass  = {id='cs.GR' full_name='Graphics' is_active=True alt_name=None in_archive='cs' is_general=False description='Covers all aspects of computer graphics. Roughly includes material in all of ACM Subject Class I.3, except that I.3.5 is is likely to have Computational Geometry as the primary subject area.'}
+}
+@misc{wang2022nerfarttextdrivenneuralradiance,
+      title={NeRF-Art: Text-Driven Neural Radiance Fields Stylization}, 
+      author={Can Wang and Ruixiang Jiang and Menglei Chai and Mingming He and Dongdong Chen and Jing Liao},
+      year={2022},
+      eprint={2212.08070},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2212.08070}, 
+}
+@article{DBLP:journals/corr/abs-1904-09664,
+  author       = {Charles R. Qi and
+                  Or Litany and
+                  Kaiming He and
+                  Leonidas J. Guibas},
+  title        = {Deep Hough Voting for 3D Object Detection in Point Clouds},
+  journal      = {CoRR},
+  volume       = {abs/1904.09664},
+  year         = {2019},
+  url          = {http://arxiv.org/abs/1904.09664},
+  eprinttype    = {arXiv},
+  eprint       = {1904.09664},
+  timestamp    = {Fri, 26 Apr 2019 13:18:53 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-1904-09664.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@article{DBLP:journals/corr/abs-1912-13192,
+  author       = {Shaoshuai Shi and
+                  Chaoxu Guo and
+                  Li Jiang and
+                  Zhe Wang and
+                  Jianping Shi and
+                  Xiaogang Wang and
+                  Hongsheng Li},
+  title        = {{PV-RCNN:} Point-Voxel Feature Set Abstraction for 3D Object Detection},
+  journal      = {CoRR},
+  volume       = {abs/1912.13192},
+  year         = {2019},
+  url          = {http://arxiv.org/abs/1912.13192},
+  eprinttype    = {arXiv},
+  eprint       = {1912.13192},
+  timestamp    = {Mon, 22 Jan 2024 12:10:32 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-1912-13192.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@article{DBLP:journals/corr/QiYSG17,
+  author       = {Charles Ruizhongtai Qi and
+                  Li Yi and
+                  Hao Su and
+                  Leonidas J. Guibas},
+  title        = {PointNet++: Deep Hierarchical Feature Learning on Point Sets in a
+                  Metric Space},
+  journal      = {CoRR},
+  volume       = {abs/1706.02413},
+  year         = {2017},
+  url          = {http://arxiv.org/abs/1706.02413},
+  eprinttype    = {arXiv},
+  eprint       = {1706.02413},
+  timestamp    = {Wed, 11 Nov 2020 08:48:08 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/QiYSG17.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@misc{ho2023diffusionss3ddiffusionmodelsemisupervised,
+      title={Diffusion-SS3D: Diffusion Model for Semi-supervised 3D Object Detection}, 
+      author={Cheng-Ju Ho and Chen-Hsuan Tai and Yen-Yu Lin and Ming-Hsuan Yang and Yi-Hsuan Tsai},
+      year={2023},
+      eprint={2312.02966},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2312.02966}, 
+}
+@article{DBLP:journals/corr/TarvainenV17,
+  author       = {Antti Tarvainen and
+                  Harri Valpola},
+  title        = {Weight-averaged consistency targets improve semi-supervised deep learning
+                  results},
+  journal      = {CoRR},
+  volume       = {abs/1703.01780},
+  year         = {2017},
+  url          = {http://arxiv.org/abs/1703.01780},
+  eprinttype    = {arXiv},
+  eprint       = {1703.01780},
+  timestamp    = {Mon, 13 Aug 2018 16:49:09 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/TarvainenV17.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@article{DBLP:journals/corr/abs-2001-07685,
+  author       = {Kihyuk Sohn and
+                  David Berthelot and
+                  Chun{-}Liang Li and
+                  Zizhao Zhang and
+                  Nicholas Carlini and
+                  Ekin D. Cubuk and
+                  Alex Kurakin and
+                  Han Zhang and
+                  Colin Raffel},
+  title        = {FixMatch: Simplifying Semi-Supervised Learning with Consistency and
+                  Confidence},
+  journal      = {CoRR},
+  volume       = {abs/2001.07685},
+  year         = {2020},
+  url          = {https://arxiv.org/abs/2001.07685},
+  eprinttype    = {arXiv},
+  eprint       = {2001.07685},
+  timestamp    = {Wed, 21 Oct 2020 12:09:54 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2001-07685.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@article{DBLP:journals/corr/abs-2001-05086,
+  author       = {Peng Tang and
+                  Chetan Ramaiah and
+                  Ran Xu and
+                  Caiming Xiong},
+  title        = {Proposal Learning for Semi-Supervised Object Detection},
+  journal      = {CoRR},
+  volume       = {abs/2001.05086},
+  year         = {2020},
+  url          = {https://arxiv.org/abs/2001.05086},
+  eprinttype    = {arXiv},
+  eprint       = {2001.05086},
+  timestamp    = {Fri, 17 Jan 2020 14:07:30 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2001-05086.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@article{DBLP:journals/corr/abs-2106-09018,
+  author       = {Mengde Xu and
+                  Zheng Zhang and
+                  Han Hu and
+                  Jianfeng Wang and
+                  Lijuan Wang and
+                  Fangyun Wei and
+                  Xiang Bai and
+                  Zicheng Liu},
+  title        = {End-to-End Semi-Supervised Object Detection with Soft Teacher},
+  journal      = {CoRR},
+  volume       = {abs/2106.09018},
+  year         = {2021},
+  url          = {https://arxiv.org/abs/2106.09018},
+  eprinttype    = {arXiv},
+  eprint       = {2106.09018},
+  timestamp    = {Mon, 05 Jun 2023 16:18:23 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2106-09018.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@article{DBLP:journals/corr/abs-1912-11803,
+  author       = {Na Zhao and
+                  Tat{-}Seng Chua and
+                  Gim Hee Lee},
+  title        = {{SESS:} Self-Ensembling Semi-Supervised 3D Object Detection},
+  journal      = {CoRR},
+  volume       = {abs/1912.11803},
+  year         = {2019},
+  url          = {http://arxiv.org/abs/1912.11803},
+  eprinttype    = {arXiv},
+  eprint       = {1912.11803},
+  timestamp    = {Mon, 05 Dec 2022 07:48:53 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-1912-11803.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@article{DBLP:journals/corr/abs-2012-04355,
+  author       = {He Wang and
+                  Yezhen Cong and
+                  Or Litany and
+                  Yue Gao and
+                  Leonidas J. Guibas},
+  title        = {3DIoUMatch: Leveraging IoU Prediction for Semi-Supervised 3D Object
+                  Detection},
+  journal      = {CoRR},
+  volume       = {abs/2012.04355},
+  year         = {2020},
+  url          = {https://arxiv.org/abs/2012.04355},
+  eprinttype    = {arXiv},
+  eprint       = {2012.04355},
+  timestamp    = {Wed, 09 Dec 2020 15:29:05 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2012-04355.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+@misc{ho2022learningobjectlevelpointaugmentor,
+      title={Learning Object-level Point Augmentor for Semi-supervised 3D Object Detection}, 
+      author={Cheng-Ju Ho and Chen-Hsuan Tai and Yi-Hsuan Tsai and Yen-Yu Lin and Ming-Hsuan Yang},
+      year={2022},
+      eprint={2212.09273},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2212.09273}, 
+}
+@misc{park2022detmatchteachersbetterjoint,
+      title={DetMatch: Two Teachers are Better Than One for Joint 2D and 3D Semi-Supervised Object Detection}, 
+      author={Jinhyung Park and Chenfeng Xu and Yiyang Zhou and Masayoshi Tomizuka and Wei Zhan},
+      year={2022},
+      eprint={2203.09510},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2203.09510}, 
+}
+@misc{kim2024sddgrstablediffusionbaseddeep,
+      title={SDDGR: Stable Diffusion-based Deep Generative Replay for Class Incremental Object Detection}, 
+      author={Junsu Kim and Hoseong Cho and Jihyeon Kim and Yihalem Yimolal Tiruneh and Seungryul Baek},
+      year={2024},
+      eprint={2402.17323},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2402.17323}, 
+}
+@InProceedings{Kim_2024_CVPR,
+    author    = {Kim, Junsu and Cho, Hoseong and Kim, Jihyeon and Tiruneh, Yihalem Yimolal and Baek, Seungryul},
+    title     = {SDDGR: Stable Diffusion-based Deep Generative Replay for Class Incremental Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {28772-28781}
+}
+@misc{huang2024incrementalobjectdetectionclip,
+      title={Incremental Object Detection with CLIP}, 
+      author={Ziyue Huang and Yupeng He and Qingjie Liu and Yunhong Wang},
+      year={2024},
+      eprint={2310.08815},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2310.08815}, 
+}
+@inproceedings{Zhang2024LearningTL,
+  title={Learning Task-Aware Language-Image Representation for Class-Incremental Object Detection},
+  author={Hongquan Zhang and Bin-Bin Gao and Yi Zeng and Xudong Tian and Xin Tan and Zhizhong Zhang and Yanyun Qu and Jun Liu and Yuan Xie},
+  booktitle={AAAI Conference on Artificial Intelligence},
+  year={2024},
+  url={https://doi.org/10.1609/aaai.v38i7.28537}
+}
+@inproceedings{Liu_2023,
+   title={Continual Detection Transformer for Incremental Object Detection},
+   url={http://dx.doi.org/10.1109/CVPR52729.2023.02279},
+   DOI={10.1109/cvpr52729.2023.02279},
+   booktitle={2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+   publisher={IEEE},
+   author={Liu, Yaoyao and Schiele, Bernt and Vedaldi, Andrea and Rupprecht, Christian},
+   year={2023},
+   month=jun 
+}
+@inproceedings{Feng_2022,
+   title={Overcoming Catastrophic Forgetting in Incremental Object Detection via Elastic Response Distillation},
+   url={http://dx.doi.org/10.1109/CVPR52688.2022.00921},
+   DOI={10.1109/cvpr52688.2022.00921},
+   booktitle={2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+   publisher={IEEE},
+   author={Feng, Tao and Wang, Mang and Yuan, Hangjie},
+   year={2022},
+   month=jun
+}
+@inproceedings{NEURIPS2021_ffc58105,
+ author = {DONG, NA and Zhang, Yongqiang and Ding, Mingli and Lee, Gim Hee},
+ booktitle = {Advances in Neural Information Processing Systems},
+ editor = {M. Ranzato and A. Beygelzimer and Y. Dauphin and P.S. Liang and J. Wortman Vaughan},
+ pages = {30492--30503},
+ publisher = {Curran Associates, Inc.},
+ title = {Bridging Non Co-occurrence with Unlabeled In-the-wild Data for Incremental Object Detection},
+ url = {https://proceedings.neurips.cc/paper_files/paper/2021/file/ffc58105bf6f8a91aba0fa2d99e6f106-Paper.pdf},
+ volume = {34},
+ year = {2021}
+}
+@InProceedings{Kang_2023_ICCV,
+    author    = {Kang, Mengxue and Zhang, Jinpeng and Zhang, Jinming and Wang, Xiashuang and Chen, Yang and Ma, Zhe and Huang, Xuhui},
+    title     = {Alleviating Catastrophic Forgetting of Incremental Object Detection via Within-Class and Between-Class Knowledge Distillation},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {18894-18904}
+}
+@inproceedings{Liu_2023,
+   title={Augmented Box Replay: Overcoming Foreground Shift for Incremental Object Detection},
+   url={http://dx.doi.org/10.1109/ICCV51070.2023.01044},
+   DOI={10.1109/iccv51070.2023.01044},
+   booktitle={2023 IEEE/CVF International Conference on Computer Vision (ICCV)},
+   publisher={IEEE},
+   author={Liu, Yuyang and Cong, Yang and Goswami, Dipam and Liu, Xialei and van de Weijer, Joost},
+   year={2023},
+   month=oct 
+}
+@article{Joseph_2022,
+   title={Incremental Object Detection via Meta-Learning},
+   volume={44},
+   ISSN={1939-3539},
+   url={http://dx.doi.org/10.1109/TPAMI.2021.3124133},
+   DOI={10.1109/tpami.2021.3124133},
+   number={12},
+   journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+   publisher={Institute of Electrical and Electronics Engineers (IEEE)},
+   author={Joseph, K. J. and Rajasegaran, Jathushan and Khan, Salman and Khan, Fahad Shahbaz and Balasubramanian, Vineeth N.},
+   year={2022},
+   month=dec, pages={9209–9216} 
+}
+@misc{ho2023diffusionss3ddiffusionmodelsemisupervised,
+      title={Diffusion-SS3D: Diffusion Model for Semi-supervised 3D Object Detection}, 
+      author={Cheng-Ju Ho and Chen-Hsuan Tai and Yen-Yu Lin and Ming-Hsuan Yang and Yi-Hsuan Tsai},
+      year={2023},
+      eprint={2312.02966},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2312.02966}, 
+}
+@inproceedings{Yu_2022,
+   title={Rotationally Equivariant 3D Object Detection},
+   url={http://dx.doi.org/10.1109/CVPR52688.2022.00151},
+   DOI={10.1109/cvpr52688.2022.00151},
+   booktitle={2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+   publisher={IEEE},
+   author={Yu, Hong-Xing and Wu, Jiajun and Yi, Li},
+   year={2022},
+   month=jun 
+}
+@misc{cao2023codacollaborativenovelbox,
+      title={CoDA: Collaborative Novel Box Discovery and Cross-modal Alignment for Open-vocabulary 3D Object Detection}, 
+      author={Yang Cao and Yihan Zeng and Hang Xu and Dan Xu},
+      year={2023},
+      eprint={2310.02960},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2310.02960}, 
+}
+@misc{lu2023openvocabularypointcloudobjectdetection,
+      title={Open-Vocabulary Point-Cloud Object Detection without 3D Annotation}, 
+      author={Yuheng Lu and Chenfeng Xu and Xiaobao Wei and Xiaodong Xie and Masayoshi Tomizuka and Kurt Keutzer and Shanghang Zhang},
+      year={2023},
+      eprint={2304.00788},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2304.00788}, 
+}
+@misc{wu2024openvocabularylearningsurvey,
+      title={Towards Open Vocabulary Learning: A Survey}, 
+      author={Jianzong Wu and Xiangtai Li and Shilin Xu and Haobo Yuan and Henghui Ding and Yibo Yang and Xia Li and Jiangning Zhang and Yunhai Tong and Xudong Jiang and Bernard Ghanem and Dacheng Tao},
+      year={2024},
+      eprint={2306.15880},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2306.15880}, 
+}
+@InProceedings{Wang_2024_CVPR,
+    author    = {Wang, Hanshi and Zhang, Zhipeng and Gao, Jin and Hu, Weiming},
+    title     = {A-Teacher: Asymmetric Network for 3D Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {14978-14987}
+}
+@InProceedings{Shehzadi_2024_CVPR,
+    author    = {Shehzadi, Tahira and Hashmi, Khurram Azeem and Stricker, Didier and Afzal, Muhammad Zeshan},
+    title     = {Sparse Semi-DETR: Sparse Learnable Queries for Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {5840-5850}
+}
+@InProceedings{Zhang_2023_ICCV,
+    author    = {Zhang, Dingyuan and Liang, Dingkang and Zou, Zhikang and Li, Jingyu and Ye, Xiaoqing and Liu, Zhe and Tan, Xiao and Bai, Xiang},
+    title     = {A Simple Vision Transformer for Weakly Semi-supervised 3D Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {8373-8383}
+}
+@InProceedings{Chen_2023_ICCV,
+    author    = {Chen, Zehui and Li, Zhenyu and Wang, Shuo and Fu, Dengpan and Zhao, Feng},
+    title     = {Learning from Noisy Data for Semi-Supervised 3D Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {6929-6939}
+}
+@InProceedings{Li_2023_ICCV,
+    author    = {Li, Jiaming and Lin, Xiangru and Zhang, Wei and Tan, Xiao and Li, Yingying and Han, Junyu and Ding, Errui and Wang, Jingdong and Li, Guanbin},
+    title     = {Gradient-based Sampling for Class Imbalanced Semi-supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {16390-16400}
+}
+@InProceedings{Hwang_2023_ICCV,
+    author    = {Hwang, Sunwook and Kim, Youngseok and Kim, Seongwon and Bahk, Saewoong and Kim, Hyung-Sin},
+    title     = {UpCycling: Semi-supervised 3D Object Detection without Sharing Raw-level Unlabeled Scenes},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {23351-23361}
+}
+@InProceedings{Wang_2023_ICCV,
+    author    = {Wang, Chuxin and Yang, Wenfei and Zhang, Tianzhu},
+    title     = {Not Every Side Is Equal: Localization Uncertainty Estimation for Semi-Supervised 3D Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {3814-3824}
+}
+@InProceedings{Gao_2023_ICCV,
+    author    = {Gao, Huan-ang and Tian, Beiwen and Li, Pengfei and Zhao, Hao and Zhou, Guyue},
+    title     = {DQS3D: Densely-matched Quantization-aware Semi-supervised 3D Detection},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {21905-21915}
+}
+@InProceedings{Liu_2023_CVPR,
+    author    = {Liu, Chang and Zhang, Weiming and Lin, Xiangru and Zhang, Wei and Tan, Xiao and Han, Junyu and Li, Xiaomao and Ding, Errui and Wang, Jingdong},
+    title     = {Ambiguity-Resistant Semi-Supervised Learning for Dense Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {15579-15588}
+}
+@InProceedings{Liu_2023_CVPR,
+    author    = {Liu, Liang and Zhang, Boshen and Zhang, Jiangning and Zhang, Wuhao and Gan, Zhenye and Tian, Guanzhong and Zhu, Wenbing and Wang, Yabiao and Wang, Chengjie},
+    title     = {MixTeacher: Mining Promising Labels With Mixed Scale Teacher for Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {7370-7379}
+}
+@InProceedings{Liu_2023_CVPR,
+    author    = {Liu, Chuandong and Gao, Chenqiang and Liu, Fangcen and Li, Pengcheng and Meng, Deyu and Gao, Xinbo},
+    title     = {Hierarchical Supervision and Shuffle Data Augmentation for 3D Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {23819-23828}
+}
+@InProceedings{Hua_2023_CVPR,
+    author    = {Hua, Wei and Liang, Dingkang and Li, Jingyu and Liu, Xiaolong and Zou, Zhikang and Ye, Xiaoqing and Bai, Xiang},
+    title     = {SOOD: Towards Semi-Supervised Oriented Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {15558-15567}
+}
+@InProceedings{Zhang_2023_CVPR,
+    author    = {Zhang, Jiacheng and Lin, Xiangru and Zhang, Wei and Wang, Kuo and Tan, Xiao and Han, Junyu and Ding, Errui and Wang, Jingdong and Li, Guanbin},
+    title     = {Semi-DETR: Semi-Supervised Object Detection With Detection Transformers},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {23809-23818}
+}
+@InProceedings{Wang_2023_CVPR,
+    author    = {Wang, Xinjiang and Yang, Xingyi and Zhang, Shilong and Li, Yijiang and Feng, Litong and Fang, Shijie and Lyu, Chengqi and Chen, Kai and Zhang, Wayne},
+    title     = {Consistent-Teacher: Towards Reducing Inconsistent Pseudo-Targets in Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {3240-3249}
+}
+@InProceedings{Chen_2022_CVPR,
+    author    = {Chen, Binghui and Li, Pengyu and Chen, Xiang and Wang, Biao and Zhang, Lei and Hua, Xian-Sheng},
+    title     = {Dense Learning Based Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {4815-4824}
+}
+@InProceedings{Chen_2022_CVPR,
+    author    = {Chen, Binbin and Chen, Weijie and Yang, Shicai and Xuan, Yunyi and Song, Jie and Xie, Di and Pu, Shiliang and Song, Mingli and Zhuang, Yueting},
+    title     = {Label Matching Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {14381-14390}
+}
+@InProceedings{Li_2022_CVPR,
+    author    = {Li, Aoxue and Yuan, Peng and Li, Zhenguo},
+    title     = {Semi-Supervised Object Detection via Multi-Instance Alignment With Global Class Prototypes},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {9809-9818}
+}
+@InProceedings{Mi_2022_CVPR,
+    author    = {Mi, Peng and Lin, Jianghang and Zhou, Yiyi and Shen, Yunhang and Luo, Gen and Sun, Xiaoshuai and Cao, Liujuan and Fu, Rongrong and Xu, Qiang and Ji, Rongrong},
+    title     = {Active Teacher for Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {14482-14491}
+}
+@InProceedings{Guo_2022_CVPR,
+    author    = {Guo, Qiushan and Mu, Yao and Chen, Jianyu and Wang, Tianqi and Yu, Yizhou and Luo, Ping},
+    title     = {Scale-Equivalent Distillation for Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {14522-14531}
+}
+@InProceedings{Liu_2022_CVPR,
+    author    = {Liu, Yen-Cheng and Ma, Chih-Yao and Kira, Zsolt},
+    title     = {Unbiased Teacher v2: Semi-Supervised Object Detection for Anchor-Free and Anchor-Based Detectors},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {9819-9828}
+}
+@InProceedings{Kim_2022_CVPR,
+    author    = {Kim, JongMok and Jang, JooYoung and Seo, Seunghyeon and Jeong, Jisoo and Na, Jongkeun and Kwak, Nojun},
+    title     = {MUM: Mix Image Tiles and UnMix Feature Tiles for Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {14512-14521}
+}
+@InProceedings{Wang_2021_CVPR,
+    author    = {Wang, Zhenyu and Li, Yali and Guo, Ye and Fang, Lu and Wang, Shengjin},
+    title     = {Data-Uncertainty Guided Multi-Phase Learning for Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {4568-4577}
+}
+@InProceedings{Yang_2021_CVPR,
+    author    = {Yang, Qize and Wei, Xihan and Wang, Biao and Hua, Xian-Sheng and Zhang, Lei},
+    title     = {Interactive Self-Training With Mean Teachers for Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {5941-5950}
+}
+@InProceedings{Tang_2021_CVPR,
+    author    = {Tang, Yihe and Chen, Weifeng and Luo, Yijun and Zhang, Yuting},
+    title     = {Humble Teachers Teach Better Students for Semi-Supervised Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {3132-3141}
+}
+@InProceedings{Jeong_2021_CVPR,
+    author    = {Jeong, Jisoo and Verma, Vikas and Hyun, Minsung and Kannala, Juho and Kwak, Nojun},
+    title     = {Interpolation-Based Semi-Supervised Learning for Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {11602-11611}
+}
+@InProceedings{Zhou_2021_CVPR,
+    author    = {Zhou, Qiang and Yu, Chaohui and Wang, Zhibin and Qian, Qi and Li, Hao},
+    title     = {Instant-Teaching: An End-to-End Semi-Supervised Object Detection Framework},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2021},
+    pages     = {4081-4090}
+}
+@inproceedings{mo2023sclip,
+  title={S-{CLIP}: Semi-supervised Vision-Language Learning using Few Specialist Captions},
+  author={Sangwoo Mo and Minkyu Kim and Kyungmin Lee and Jinwoo Shin},
+  booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+  year={2023},
+  url={https://openreview.net/forum?id=O1lYncfVOO}
+}
